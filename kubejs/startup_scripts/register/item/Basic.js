@@ -1,6 +1,6 @@
 StartupEvents.registry("item", (event) => {
-	event.create(`${global.namespace}:empty_exe`)
 	event.create(`${global.namespace}:single_crystal_silicon`)
+		.texture(`${global.namespace}:item/material/single_crystal_silicon`)
 	event.create(`${global.namespace}:computer_component`)
 
 	event.create(`${global.namespace}:blockstone_source_alpha`)
@@ -19,6 +19,7 @@ StartupEvents.registry("item", (event) => {
 
 	// 黏血球
 	event.create(`${global.namespace}:blood_slime_ball`)
+		.texture(`${global.namespace}:item/material/blood_slime_ball`)
 		.tag("forge:slimeball")
 		.tag("forge:slimeball/blood")
 
@@ -65,4 +66,69 @@ StartupEvents.registry("item", (event) => {
 
 	event.create(`${global.namespace}:platinum_shard`)
 		.texture(`${global.namespace}:item/material/platinum/shard`)
+
+	// 木屑加工系列
+	event.create(`${global.namespace}:wood_chip_briquette`)
+		.texture(`${global.namespace}:item/material/wood_chip/stage_1`)
+		.burnTime(800)
+
+	event.create(`${global.namespace}:compressed_wood_chip_briquette`)
+		.texture(`${global.namespace}:item/material/wood_chip/stage_2`)
+		.burnTime(3600)
+
+	event.create(`${global.namespace}:densely_packed_wood_chip_briquette`)
+		.texture(`${global.namespace}:item/material/wood_chip/stage_3`)
+		.burnTime(9200)
+
+	event.create(`${global.namespace}:creosote_wood_chip_briquette`)
+		.texture(`${global.namespace}:item/material/wood_chip/done`)
+		.burnTime(16000)
+
+	// 安山岩
+	event.create(`${global.namespace}:andesite_dust`)
+		.texture(`${global.namespace}:item/material/andesite/dust`)
+		.tag("forge:dusts")
+		.tag(`forge:dusts/andesite`)
+
+	event.create(`${global.namespace}:andesite_aggregate`)
+		.texture(`${global.namespace}:item/material/andesite/aggregate`)
+		.tag("forge:bricks")
+
+	//硅处理
+	event.create(`${global.namespace}:small_coal_coke`)
+		.burnTime(400)
+		.texture(`${global.namespace}:item/material/small_coal_coke`)
+
+	event.create(`${global.namespace}:silicon_mixure`)
+		.texture(`${global.namespace}:item/material/silicon/silicon_mixure`)
+
+	// 橡胶板
+	event.create(`${global.namespace}:rubber_plate`)
+		.tag("forge:plates")
+		.tag("forge:plates/rubber")
+
+	// 生石灰
+	event.create(`${global.namespace}:lime`)
+		.texture(`${global.namespace}:item/material/lime`)
+
+	// mek-ae2 cpu
+	// 灌注
+	event.create(`${global.namespace}:infusion_treated_processor`)
+		.texture(`${global.namespace}:item/material/infusion_treated_processor`)
+
+	// 富集
+	event.create(`${global.namespace}:enrichment_treated_processor`)
+		.texture(`${global.namespace}:item/material/enrichment_treated_processor`)
+
+	// 粉碎
+	event.create(`${global.namespace}:ground_treated_processor`)
+		.texture(`${global.namespace}:item/material/ground_treated_processor`)
+
+	// 通用
+	event.create(`${global.namespace}:mekanism_processor`)
+		.texture(`${global.namespace}:item/material/mekanism_processor`)
+
+	// 计算机组件半成品
+	event.create(`${global.namespace}:incomplete_computer_component`)
+		.texture(`${global.namespace}:item/material/incomplete_computer_component`)
 })

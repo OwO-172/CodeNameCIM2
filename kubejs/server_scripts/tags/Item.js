@@ -2,14 +2,45 @@ ServerEvents.tags("item", (event) => {
 	event.get("create:mechanisms")
 		.add("create:precision_mechanism")
 		.add("vintageimprovements:redstone_module")
+		.add("cmi:nuclear_mechanism")
 	event.get("create:incomplete_mechanisms")
 		.add("create:incomplete_precision_mechanism")
 		.add("vintageimprovements:incomplete_redstone_module")
+		.add("cmi:incomplete_nuclear_mechanism")
 
 	global.dyeColorGroup.forEach((color) => {
 		event.get(`forge:dyes/${color}`)
 			.add("cmi:colorful_mechanism")
 	})
+
+	// 农夫乐事刀子
+	event.get("farmersdelight:tools/knives")
+		.add("#forge:tools/knives")
+		.add("tconstruct:dagger")
+
+	event.get("forge:tools/knives")
+		.add("tconstruct:dagger")
+
+	event.get(`${global.namespace}:tables`)
+		.add("#forge:workbenches")
+		.add("tconstruct:tinkers_anvil")
+		.add("tconstruct:scorched_anvil")
+		.add("tconstruct:part_builder")
+		.add("tconstruct:tinker_station")
+		.add("tconstruct:modifier_worktable")
+
+	event.get(`${global.namespace}:steelmaking_raw_materials`)
+		.add("minecraft:calcite")
+		.add("create:limestone")
+
+	event.get(`${global.namespace}:nether_crops`)
+		.add("minecraft:nether_sprouts")
+		.add("minecraft:nether_wart")
+		.add("minecraft:weeping_vines")
+		.add("minecraft:twisting_vines")
+		.add("mynethersdelight:crimson_fungus_colony")
+		.add("mynethersdelight:warped_fungus_colony")
+		.add("mynethersdelight:powder_cannon")
 
 	event.get(`${global.namespace}:batteries`)
 		.add("mekanism:basic_energy_cube")
@@ -93,6 +124,12 @@ ServerEvents.tags("item", (event) => {
 		.add("cmi:photosensitive_mechanism")
 		.add("cmi:nether_mechanism")
 
+	event.get("forge:chests")
+		.add("ae2:smooth_sky_stone_chest")
+
+	event.get("forge:sand")
+		.add("#minecraft:sand")
+
 	event.get("minecraft:sand")
 		.add("#forge:sand")
 
@@ -111,6 +148,9 @@ ServerEvents.tags("item", (event) => {
 
 	event.get("forge:ingots")
 		.add("createdeco:industrial_iron_ingot")
+		.add("#forge:ingots/prismalium")
+		.add("#forge:ingots/melodium")
+		.add("#forge:ingots/stellarium")
 
 	event.get("forge:nuggets")
 		.add("createdeco:industrial_iron_nugget")

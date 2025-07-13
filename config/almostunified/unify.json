@@ -2,15 +2,16 @@
 	"modPriorities": [
 		"minecraft",
 		"thermal",
-		"create",
 		"tconstruct",
 		"immersiveengineering",
 		"mekanism",
+		"create",
 		"vintageimprovements",
 		"createaddition",
 		"createdeco",
 		"ad_astra",
 		"thermal_extra",
+		"thermalendergy",
 		"cmi"
 	],
 	"stoneStrata": [

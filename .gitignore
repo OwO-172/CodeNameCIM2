@@ -38,33 +38,44 @@ saves/*/session.lock
 hs_err*
 fabric*
 /icon-exports-*
+ESM
 
 # ResourcePacks
 /resourcepacks/*
 !/resourcepacks/New AE2
 !/resourcepacks/中微子的多用途汉化材质包.zip
-!/resourcepacks/等距更纱黑体包
+!/resourcepacks/等距更纱字体包
 !/resourcepacks/Maple Mono字体包
+!/resourcepacks/PvZ2 Regular字体包
 !/resourcepacks/PackResource
 !/resourcepacks/Pretty X Smart Pipez.zip
 !/resourcepacks/CreateSophisticatedBackpacks.zip
 
 # ShaderPacks
 /shaderpacks/*
-!shaderpacks/§r§lAstra§4§lLex§r§l_(§4§lBSL§r§l_Edit)_By_LexBoosT_§4§lV54.0§r§l.zip
+
+# Docs
+/kubejs/probe/*
+!/kubejs/probe/docs/
 
 # Config
 /config/*
+!/config/openloader
 !/config/almostunified/
-!/congig/drippyloadingscreen/
+!/config/drippyloadingscreen/
 !/config/fancymenu/
 !/config/ftbquests/
 !/config/jade/
 !/config/jei/
-!/config/inventoryprofilesnext/inventoryprofiles.json
 !/config/cmi*
 !/config/immersiveengineering-client.toml
 !/config/ad_astra.jsonc
 !/config/fml.toml
 !/config/portality
 !/config/scannable*
+!/config/carryon-common.toml
+!/config/cookingforblockheads-common.toml
+!/config/capsule-common.toml
+!/config/nolijium.json5
+!/config/Mekanism/
+!/config/ding.toml

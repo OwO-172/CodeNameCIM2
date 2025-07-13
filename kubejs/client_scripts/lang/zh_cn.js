@@ -22,14 +22,57 @@ ClientEvents.lang("zh_cn", (event) => {
 	addItemLanguage("source_sapphire", "蓝源晶")
 	addItemLanguage("bombed_source_emeraid", "爆裂源质")
 	addItemLanguage("sludge_extract", "淤泥提取物")
+	addItemLanguage("crafting_incomplete_iron_mechanism", "铁构件底座")
+	addItemLanguage("crafting_incomplete_copper_mechanism", "铜构件底座")
+	addItemLanguage("wood_chip_briquette", "木屑块")
+	addItemLanguage("compressed_wood_chip_briquette", "压缩木屑块")
+	addItemLanguage("densely_packed_wood_chip_briquette", "致密压缩木屑块")
+	addItemLanguage("creosote_wood_chip_briquette", "浸油致密压缩木屑块")
+	addItemLanguage("andesite_dust", "安山岩粉")
+	addItemLanguage("andesite_aggregate", "安山混合物")
+	addItemLanguage("small_coal_coke", "小块焦炭")
+	addItemLanguage("silicon_mixure", "硅混合物")
+	addItemLanguage("rubber_plate", "橡胶板")
+	addItemLanguage("lime", "生石灰")
+	addItemLanguage("andesite_alloy_noodle_stage0", "安山合金刀削面(阶段1)")
+	addItemLanguage("andesite_alloy_noodle_stage1", "安山合金刀削面(阶段2)")
+	addItemLanguage("andesite_alloy_noodle_stage2", "安山合金刀削面(阶段3)")
+	addItemLanguage("andesite_alloy_noodle", "安山合金刀削面")
+
+	addItemLanguage("rocket_pattern", "火箭模版")
+	addItemLanguage("tier_1_rocket_frame", "一阶火箭框架")
+	addItemLanguage("tier_2_rocket_frame", "二阶火箭框架")
+	addItemLanguage("tier_3_rocket_frame", "三阶火箭框架")
+	addItemLanguage("tier_4_rocket_frame", "四阶火箭框架")
+	addItemLanguage("incomplete_tier_1_rocket_frame", "一阶火箭框架(半成品)")
+	addItemLanguage("incomplete_tier_2_rocket_frame", "二阶火箭框架(半成品)")
+	addItemLanguage("incomplete_tier_3_rocket_frame", "三阶火箭框架(半成品)")
+	addItemLanguage("incomplete_tier_4_rocket_frame", "四阶火箭框架(半成品)")
+	addItemLanguage("incomplete_tier_1_rocket", "一阶火箭(半成品)")
+	addItemLanguage("incomplete_tier_2_rocket", "二阶火箭(半成品)")
+	addItemLanguage("incomplete_tier_3_rocket", "三阶火箭(半成品)")
+	addItemLanguage("incomplete_tier_4_rocket", "四阶火箭(半成品)")
+
+	addItemLanguage("infusion_treated_processor", "经灌注处理的逻辑处理器")
+	addItemLanguage("enrichment_treated_processor", "经富集处理的运算处理器")
+	addItemLanguage("ground_treated_processor", "经磨制处理的工程处理器")//不是粉碎？（doge）
+	addItemLanguage("mekanism_processor", "通用处理器")
+
+
 
 	addCastItemLanguage("mechanism", "构件")
 
+
+
+	addFluidLanguage("blood", "血液")
+	addFluidLanguage("pure_sand", "纯净沙")
 	addFluidLanguage("molten_source_sapphire", "熔融蓝源晶")
 	addFluidLanguage("eletriced_source_emeraid", "电解源质")
 	addFluidLanguage("delta_unstable_solution", "Δ(Delta)型不稳定源质溶液")
 	addFluidLanguage("turbid_waste_liquid", "浑浊废液")
 	addFluidLanguage("platinum_solution", "铂溶液")
+	addFluidLanguage("cured_rubber", "熔融硫化橡胶")
+	addFluidLanguage("tetrachlorosilane", "四氯化硅")
 
 	addMaterialLanguage("andesite_alloy", "安山合金")
 	addMaterialLanguage("cinderslime", "余烬史莱姆")
@@ -45,10 +88,15 @@ ClientEvents.lang("zh_cn", (event) => {
 	addMaterialLanguage("end_stone", "末地石")
 	addMaterialLanguage("uranium", "铀")
 	addMaterialLanguage("siltsteel", "泓钢")
+	addMaterialLanguage("cast_iron", "铸铁")
+	addMaterialLanguage("desh", "戴斯")
+	addMaterialLanguage("ostrum", "紫金")
+	addMaterialLanguage("calorite", "耐热金属")
 
-	addMachineLanguage("water_pump", "水泵")
+	// addMachineLanguage("water_pump", "水泵")
 	addMachineLanguage("flash_disk_writer", "闪存盘写入器")
 	addMachineLanguage("chemical_gas_extractor", "化学气体抽取器")
+	addMachineLanguage("simple_centrifuge", "丐版离心机")
 
 	addMBDMachineLanguage("proxy_part_block", "多方块机器部件方块")
 	addMBDMachineLanguage("accelerator_energy_input", "大型构件催生器能量输入口")
@@ -65,6 +113,7 @@ ClientEvents.lang("zh_cn", (event) => {
 	addMechanismPartLanguage("engineering", "工程")
 	addMechanismPartLanguage("mekanism", "通用")
 	addMechanismPartLanguage("final", "终章")
+	addMechanismPartLanguage("space", "太空")
 
 	addGasLanguage("sulfide_gas_mixture", "硫化物混合气")
 
@@ -111,13 +160,15 @@ ClientEvents.lang("zh_cn", (event) => {
 	addOreNodeLanguaue("iron", "铁")
 	addOreNodeLanguaue("gold", "金")
 	addOreNodeLanguaue("platinum", "铂")
-
-	addFluidLanguage("molten_andesite_alloy", "熔融安山合金")
-	addFluidLanguage("blood", "血液")
+	addOreNodeLanguaue("cheese", "奶酪")
+	addOreNodeLanguaue("coal", "煤炭")
+	addOreNodeLanguaue("tin", "锡")
 
 	addBlockLanguage("the_accelerator_of_mechanism_power", "构件之力催生器")
 	addBlockLanguage("osmium_tile", "锇砖瓦")
 	addBlockLanguage("compression_end_stone_dust_block", "压缩末地石粉块")
+	addBlockLanguage("crucible_base", "底座")
+	addBlockLanguage("crucible_tuyere", "风口")
 
 	addBlockLanguage("andesite_machine", "安山机械方块")
 	addBlockLanguage("brass_machine", "黄铜机械方块")
@@ -125,13 +176,26 @@ ClientEvents.lang("zh_cn", (event) => {
 	addBlockLanguage("me_machine", "智能机械方块")
 	addBlockLanguage("mekanism_machine", "通用机械方块")
 
-	for (let index = 0; index < 14; index++) {
-		addPaintingLanguage(`rr${index}`, `Aleegos(${index})`, "Aleegos Reality Redemption")
+	for (let i = 1; i <= 14; i++) {
+		addPaintingLanguage(`rr${i}`, `Aleegos(${i})`, "Aleegos Reality Redemption")
 	}
 	addPaintingLanguage("bug_is_right", "有Bug是对的", "古镇天")
 	addPaintingLanguage("it_must_be_optifine", "一定是OptiFine干的", "XeKr")
 	addPaintingLanguage("random_mechanism", "随机构件", "随机构件")
+	addPaintingLanguage("qi_month", "榛名柒月", "榛名柒月")
+	addPaintingLanguage("sacabambaspis", "萨卡班甲鱼", "⑨Dropper_QWQ⑨")
 
+	addAloneLanguage(`jade.theme.${global.namespace}.stardew_valley`, "星露谷物语")
+	addAloneLanguage(`jade.theme.${global.namespace}.war_thunder`, "战争雷霆")
+	addAloneLanguage(`jade.theme.${global.namespace}.windows_aero_lite`, "Windows Aero Lite")
+	addAloneLanguage(`jade.theme.${global.namespace}.windows_aero`, "Windows Aero")
+	addAloneLanguage(`jade.theme.${global.namespace}.windows_basic`, "Windows Basic")
+	addAloneLanguage(`jade.theme.${global.namespace}.windows_classic`, "Windows Classic")
+	addAloneLanguage(`jade.theme.${global.namespace}.windows_plex`, "Windows Plex")
+	addAloneLanguage(`jade.theme.${global.namespace}.windows_xp_luna`, "Windows XP Luna")
+	addAloneLanguage(`jade.theme.${global.namespace}.windows10`, "Windows 10")
+	addAloneLanguage(`tooltip.${global.namespace}.41dirt`, "按下Alt+F4可以获得创造模式能量立方")
+	addAloneLanguage(`message.${global.namespace}.reload`, "已重载全部脚本!")
 	addAloneLanguage(`message.${global.namespace}.41msg`, "你好, 欢迎来到CIM, 点击§b这里§h获取更多信息")
 	addAloneLanguage(`itemGroup.${global.namespace}.io_block`, "配置面方块(调试用)")
 	addAloneLanguage(`itemGroup.${global.namespace}.all`, "机械动力: 构件与革新")
@@ -149,7 +213,8 @@ ClientEvents.lang("zh_cn", (event) => {
 	addAloneLanguage(`tooltip.${global.namespace}.initial_item_kit.tip`, "按住Shift查看详情")
 	addAloneLanguage(`tooltip.${global.namespace}.initial_item_kit.shift`, "潜行 + 右键打开, 将会获得以下物品:\n§b扳手\n§b工程师护目镜\n§b强力胶")
 	addAloneLanguage(`message.${global.namespace}.initial_item_kit`, "欢迎游玩整合包! 物品已发放!")
-	
+	addAloneLanguage(`display.${global.namespace}.nether_crops`, "§c下界作物只能种植在位于下界的下界农田方块上!")
+
 	addAloneLanguage(`message.${global.namespace}.modrinth_warning0`, "你正在游玩从Modrinth渠道下载的CMI")
 	addAloneLanguage(`message.${global.namespace}.modrinth_warning1`, "因Modrinth的政策限制，本版本删除了部分内容，可能造成如无法多人游戏、无法进入服务器等问题\n您可以通过下方按钮在Curseforge或BBSMC下载本整合包游玩完整内容")
 
@@ -171,10 +236,10 @@ ClientEvents.lang("zh_cn", (event) => {
 	addCommonTooltipLanguage("cmi:geographycal_hammer.not_developer", "似乎有一种神秘的力量阻止了你使用这个物品")
 	addCommonTooltipLanguage("cmi:charged_amethyst", "拿到耳边能听到它一直在发出嗡嗡嗡的声音")
 	addCommonTooltipLanguage("#minecraft:pickaxes", "右键可破坏矿物节点")
+	addCommonTooltipLanguage("cmi:potion_mechanism", "右键获取大多数正面buff")
 
+	addJEIInfoLanguage("minecraft:andesite", "在本包, 安山岩生产主要方式有4种\n一种是通过造石机\n一种是通过安山岩磨成粉后加工的增值线\n一种是刷石机, 有25%的概率刷出安山岩\n最后一种是通过构件催生器")
 	addJEIInfoLanguage("ad_astra:cryo_fuel_bucket", "水和冰在经过外星科技处理后竟然可以用作火箭燃料, 那我是不是同样可以作用于其他地方呢..?\n但是这种流体产率非常低, 我需要想办法进行大批量的生产才能确保需求量自由")
-	addJEIInfoLanguage("cookingforblockheads:sink", `"去用我的后辈多方块水泵吧"水槽如是说道`)
-	addJEIInfoLanguage("cmi:water_pump", "机器内如果一次产出的量如果高于剩余空间, 机器则会停止工作\n所以不需要担心水量会减少的问题, 在水量少于50%的时候会重新生产一次")
 	addJEIInfoLanguage("ad_astra:ice_shard", "可以打破冰块获得, 并且受时运效果影响")
 	addJEIInfoLanguage("cmi:bucket", "似是一种巨大的力量塑造的诡异造物\n它有着令人倍感亲切的形状, 却处于一种令人不寒而栗的陌生角度\n这巨大的力量, 炽热, 强大又致命\n善良者受其腐化\n卑鄙者因其强大\n收容之器受其影响, 转为包覆之具, 幸于并无灵魂, 于我没有危害")
 	addJEIInfoLanguage("#ad_astra:power_consumption_machines", "该Mod的机器每个面都有能量输入的上限\n如果想要不会断电确保产量你可能需要给每个面都连接一根电线")
@@ -261,7 +326,8 @@ ClientEvents.lang("zh_cn", (event) => {
 		["nether", "下界"],
 		["creative", "创造"],
 		["precision", "精密"],
-		["redstone", "红石"]
+		["redstone", "红石"],
+		["potion", "秘药"]
 	]
 	mechanismGroup.forEach(([material, name]) => {
 		addFlashDriveLanguage(material, name)

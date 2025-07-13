@@ -4,7 +4,8 @@ let materials = []
  * 函数封装
  * @param {string} name 注册ID
  * @param {Internal.ItemTintFunction_ || Internal.BlockTintFunction_ || Color_} color 颜色
- * @param {ResourceLocation_} level 挖掘等级
+ * @param {MiningLevel} level 挖掘等级
+ * @type {RegisterMetalMaterial}
  * @returns 金属材料注册
  */
 function addMaterial(name, color, level) {
@@ -67,11 +68,11 @@ StartupEvents.registry("item", (event) => {
 				.tag(`forge:${type}s/${material.name}`)
 		})
 	})
-	console.log("Item已注册完毕!")
+	console.log("Items已注册完毕!")
 })
 StartupEvents.registry("block", (event) => {
 	materials.forEach((material) => {
-		material.types.forEach((type) => {
+		material.types.forEach((type) => { 
 			if (type === "block") {
 				event.create(`${global.namespace}:${material.name}_block`)
 					.textureAll(`${global.namespace}:block/material/color/storage_blocks`)
@@ -90,7 +91,7 @@ StartupEvents.registry("block", (event) => {
 			}
 		})
 	})
-	console.log("Block已注册完毕!")
+	console.log("Blocks已注册完毕!")
 })
 StartupEvents.registry("fluid", (event) => {
 	materials.forEach((material) => {
@@ -121,10 +122,6 @@ addMaterial("andesite_alloy", 0xA9AFA1, "wooden")
 	.nugget()
 	.molten()
 
-// 余烬史莱姆
-addMaterial("cinderslime", 0xFF6060, "wooden")
-	.plate()
-
 // 不锈钢
 addMaterial("stainless_steel", 0x708090, "diamond")
 	.ingot()
@@ -149,10 +146,31 @@ addMaterial("platinum", 0XA4D4DA, "iron")
 	.block()
 	.dust()
 
+// 泓钢
 addMaterial("siltsteel", 0x48D1CC, "diamond")
 	.ingot()
 	.plate()
 	.nugget()
 	.block()
 	.dust()
+	.molten()
+
+// 铸铁
+addMaterial("cast_iron", 0x4D4D4D, "iron")
+	.ingot()
+	.dust()
+	.nugget()
+	.block()
+	.molten()
+
+// 戴斯
+addMaterial("desh", 0xD38B4C, "wooden")
+	.molten()
+
+// 紫金
+addMaterial("ostrum", 0xA66B72, "wooden")
+	.molten()
+
+// 耐热金属
+addMaterial("calorite", 0xC94D4E, "wood")
 	.molten()

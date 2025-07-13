@@ -2,6 +2,10 @@ StartupEvents.modifyCreativeTab("kubejs:tab", (event) => {
 	event.setIcon("cmi:charged_amethyst")
 	event.setDisplayName(Component.translate(`itemGroup.${global.namespace}.all`))
 
+	event.add([
+		"cmi:water_pump"
+	])
+
 	event.remove(`#${global.namespace}:io_debug_block`)
 	event.remove("#forge:chem_salts")
 	event.remove("#create:mechanisms")
@@ -37,4 +41,8 @@ StartupEvents.modifyCreativeTab("tconstruct:smeltery", (event) => {
 		"cmi:mechanism_sand_cast",
 		"cmi:mechanism_red_sand_cast"
 	])
+})
+
+StartupEvents.modifyCreativeTab("functionalstorage:main", (event) => {
+	event.setIcon("functionalstorage:cherry_1")
 })

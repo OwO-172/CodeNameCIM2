@@ -3,13 +3,14 @@
 // 设定全局注册物品命名空间
 global.namespace = "cmi"
 // Modpack版本
-global.modPackVersion = "§0CMI Beta-1.5.0"
+global.modPackVersion = "§0CMI Beta-1.6.0"
 // 设定全局开发人员名单
 global.debugUserName = [
 	"Qi_Month",
 	"Vechni_Metel",
 	"UnknownEntity_UE",
 	"117458866249",
+	"Ye_Anqing",
 	"KEYboardManDesu",
 	"oooooooo_zane"
 ]
@@ -18,13 +19,13 @@ global.miningLevel = {
 	"wooden": "minecraft:needs_wooden_tool",
 	"stone": "minecraft:needs_stone_tool",
 	"iron": "minecraft:needs_iron_tool",
-	"gold": "minecraft:needs_gold_tool",
+	"gold": "forge:needs_gold_tool",
 	"diamond": "minecraft:needs_diamond_tool",
 	"nether": "forge:needs_netherite_tool"
 }
 // 挖掘工具类型
 global.toolType = {
-	"sword": "minecraft:mineable/sword",
+	"sword": "forge:mineable/sword",
 	"pickaxe": "minecraft:mineable/pickaxe",
 	"axe": "minecraft:mineable/axe",
 	"shovel": "minecraft:mineable/shovel",
@@ -86,7 +87,8 @@ global.mechanismGroup = [
 	"sculk",
 	"colorful",
 	"creative",
-	"pigiron"
+	"pigiron",
+	"potion"
 ]
 // 所有金属(用于兼容性配方)
 global.metalGroup = [
@@ -97,6 +99,7 @@ global.metalGroup = [
 	"cobalt",
 	"constantan",
 	"copper",
+	"cast_iron",
 	"electrum",
 	"gold",
 	"invar",
