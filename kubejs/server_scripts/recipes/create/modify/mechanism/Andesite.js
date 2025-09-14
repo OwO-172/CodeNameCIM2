@@ -4,7 +4,7 @@ ServerEvents.recipes((event) => {
 	let mech = "cmi:andesite_mechanism"
 	let tube = "create:electron_tube"
 
-	// 动态结构控制器(你知道我在0.5没有你的日子是怎么过的吗!(揪着衣领))
+	// 动态结构控制器
 	kubejs.shaped("create:contraption_controls", [
 		"A",
 		"B",
@@ -15,7 +15,7 @@ ServerEvents.recipes((event) => {
 		C: mech
 	}).id("create:crafting/kinetics/contraption_controls")
 
-	// 动力压路机(砸! 瓦鲁多----)
+	// 动力压路机
 	kubejs.shaped("create:mechanical_roller", [
 		" A ",
 		"BCB",
@@ -27,14 +27,14 @@ ServerEvents.recipes((event) => {
 		D: "create:crushing_wheel"
 	}).id("create:crafting/kinetics/mechanical_roller")
 
-	// 物品接口(你们为什么要Kiss👊😭👊)
+	// 物品接口
 	kubejs.shapeless("create:portable_storage_interface", [
 		"create:chute",
 		casing,
 		mech
 	]).id("create:crafting/kinetics/portable_storage_interface")
 
-	// 机械手(你妈逼我是不是给你脸给多了)
+	// 机械手
 	kubejs.shaped("create:deployer", [
 		"A",
 		"B",
@@ -42,10 +42,10 @@ ServerEvents.recipes((event) => {
 	], {
 		A: mech,
 		B: casing,
-		C: "create:brass_hand"
+		C: ["create:brass_hand", "cmi:rubber_hand"]
 	}).id("create:crafting/kinetics/deployer")
 
-	// 动力锯(有这个为什么还要连锁?)
+	// 动力锯
 	kubejs.shaped("create:mechanical_saw", [
 		"A",
 		"B",
@@ -56,7 +56,7 @@ ServerEvents.recipes((event) => {
 		C: casing
 	}).id("create:crafting/kinetics/mechanical_saw")
 
-	// 动力钻头(滋--------!)
+	// 动力钻头
 	kubejs.shaped("create:mechanical_drill", [
 		"A",
 		"B",
@@ -67,7 +67,7 @@ ServerEvents.recipes((event) => {
 		C: casing
 	}).id("create:crafting/kinetics/mechanical_drill")
 
-	// 绳索滑轮(我想不到了)
+	// 绳索滑轮
 	kubejs.shaped("create:rope_pulley", [
 		" A ",
 		"BCB",
@@ -80,7 +80,7 @@ ServerEvents.recipes((event) => {
 	}).id("create:crafting/kinetics/rope_pulley")
 
 	// 石磨
-	kubejs.shaped("create:millstone", [
+	kubejs.shaped("2x create:millstone", [
 		"A A",
 		"BCB",
 		"DDD"
@@ -93,9 +93,9 @@ ServerEvents.recipes((event) => {
 
 	// 动力辊压机
 	kubejs.shaped("create:mechanical_press", [
-		"B",
-		"A",
-		"C"
+		" B ",
+		" A ",
+		" C "
 	], {
 		A: casing,
 		B: mech,
@@ -115,15 +115,13 @@ ServerEvents.recipes((event) => {
 
 	// 鼓风机
 	kubejs.shaped("create:encased_fan", [
-		"EAE",
-		"CBD",
-		"EAE"
+		" B ",
+		" A ",
+		" C "
 	], {
 		A: casing,
 		B: mech,
-		C: "create:shaft",
-		D: "create:propeller",
-		E: "#minecraft:planks"
+		C: "create:propeller"
 	}).id("create:crafting/kinetics/encased_fan")
 
 	// 砂带磨床
@@ -198,4 +196,124 @@ ServerEvents.recipes((event) => {
 		D: "vintageimprovements:iron_spring",
 		E: "create:shaft"
 	}).id("vintageimprovements:craft/centrifuge")
+
+	// 切割机
+	kubejs.shaped("sliceanddice:slicer", [
+		" A ",
+		" B ",
+		" C "
+	], {
+		A: mech,
+		B: casing,
+		C: "#forge:plates/andesite"
+	}).id("sliceanddice:slicer")
+
+	// 烤箱用鼓风机
+	kubejs.shaped("ratatouille:oven_fan", [
+		" B ",
+		" A ",
+		" C "
+	], {
+		A: mech,
+		B: casing,
+		C: "create:propeller"
+	}).id("ratatouille:oven_fan")
+
+	// 动力脱模机
+	kubejs.shaped("ratatouille:mechanical_demolder", [
+		" A ",
+		" B ",
+		" C "
+	], {
+		A: mech,
+		B: casing,
+		C: "#forge:slimeballs"
+	}).id("ratatouille:mechanical_demolder")
+
+	// 脱粒机
+	kubejs.shaped("ratatouille:thresher", [
+		" A ",
+		" C ",
+		" B "
+	], {
+		A: mech,
+		B: casing,
+		C: "create:mechanical_harvester"
+	}).id("ratatouille:thresher")
+
+	// 风车轴承
+	kubejs.shaped("create:windmill_bearing", [
+		" A ",
+		" B ",
+		" C "
+	], {
+		A: "create:turntable",
+		B: "#forge:stone",
+		C: mech
+	}).id("create:crafting/kinetics/windmill_bearing")
+
+	// 动力轴承
+	kubejs.shaped("create:mechanical_bearing", [
+		" A ",
+		" B ",
+		" C "
+	], {
+		A: "create:turntable",
+		B: casing,
+		C: mech
+	}).id("create:crafting/kinetics/mechanical_bearing")
+
+	// 动力活塞
+	kubejs.shaped("create:mechanical_piston", [
+		" B ",
+		" A ",
+		" C "
+	], {
+		A: "create:piston_extension_pole",
+		B: casing,
+		C: mech
+	}).id("create:crafting/kinetics/mechanical_piston")
+
+	// 起重机取物器
+	kubejs.shaped("create:gantry_carriage", [
+		" A ",
+		" B ",
+		"DCD"
+	], {
+		A: "create:turntable",
+		B: casing,
+		C: mech,
+		D: "create:cogwheel"
+	}).id("create:crafting/kinetics/gantry_carriage")
+
+	// 矿车装配站
+	kubejs.shaped("create:cart_assembler", [
+		"BDB",
+		"CAC"
+	], {
+		A: mech,
+		B: "minecraft:redstone",
+		C: "#minecraft:logs",
+		D: "#forge:slimeballs"
+	}).id("create:crafting/kinetics/cart_assembler")
+
+	// 催熟机
+	kubejs.shaped("ratatouille:spreader", [
+		" A ",
+		"CBC",
+		" D "
+	], {
+		A: mech,
+		B: casing,
+		C: "cmi:nature_mechanism",
+		D: "create:propeller"
+	}).id("ratatouille:spreader")
+
+	// 翻牌显示器
+	kubejs.shaped("4x create:display_board", [
+		"BAB"
+	], {
+		A: mech,
+		B: "#forge:plates/andesite"
+	}).id("create:crafting/kinetics/display_board")
 })

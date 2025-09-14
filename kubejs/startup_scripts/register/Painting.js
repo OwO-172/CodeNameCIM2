@@ -21,6 +21,7 @@ StartupEvents.registry("painting_variant", (event) => {
 	addPainting("it_must_be_optifine", 16, 32)
 
 	// RandomMechanism(随机构件)
+	addPainting("random_mechanism_old", 32, 32)
 	addPainting("random_mechanism", 32, 32)
 
 	// 柒
@@ -65,20 +66,14 @@ StartupEvents.registry("painting_variant", (event) => {
 	addPainting("driver_thermal", 16, 16)
 	addPainting("driver_train", 16, 16)
 	addPainting("driver_wooden", 16, 16)
-	//——to players of cmi
-	//do you want to know why not have all mechanisms
-	//because when other mechanisms joined, mechanism drivers has been deleted...
-
-
-
-
-
-
 
 	function addPainting(name, width, height) {
-		event.create(`${global.namespace}:${name}`)
-			.width(width)
-			.height(height)
-			.tag("minecraft:placeable")
+		let paintingRegister =
+			event.create(`${global.namespace}:${name}`)
+				.width(width)
+				.height(height)
+				.tag("minecraft:placeable")
+
+		return paintingRegister
 	}
 })

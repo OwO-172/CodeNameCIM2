@@ -30,4 +30,50 @@ ServerEvents.tags("fluid", (event) => {
 
 	event.get("forge:oil")
 		.add("#forge:crude_oil")
+
+	event.get("cmi:bromine")
+		.add("cmi:bromine")
+
+	event.get("forge:brine")
+		.add("cmi:nacl_solution")
+
+	event.get("forge:steam")
+		.add("mekanism:steam")
+
+	event.get("cmi:benzene")
+		.add("cmi:benzene")
+
+	event.get("cmi:nitric_acid")
+		.add("cmi:nitric_acid")
+
+	event.get("cmi:glycerin")
+		.add("cmi:glycerin")
+
+	event.get("cmi:fluid_nitroglycerine")
+		.add("cmi:fluid_nitroglycerine")
+
+	event.get("cmi:fatty_acid")
+		.add("cmi:fatty_acid")
+
+	event.get("cmi:sulfric_diesel")
+		.add("cmi:sulfric_diesel")
+
+	event.get("forge:diesel")
+		.add("cmi:sulfric_diesel")
+
+	event.get("tconstruct:fuels")
+		.add([
+			"ad_astra:cryo_fuel",
+			"cmi:delta_unstable_solution",
+			"ad_astra:fuel",
+			"#forge:oil",
+			"thermal:refined_fuel",
+			"cmi:turbid_waste_liquid",
+			"tconstruct:blazing_blood",
+			"immersiveengineering:ethanol",
+			"createdieselgenerators:plant_oil",
+			"createdieselgenerators:biodiesel",
+			"createdieselgenerators:diesel",
+			"createdieselgenerators:gasoline"
+		])
 })

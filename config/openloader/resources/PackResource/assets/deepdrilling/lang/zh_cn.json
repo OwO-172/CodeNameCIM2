@@ -45,6 +45,12 @@
 	"deepdrilling.loot.common": "零碎矿渣",
 	"deepdrilling.loot.earth": "伴生石料",
 	"deepdrilling.loot.rare": "富集矿石",
+	"block.deepdrilling.tooltip.speed": "速度:",
+	"block.deepdrilling.tooltip.speed.slow": "慢",
+	"block.deepdrilling.tooltip.speed.normal": "正常",
+	"block.deepdrilling.tooltip.speed.fast": "快速",
+	"block.deepdrilling.tooltip.speed.blazing": "飞快",
+	"block.deepdrilling.tooltip.resource_odds": "资源产出:",
 	"deepdrilling.ponder.drill_basics.header": "进行深度钻探",
 	"deepdrilling.ponder.drill_basics.text_1": "给钻芯配备钻头并接入转速, 钻芯会开始从矿物节点中提取产物",
 	"deepdrilling.ponder.drill_basics.text_2": "使用材质更好的钻头可以加速采掘过程...",
@@ -59,5 +65,6 @@
 	"item.deepdrilling.incomplete_brass_drill_head": "黄铜制钻头(半成品)",
 	"item.deepdrilling.incomplete_copper_drill_head": "铜制钻头(半成品)",
 	"item.deepdrilling.sludge_bucket": "淤泥桶",
-	"itemGroup.deepdrilling.main": "深度钻探"
+	"itemGroup.deepdrilling.main": "深度钻探",
+	"deepdrilling.sludgepump.celebrate": "§b某个淤泥泵在§a连续奋战§r后终于达成了§e惊人的突破§r！\n§b澎湃的流体§r喷涌而出, 仿佛回应着它的执着"
 }

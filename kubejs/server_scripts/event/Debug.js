@@ -1,6 +1,6 @@
 ItemEvents.rightClicked("cmi:geological_hammer", (event) => {
 	let { player } = event
-	if (event.hand == "OFF_HAND") {
+	if (event.hand === "OFF_HAND") {
 		for (let i = 0; i < global.debugUserName.length; i++) {
 			// 副手持地质锤右键获取物品ID
 			if (player.mainHandItem !== "minecraft:air" &&
@@ -30,6 +30,20 @@ PlayerEvents.chat((event) => {
 			event.cancel()
 		}
 
+		// 重载JEI
+		let reloadJeiCommands = [
+			"kjs reload client_scripts",
+			"reload"
+		]
+		if (message.trim().equalsIgnoreCase("-rej") && player.username === global.debugUserName[i]) {
+			reloadJeiCommands.forEach((command) => {
+				player.runCommandSilent(command)
+			})
+			// Reloaded All Scripts!
+			player.tell(Component.translatable(`message.${global.namespace}.jei.reloaded`).green())
+			event.cancel()
+		}
+
 		// 重载(这个重载不能用于配方和Tags等数据包脚本)
 		let commandList = [
 			"client_scripts",
@@ -44,7 +58,7 @@ PlayerEvents.chat((event) => {
 				player.runCommandSilent(`kjs reload ${command}`)
 			})
 			// Reloaded All Scripts!
-			player.tell(Component.translate(`message.${global.namespace}.reload`).green())
+			player.tell(Component.translatable(`message.${global.namespace}.reloaded`).green())
 			event.cancel()
 		}
 	}
@@ -81,14 +95,14 @@ BlockEvents.rightClicked((event) => {
 	let blockHardness = blockState.getDestroySpeed(event.getLevel(), pos)
 
 	for (let i = 0; i < global.debugUserName.length; i++) {
-		if (event.hand == "OFF_HAND") {
+		if (event.hand === "OFF_HAND") {
 			return
 		}
 		if (player.mainHandItem === getItem &&
 			player.crouching &&
 			player.username === global.debugUserName[i]) {
 			event.getPlayer().swing()
-			let key = Component.translate(`message.${global.namespace}.debug.getHardness`, [blockHardness])
+			let key = Component.translatable(`message.${global.namespace}.debug.getHardness`, [blockHardness])
 			player.tell(key)
 			event.cancel()
 		}

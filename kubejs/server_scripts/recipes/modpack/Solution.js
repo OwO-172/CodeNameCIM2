@@ -1,3 +1,9 @@
+/*
+ * TODO: 该脚本加载比Tags加载的快
+ * 导致每次进入游戏load会导致流体无法get
+ * 目前解决方案是进游戏时自动reload(服务端reload!)
+ * 但是可能会导致小部分呢奇奇怪怪的问题(不能确保是什么)
+ */
 ServerEvents.recipes((event) => {
 	let { create, tconstruct } = event.recipes
 
@@ -10,10 +16,6 @@ ServerEvents.recipes((event) => {
 		"znso4",
 		"alcl3",
 		"al2so43",
-		"aucl3",
-		"au2so43",
-		"agcl",
-		"ag2so4",
 		"pbcl2",
 		"pbso4",
 		"crcl3",
@@ -30,8 +32,6 @@ ServerEvents.recipes((event) => {
 		"coso4",
 		"oscl3",
 		"os2so43",
-		"ptcl4",
-		"ptso42",
 		"na2so4",
 		"nacl",
 		"caso4",
@@ -56,5 +56,94 @@ ServerEvents.recipes((event) => {
 			.cast_consumed(true)
 			.fluid(Fluid.of(`cmi:${name}_solution`, 500))
 			.cooling_time(20)
+	})
+
+	let metalActiveOrder = [
+		"potassium",
+		"calcium",
+		"sodium",
+		"magnesium",
+		"uranium",
+		"aluminum",
+		"vanadium",
+		"zinc",
+		"chromium",
+		"iron",
+		"cobalt",
+		"nickel",
+		"tin",
+		"lead",
+		"copper",
+		"osmium",
+	]
+	metalActiveOrder.forEach((metal) => {
+		metalActiveOrder.slice(metalActiveOrder.indexOf(metal) + 1)
+			.forEach((solution) => {
+				event.custom({
+					"type": "immersiveindustry:chemical",
+					"inputs": [
+						{
+							"base_ingredient": {
+								"tag": `forge:dusts/${metal}`
+							},
+							"count": 1
+						}
+					],
+					"results": [
+						{
+							"base_ingredient": {
+								"tag": `forge:dusts/${solution}`
+							},
+							"count": 1
+						}
+					],
+					"input_fluids": [
+						{
+							"tag": `forge:solutions/${solution}/chloride`,
+							"amount": 1000
+						}
+					],
+					"result_fluids": [
+						{
+							"fluid": IngredientUtils.getFirstFluidId(`forge:solutions/${metal}/chloride`),
+							"amount": 1000
+						}
+					],
+					"time": 300
+				})
+
+				event.custom({
+					"type": "immersiveindustry:chemical",
+					"inputs": [
+						{
+							"base_ingredient": {
+								"tag": `forge:dusts/${metal}`
+							},
+							"count": 1
+						}
+					],
+					"results": [
+						{
+							"base_ingredient": {
+								"tag": `forge:dusts/${solution}`
+							},
+							"count": 1
+						}
+					],
+					"input_fluids": [
+						{
+							"tag": `forge:solutions/${solution}/sulfate`,
+							"amount": 1000
+						}
+					],
+					"result_fluids": [
+						{
+							"fluid": IngredientUtils.getFirstFluidId(`forge:solutions/${metal}/sulfate`),
+							"amount": 1000
+						}
+					],
+					"time": 300
+				})
+			})
 	})
 })

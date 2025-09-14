@@ -3,20 +3,20 @@
 /.vscode/
 /backups/
 /caxton*
-/CMI_alpha_dev_vers-natives/
-/CMI_alpha_dev_vers.jar
-/CMI_alpha_dev_vers.json
+/.idea
+/data
+/CMI_*.jar
+/CMI_*.json
 /crash-reports/
-/defaultconfigs/
 /hmclversion.cfg
 /local/
 /logs/
 /modernfix/
-/mods/
 /options.txt
 /patchouli_books/
 /patchouli_data.json
 /PCL/
+/xaero
 /rhino.local.properties
 schematics/uploaded/
 /usercache.json
@@ -31,36 +31,49 @@ schematics/uploaded/
 /CIM2 Dev-natives/
 /saves/Debug/
 /.idea
-*.zip
+/server.dat
+# *.zip
 fancymenu_data
 saves/*/session.lock
 /schematics
 hs_err*
-fabric*
+/fabric*
 /icon-exports-*
 ESM
+XaeroWaypoints*
+/oei
+replay*
+/servers*
+/mods*.zip
+/mods.zip
+
+# Mods
+/mods/*
+!/mods/CMI Core-*-1.20.1-all.jar
 
 # ResourcePacks
 /resourcepacks/*
-!/resourcepacks/New AE2
-!/resourcepacks/中微子的多用途汉化材质包.zip
-!/resourcepacks/等距更纱字体包
-!/resourcepacks/Maple Mono字体包
-!/resourcepacks/PvZ2 Regular字体包
-!/resourcepacks/PackResource
-!/resourcepacks/Pretty X Smart Pipez.zip
-!/resourcepacks/CreateSophisticatedBackpacks.zip
+!/resourcepacks/矿石发光.zip
+!/resourcepacks/彩色边框.zip
+!/resourcepacks/超好看天空.zip
 
 # ShaderPacks
 /shaderpacks/*
 
-# Docs
+# ProbeDocs
 /kubejs/probe/*
 !/kubejs/probe/docs/
+
+# Saves
+/saves/*
+!/saves/Debug
+!/saves/QBWT*
+!/saves/Quest_Background*
 
 # Config
 /config/*
 !/config/openloader
+!/config/blockswap
 !/config/almostunified/
 !/config/drippyloadingscreen/
 !/config/fancymenu/
@@ -79,3 +92,10 @@ ESM
 !/config/nolijium.json5
 !/config/Mekanism/
 !/config/ding.toml
+!/config/supplementaries-common.toml
+!/config/jeiintegration-client.toml
+!/config/starterstructure*
+!/config/createaddition-common.toml
+!/config/lmft.json
+!/config/modernfix-mixins.properties
+!/config/steampowered-common.toml

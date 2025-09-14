@@ -7,9 +7,19 @@ Ponder.tags((event) => {
 	}
 
 	addPonderTag("ponder", "cmi:creative_mechanism", "Modpack", [
-		"cmi:the_accelerator_of_mechanism_power",
+		"cmi:accelerator",
 		"cmi:water_pump",
-		"minecraft:water_bucket"
+		"minecraft:water_bucket",
+		"cmi:bronze_casing",
+		"mekanism:steam_boiler",
+		"mm:large_steam_boiler",
+		"mm:large_steam_boiler_fluid_output",
+		"mm:large_steam_boiler_fluid_input",
+		"mm:large_steam_boiler_item_input",
+		"mekanism:steam_bucket",
+		"mm:steam_ore_processor",
+		"mm:cracker",
+		"mm:particle_collision_machine"
 	])
 
 	addPonderTag("other", "supplementaries:faucet", "Other", [
@@ -25,7 +35,8 @@ Ponder.tags((event) => {
 		"immersiveengineering:blastfurnace_preheater",
 		"immersiveengineering:blastbrick",
 		"cmi:crucible_base",
-		"cmi:crucible_tuyere"
+		"cmi:crucible_tuyere",
+		"mekanism:cardboard_box"
 	])
 
 	addPonderTag("tconstruct", "tconstruct:smeltery_controller", "Tinkers' Construct", [

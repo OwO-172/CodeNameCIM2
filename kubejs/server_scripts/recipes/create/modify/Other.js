@@ -1,6 +1,16 @@
 ServerEvents.recipes((event) => {
 	let { kubejs, create, vintageimprovements } = event.recipes
 
+	// 搅拌头
+	kubejs.shaped("create:whisk", [
+		" A ",
+		"BAB",
+		"BBB"
+	], {
+		A: "create:andesite_alloy",
+		B: ["#forge:plates/zinc", "#forge:plates/iron"]
+	}).id("create:crafting/kinetics/whisk")
+
 	// 空烈焰人燃烧室
 	kubejs.shaped("create:empty_blaze_burner", [
 		"ABA",
@@ -43,17 +53,15 @@ ServerEvents.recipes((event) => {
 	]).id("create:compacting/blaze_cake")
 
 	// 激光发射器
-	create.mechanical_crafting("vintageimprovements:laser_item", [
+	kubejs.shaped("vintageimprovements:laser_item", [
 		" A ",
-		"BCB",
 		"BDB",
 		" E "
 	], {
 		A: "#forge:dusts/redstone",
 		B: "#forge:plates/copper",
-		C: "create:electron_tube",
 		D: "createaddition:capacitor",
-		E: 'cmi:photosensitive_mechanism'
+		E: "cmi:photosensitive_mechanism"
 	}).id("vintageimprovements:mechanical_crafting/laser")
 
 	create.milling([
@@ -76,4 +84,97 @@ ServerEvents.recipes((event) => {
 	vintageimprovements.curving("ad_astra:rocket_fin", [
 		"#forge:plates/steel"
 	]).mode(4)
+
+	// 烤箱
+	kubejs.shaped("ratatouille:oven", [
+		"A",
+		"B",
+		"A"
+	], {
+		A: [
+			"#forge:ingots/industrial_iron",
+			"#forge:plates/industrial_iron"
+		],
+		B: "create:fluid_tank"
+	}).id("ratatouille:oven")
+
+	// 超级刀
+	create.filling("cmi:super_knife", [
+		"farmersdelight:netherite_knife",
+		Fluid.of("create_enchantment_industry:hyper_experience", 1000)
+	])
+
+	// 小引擎
+	kubejs.shaped("createdieselgenerators:diesel_engine", [
+		"ABA",
+		"BCB",
+		"DDD"
+	], {
+		A: "createdieselgenerators:engine_piston",
+		B: "#forge:plates/brass",
+		C: "create:precision_mechanism",
+		D: "tconstruct:seared_brick"
+	}).id("creatediselgenerators:diesel_engine")
+
+	// 中引擎
+	kubejs.shaped("createdieselgenerators:large_diesel_engine", [
+		"ABA",
+		"BCB",
+		"DDD"
+	], {
+		A: "createdieselgenerators:engine_piston",
+		B: "#forge:plates/cast_iron",
+		C: "cmi:light_engineering_mechanism",
+		D: "tconstruct:scorched_brick"
+	}).id("creatediselgenerators:large_diesel_engine")
+
+	// 大引擎
+	kubejs.shaped("createdieselgenerators:huge_diesel_engine", [
+		"ABA",
+		"CDC",
+		"AEA"
+	], {
+		A: "#forge:plates/steel",
+		B: "minecraft:flint_and_steel",
+		C: "cmi:heavy_engineering_mechanism",
+		D: "create:steam_engine",
+		E: "create:fluid_pipe"
+	}).id("creatediselgenerators:huge_diesel_engine")
+
+	// 电容
+	kubejs.shaped("cmi:simple_battery", [
+		" A ",
+		"BBB",
+		" C "
+	], {
+		A: "#forge:plates/copper",
+		B: "#forge:dusts/redstone",
+		C: "#forge:plates/zinc"
+	}).id("createaddition:crafting/capacitor_1")
+
+	// 蒸汽引擎
+	create.sequenced_assembly("create:steam_engine", [
+		"create:copper_casing"
+	], [
+		create.deploying("create:brass_casing", [
+			"create:brass_casing",
+			"cmi:bronze_mechanism"
+		]),
+		create.cutting("create:brass_casing", [
+			"create:brass_casing"
+		]),
+		create.deploying("create:brass_casing", [
+			"create:brass_casing",
+			"createdieselgenerators:engine_piston"
+		]),
+		create.deploying("create:brass_casing", [
+			"create:brass_casing",
+			"#forge:plates/steel"
+		]),
+		create.deploying("create:brass_casing", [
+			"create:brass_casing",
+			"create:precision_mechanism"
+		])
+	]).loops(1).transitionalItem("create:brass_casing")
+		.id("create:crafting/kinetics/steam_engine")
 })

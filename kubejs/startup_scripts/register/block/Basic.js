@@ -1,94 +1,109 @@
 StartupEvents.registry("block", (event) => {
-	event.create(`${global.namespace}:the_accelerator_of_mechanism_power`)
+	function addBlock(name) {
+		return event.create(`${global.namespace}:${name}`)
+	}
+
+	addBlock("accelerator")
 		.soundType(SoundType.METAL)
-		.tagBlock(global.toolType["pickaxe"])
-		.tagBlock(global.miningLevel["wooden"])
+		.hardness(4)
+		.resistance(4)
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock(global.MiningLevel["wooden"])
 		.requiresTool(true)
 
-	let machineBlockRegister = [
-		"nature",
-		"wooden",
-		"stone",
-		"iron",
-		"copper",
-		"andesite",
-		"photosensitive",
-		"gold",
-		"cobalt",
-		"nether",
-		"thermal",
-		"feinforced",
-		"resonant",
-		"railway",
-		"ender",
-		"light_engineering",
-		"heavy_engineering",
-		"enchanted",
-		"smart",
-		"computing",
-		"tier_1_aviation",
-		"tier_2_aviation",
-		"tier_3_aviation",
-		"tier_4_aviation",
-		"basic_mekanism",
-		"advanced_mekanism",
-		"elite_mekanism",
-		"ultimate_mekanism",
-		"structure",
-		"nuclear",
-		"antimatter",
-		"coil",
-		"sculk",
-		"colorful",
-		"creative",
-		"potion",
-		"precision",
-		"redstone"
-	]
-	machineBlockRegister.forEach((type) => {
-		event.create(`${global.namespace}:${type}_machine`, "cardinal")
-			.soundType(SoundType.METAL)
-			.tagBlock(global.toolType["pickaxe"])
-			.tagBlock(global.miningLevel["wooden"])
-			.requiresTool(true)
-			.notSolid()
-			.defaultCutout()
-	})
+	// 背景
+	addBlock("green_screen")
+		.lightLevel(15)
 
 	// 锇砖瓦
-	event.create(`${global.namespace}:osmium_tile`)
+	addBlock("osmium_tile")
 		.soundType(SoundType.METAL)
 		.hardness(6)
 		.resistance(6)
-		.tagBlock(global.toolType["pickaxe"])
-		.tagBlock(global.miningLevel["iron"])
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock(global.MiningLevel["iron"])
+		.requiresTool(true)
+
+	// 泥炭
+	addBlock("peat_block")
+		.soundType(SoundType.MUD)
+		.hardness(1)
+		.resistance(1)
+		.tagBlock(global.ToolType["shovel"])
+		.tagBlock(global.MiningLevel["wooden"])
+		.tagBlock("minecraft:dirt")
+		.tag("minecraft:stone")
+
+	// 油页岩
+	addBlock("oil_shale")
+		.soundType(SoundType.DEEPSLATE)
+		.hardness(15)
+		.resistance(15)
+		.tagBlock(global.MiningLevel["nether"])
+		.tagBlock(global.ToolType["pickaxe"])
 		.requiresTool(true)
 
 	// 压缩末地粉块
-	event.create(`${global.namespace}:compression_end_stone_dust_block`)
+	addBlock("compression_end_stone_dust_block")
 		.soundType(SoundType.SAND)
 		.hardness(6)
 		.resistance(6)
-		.tagBlock(global.toolType["pickaxe"])
-		.tagBlock(global.miningLevel["wooden"])
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock(global.MiningLevel["wooden"])
 		.requiresTool(true)
 
 	// 坩埚底座
-	event.create(`${global.namespace}:crucible_base`)
+	addBlock("crucible_base")
 		.textureAll(`${global.namespace}:block/crucible/top`)
 		.soundType(SoundType.METAL)
 		.hardness(6)
 		.resistance(6)
-		.tagBlock(global.toolType["pickaxe"])
-		.tagBlock(global.miningLevel["iron"])
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock(global.MiningLevel["iron"])
 		.requiresTool(true)
 
 	// 坩埚风口
-	event.create(`${global.namespace}:crucible_tuyere`)
+	addBlock("crucible_tuyere")
 		.soundType(SoundType.METAL)
 		.hardness(6)
 		.resistance(6)
-		.tagBlock(global.toolType["pickaxe"])
-		.tagBlock(global.miningLevel["iron"])
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock(global.MiningLevel["iron"])
 		.requiresTool(true)
+
+	// 青铜外壳
+	addBlock("bronze_casing")
+		.textureAll(`${global.namespace}:block/casing/bronze/casing`)
+		.soundType(SoundType.NETHERITE_BLOCK)
+		.hardness(5)
+		.resistance(5)
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock("create:wrench_pickup")
+
+	// 耐压外壳
+	addBlock("pressure_resistance_casing")
+		.textureAll(`${global.namespace}:block/casing/pressure_resistance/casing`)
+		.soundType(SoundType.NETHERITE_BLOCK)
+		.hardness(5)
+		.resistance(5)
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock("create:wrench_pickup")
+
+	// 陨石外壳
+	addBlock("sky_stone_casing")
+		.textureAll(`${global.namespace}:block/casing/ae2/smart`)
+		.soundType(SoundType.METAL)
+		.hardness(5)
+		.resistance(5)
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock("create:wrench_pickup")
+
+	// 高级计算外壳
+	addBlock("computing_casing")
+		.textureAll(`${global.namespace}:block/casing/ae2/computing_top`)
+		.soundType(SoundType.METAL)
+		.hardness(5)
+		.resistance(5)
+		.tagBlock(global.ToolType["pickaxe"])
+		.tagBlock("create:wrench_pickup")
 })

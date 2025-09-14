@@ -1,37 +1,43 @@
 ServerEvents.recipes((event) => {
-	let { create, mekanism, vintageimprovements } = event.recipes
+	let { create, vintageimprovements } = event.recipes
 
-	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 90), [
+	// 熔融安山合金
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
 		"minecraft:andesite",
-		Fluid.of("tconstruct:molten_iron", 30)
-	]).heatLevel("grilled")
+		Fluid.of("tconstruct:molten_iron", 10)
+	]).heatRequirement("grilled")
 
-	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 90), [
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
 		"minecraft:andesite",
 		Fluid.of("tconstruct:molten_zinc", 10)
-	]).heatLevel("grilled")
+	]).heatRequirement("grilled")
 
-	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 90), [
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
 		"minecraft:andesite",
-		"3x #forge:nuggets/iron"
-	]).heatLevel("grilled")
+		"#forge:nuggets/iron"
+	]).heatRequirement("grilled")
 
-	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 90), [
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
 		"minecraft:andesite",
 		"#forge:nuggets/zinc"
-	]).heatLevel("grilled")
+	]).heatRequirement("grilled")
 
-	//殷钢
+	// 殷钢
 	create.mixing(Fluid.of("tconstruct:molten_invar", 270), [
 		"2x #forge:ingots/iron",
 		"#forge:ingots/nickel"
 	]).heated()
 
-	//末影
+	// 末影
 	create.mixing(Fluid.of("thermal:ender", 1000), [
 		Fluid.of("thermal:ender", 250),
 		"minecraft:chorus_fruit"
 	]).heated()
+
+	// 石英纤维
+	create.mixing("ae2:quartz_fiber", [
+		"ae2:certus_quartz_dust", "#forge:glass"
+	])
 
 	// 盐水
 	create.mixing(Fluid.of("mekanism:brine", 50), [
@@ -39,28 +45,22 @@ ServerEvents.recipes((event) => {
 		"#forge:dusts/salt"
 	])
 
-
-
-
-	// SiCl4
+	// 四氯化硅
 	vintageimprovements.pressurizing(Fluid.of("cmi:tetrachlorosilane", 500), [
 		Fluid.of("mekanism:chlorine", 500),
 		"#forge:silicon"
 	]).processingTime(200).superheated()
 
-	// Si
-	event.custom(
-		{
-			"type": "mekanism:reaction", "duration": 400,
-			"energyRequired": 200,
-			"fluidInput": { "amount": 500, "fluid": "cmi:tetrachlorosilane" },
-			"gasInput": { "amount": 250, "gas": "mekanism:hydrogen" },
-			"gasOutput": { "amount": 500, "gas": "mekanism:hydrogen_chloride" },
-			"itemInput": { "ingredient": { "tag": "forge:glass" } },
-			"itemOutput": { "count": 1, "item": "cmi:single_crystal_silicon" }
-		}
-	)
+	// 晶体催生剂
+	create.mixing(Fluid.of("cmi:crystal_catalyt", 1000), [
+		Fluid.of("immersiveengineering:redstone_acid", 500),
+		"#cmi:crystals",
+		"16x #forge:crops"
+	]).heated()
 
+	create.mixing(Fluid.of("cmi:crystal_catalyt", 1000), [
+		Fluid.of("immersiveengineering:redstone_acid", 500),
+		"#cmi:crystals",
+		"32x #forge:seeds"
+	]).heated()
 })
-
-

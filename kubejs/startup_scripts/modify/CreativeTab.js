@@ -1,22 +1,31 @@
 StartupEvents.modifyCreativeTab("kubejs:tab", (event) => {
 	event.setIcon("cmi:charged_amethyst")
-	event.setDisplayName(Component.translate(`itemGroup.${global.namespace}.all`))
+	event.setDisplayName(Component.translatable(`itemGroup.${global.namespace}.all`))
 
 	event.add([
 		"cmi:water_pump"
 	])
 
-	event.remove(`#${global.namespace}:io_debug_block`)
-	event.remove("#forge:chem_salts")
-	event.remove("#create:mechanisms")
-	event.remove("#create:incomplete_mechanisms")
-	event.remove(`#${global.namespace}:mechanism_parts`)
-	event.remove(`#${global.namespace}:mechanism_flash_drives`)
-	event.remove("#tconstruct:casts")
-	event.remove(`#${global.namespace}:metals`)
-	event.remove(`#${global.namespace}:ores`)
-	event.remove(`#${global.namespace}:raw_metals`)
-	event.remove(`#${global.namespace}:ore_nodes`)
+	let removeItemFromCreativeTab = [
+		`#${global.namespace}:io_debug_block`,
+		"#forge:chem_salts",
+		"#create:mechanisms",
+		"#create:incomplete_mechanisms",
+		`#${global.namespace}:mechanism_parts`,
+		`#${global.namespace}:mechanism_flash_drives`,
+		"#tconstruct:casts/multi_use/mechanism",
+		"#tconstruct:casts/single_use/mechanism",
+		"#tconstruct:casts/multi_use/nugget",
+		`#${global.namespace}:metals`,
+		`#${global.namespace}:ores`,
+		`#${global.namespace}:raw_metals`,
+		`#${global.namespace}:ore_nodes`,
+		`#${global.namespace}:dev_doll`,
+		`#${global.namespace}:machine_block`
+	]
+	removeItemFromCreativeTab.forEach((item) => {
+		event.remove(item)
+	})
 })
 
 StartupEvents.modifyCreativeTab("create:base", (event) => {
@@ -40,6 +49,13 @@ StartupEvents.modifyCreativeTab("tconstruct:smeltery", (event) => {
 		"cmi:mechanism_cast",
 		"cmi:mechanism_sand_cast",
 		"cmi:mechanism_red_sand_cast"
+	])
+})
+
+StartupEvents.modifyCreativeTab("thermalconstruct:thermal_construct_tab", (event) => {
+	event.add([
+		"cmi:bronze_mechanism_cast",
+		"cmi:bronze_nugget_cast"
 	])
 })
 

@@ -11,13 +11,13 @@ ServerEvents.recipes((event) => {
 	let ifm = "cmi:incomplete_feinforced_mechanism"
 	let irm = "cmi:incomplete_resonant_mechanism"
 	let inm = "cmi:incomplete_nature_mechanism"
-	let itrm = "cmi:incomplete_nature_mechanism"
 	let ilem = "cmi:incomplete_light_engineering_mechanism"
 	let ihem = "cmi:incomplete_heavy_engineering_mechanism"
 	let iem = "cmi:incomplete_ender_mechanism"
 	let icom = "cmi:incomplete_coil_mechanism"
 	let ienm = "cmi:incomplete_enchanted_mechanism"
 	let ismm = "cmi:incomplete_smart_mechanism"
+	let iom = "cmi:incomplete_osmium_mechanism"
 	let ibmm = "cmi:incomplete_basic_mekanism_mechanism"
 	let iamm = "cmi:incomplete_advanced_mekanism_mechanism"
 	let iemm = "cmi:incomplete_elite_mekanism_mechanism"
@@ -38,6 +38,8 @@ ServerEvents.recipes((event) => {
 	let ir3m = "cmi:incomplete_tier_3_aviation_mechanism"
 	let ir4m = "cmi:incomplete_tier_4_aviation_mechanism"
 	let ipom = "cmi:incomplete_potion_mechanism"
+	let irsm = "vintageimprovements:incomplete_redstone_module"
+	let ibm = "cmi:incomplete_bronze_mechanism"
 
 	// 木质
 	create.sequenced_assembly("cmi:wooden_mechanism", [
@@ -176,6 +178,7 @@ ServerEvents.recipes((event) => {
 		"#forge:sheetmetals/iron"
 	], [
 		create.deploying(ilem, [ilem, "immersiveengineering:component_iron"]),
+		create.deploying(ilem, [ilem, "immersiveengineering:electron_tube"]),
 		create.deploying(ilem, [ilem, "#forge:wires/copper"]),
 		create.deploying(ilem, [ilem, "cmi:engineering_mechanism_part"]),
 	]).transitionalItem(ilem).loops(1)
@@ -185,18 +188,21 @@ ServerEvents.recipes((event) => {
 		"#forge:sheetmetals/steel"
 	], [
 		create.deploying(ihem, [ihem, "immersiveengineering:component_steel"]),
+		create.deploying(ihem, [ihem, "immersiveengineering:component_electronic"]),
 		create.deploying(ihem, [ihem, "#forge:wires/electrum"]),
+		create.filling(ihem, [ihem, Fluid.of("cmi:lubricating_oil", 100)]),
 		create.deploying(ihem, [ihem, "cmi:engineering_mechanism_part"]),
 	]).transitionalItem(ihem).loops(1)
 
 	// 线圈
 	create.sequenced_assembly("cmi:coil_mechanism", [
-		"cmi:light_engineering_mechanism"
+		"immersiveengineering:sheetmetal_iron"
 	], [
-		create.deploying(icom, [icom, "#forge:wires/copper"]),
-		create.deploying(icom, [icom, "#forge:wires/electrum"]),
-		create.deploying(icom, [icom, "#forge:wires/aluminum"]),
-		create.deploying(icom, [icom, "#forge:wires/steel"]),
+		create.deploying(icom, [icom, "create:electron_tube"]),
+		create.deploying(icom, [icom, "cmi:simple_battery"]),
+		create.deploying(icom, [icom, "immersiveengineering:wirecoil_copper"]),
+		create.deploying(icom, [icom, "immersiveengineering:wirecoil_electrum"]),
+		create.deploying(icom, [icom, "cmi:engineering_mechanism_part"]),
 	]).transitionalItem(icom).loops(1)
 
 	// 附魔
@@ -218,6 +224,17 @@ ServerEvents.recipes((event) => {
 		create.deploying(ismm, [ismm, "cmi:engineering_mechanism_part"]),
 	]).transitionalItem(ismm).loops(1)
 
+
+	// 锇质
+	create.sequenced_assembly("cmi:osmium_mechanism", [
+		"#forge:plates/osmium"
+	], [
+		create.deploying(iom, [iom, "mekanism:hdpe_sheet"]),
+		create.deploying(iom, [iom, "mekanism:structural_glass"]),
+		create.pressing(iom, iom),
+		create.deploying(iom, [iom, "cmi:mekanism_mechanism_part"])
+	]).transitionalItem(iom).loops(1)
+
 	// 基础通用
 	create.sequenced_assembly("cmi:basic_mekanism_mechanism", [
 		"#forge:plates/stainless_steel"
@@ -232,7 +249,7 @@ ServerEvents.recipes((event) => {
 		"#forge:plates/stainless_steel"
 	], [
 		create.deploying(iamm, [iamm, "mekanism:advanced_control_circuit"]),
-		create.deploying(iamm, [iamm, '#vintageimprovements:small_springs/osmium']),
+		create.deploying(iamm, [iamm, "#vintageimprovements:small_springs/osmium"]),
 		create.deploying(ibmm, [ibmm, "cmi:mekanism_mechanism_part"]),
 	]).transitionalItem(iamm).loops(1)
 
@@ -344,9 +361,6 @@ ServerEvents.recipes((event) => {
 		create.deploying(icpm, [icpm, "cmi:mekanism_mechanism_part"])
 	]).transitionalItem(icpm).loops(1)
 
-
-
-	//我并不知道为什么不生效，但是不报错我就push了（
 	// 1航天
 	create.sequenced_assembly("cmi:tier_1_aviation_mechanism", [
 		"#forge:plates/steel"
@@ -387,16 +401,57 @@ ServerEvents.recipes((event) => {
 		create.deploying(ir4m, [ir4m, "cmi:space_mechanism_part"]),
 	]).transitionalItem(ir4m).loops(1)
 
+	// 秘药
 	create.sequenced_assembly("cmi:potion_mechanism", [
 		"#forge:glass"
 	], [
 		create.filling(ipom, [
 			ipom,
-			Fluid.of("create:potion", 500, {
+			Fluid.of("create:potion", 250, {
+				Bottle: "REGULAR",
+				Potion: "minecraft:night_vision"
+			})
+		]),
+		create.filling(ipom, [
+			ipom,
+			Fluid.of("create:potion", 250, {
 				Bottle: "REGULAR",
 				Potion: "minecraft:strength"
 			})
 		]),
+		create.filling(ipom, [
+			ipom,
+			Fluid.of("create:potion", 250, {
+				Bottle: "REGULAR",
+				Potion: "minecraft:swiftness"
+			})
+		]),
+		create.filling(ipom, [
+			ipom,
+			Fluid.of("create:potion", 250, {
+				Bottle: "REGULAR",
+				Potion: "minecraft:fire_resistance"
+			})
+		]),
 		create.deploying(ipom, [ipom, "cmi:magical_mechanism_part"])
 	]).transitionalItem(ipom).loops(1)
+
+	// 红石
+	create.sequenced_assembly("vintageimprovements:redstone_module", [
+		"#create:sleepers"
+	], [
+		create.deploying(irsm, [irsm, "minecraft:redstone_torch"]),
+		create.deploying(irsm, [irsm, "cmi:basic_mechanism_part"]),
+	]).transitionalItem(irsm).loops(1)
+
+	// 青铜
+	create.sequenced_assembly("cmi:bronze_mechanism", [
+		"#forge:plates/bronze"
+	], [
+		create.cutting(ibm, ibm),
+		create.deploying(ibm, [ibm, "vintageimprovements:bronze_spring"]),
+		create.deploying(ibm, [ibm, "#forge:nuggets/bronze"]),
+		create.deploying(ibm, [ibm, "create:flywheel"]),
+		create.deploying(ibm, [ibm, "cmi:mechanical_mechanism_part"]),
+	]).transitionalItem(ibm).loops(1)
 })

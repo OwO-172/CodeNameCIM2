@@ -1,36 +1,51 @@
 StartupEvents.registry("block", (event) => {
-	function addOreNode(name, types) {
-		const TYPE_LIST = Array.isArray(types) ? types : [types]
+	// SoundType List
+	const SOUND_TYPE = {
+		"stone": SoundType.STONE,
+		"deepslate": SoundType.DEEPSLATE,
+		"nether": SoundType.NETHER_ORE,
+		"moon": SoundType.STONE
+	}
 
-		TYPE_LIST.forEach((type) => {
-			if (type !== "nether" && type !== "deepslate") {
-				event.create(`${global.namespace}:${type}_${name}_ore_node`)
-					.soundType(SoundType.STONE)
-					.hardness(-1)
-					.resistance(100)
-					.textureAll(`${global.namespace}:block/ore/node/${name}/${type}`)
-					.tagItem(`${global.namespace}:ore_nodes`)
-					.tagBlock("mekanism:cardboard_blacklist")
-					.tag("deepdrilling:ore_nodes")
-			} else if (type === "deepslate") {
-				event.create(`${global.namespace}:${type}_${name}_ore_node`)
-					.soundType(SoundType.DEEPSLATE)
-					.hardness(-1)
-					.resistance(100)
-					.textureAll(`${global.namespace}:block/ore/node/${name}/${type}`)
-					.tagItem(`${global.namespace}:ore_nodes`)
-					.tagBlock("mekanism:cardboard_blacklist")
-					.tag("deepdrilling:ore_nodes")
-			} else if (type === "nether") {
-				event.create(`${global.namespace}:${type}_${name}_ore_node`)
-					.soundType(SoundType.NETHER_ORE)
-					.hardness(-1)
-					.resistance(100)
-					.textureAll(`${global.namespace}:block/ore/node/${name}/${type}`)
-					.tagItem(`${global.namespace}:ore_nodes`)
-					.tagBlock("mekanism:cardboard_blacklist")
-					.tag("deepdrilling:ore_nodes")
-			}
+	// Common Block Tags List
+	const COMMON_BLOCK_TAGS = [
+		"mekanism:cardboard_blacklist",
+		"ae2:blacklisted/spatial",
+		"deepdrilling:ore_nodes"
+	]
+
+	// Common Item Tag(s) List
+	const COMMON_ITEM_TAGS = [
+		`${global.namespace}:ore_nodes`
+	]
+
+	/**
+	 * 注册矿石节点方块
+	 * @param {String} name 矿石id
+	 * @param {String | Array<String>} types 类型, 可以是 stone/deepslate/nether/moon 等, 支持数组
+	 */
+	function addOreNode(name, types) {
+		let typeList = Array.isArray(types) ? types : [types]
+
+		typeList.forEach((type) => {
+			const SOUND = SOUND_TYPE[type] || SoundType.STONE
+
+			let blockBuilder = event.create(`${global.namespace}:${type}_${name}_ore_node`)
+				.soundType(SOUND)
+				.hardness(-1)
+				.resistance(3600000)
+				.textureAll(`${global.namespace}:block/ore/node/${name}/${type}`)
+				.noDrops()
+
+			// Add Block Tag
+			COMMON_BLOCK_TAGS.forEach((tag) => {
+				blockBuilder.tagBlock(tag)
+			})
+
+			// Add Item Tag
+			COMMON_ITEM_TAGS.forEach((tag) => {
+				blockBuilder.tagItem(tag)
+			})
 		})
 	}
 
@@ -43,6 +58,7 @@ StartupEvents.registry("block", (event) => {
 	addOreNode("cheese", "moon")
 	addOreNode("coal", "deepslate")
 	addOreNode("tin", "deepslate")
+	addOreNode("oil_shale", ["stone", "deepslate"])
 
 	// Array Example
 	// addOreNode("diamond", ["deepslate", "nether"])

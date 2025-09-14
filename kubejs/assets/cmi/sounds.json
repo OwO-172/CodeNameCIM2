@@ -14,5 +14,21 @@
 				"stream": true
 			}
 		]
+	},
+	"main_menu": {
+		"sounds": [
+			{
+				"name": "cmi:music/main_menu",
+				"stream": true
+			}
+		]
+	},
+	"record.mechanism": {
+		"sounds": [
+			{
+				"name": "cmi:music/record/mechanism",
+				"stream": true
+			}
+		]
 	}
 }

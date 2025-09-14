@@ -2,7 +2,7 @@ export interface Coloring {
 	[material: string]: number
 }
 
-const materialColor: Coloring = {
+const MATERIALS_COLOR: Coloring = {
 	rubber: 0xE0D8B8,
 	cast_iron: 0x4D4D4D,
 	andesite_alloy: 0xA9AFA1,
@@ -21,7 +21,7 @@ const materialColor: Coloring = {
 	brass: 0xFFC040,
 	shadow_steel: 0x383040,
 	refined_radiance: 0xE8E8F8,
-	industrial_iron: 0x505050,
+	industrial_iron: 0x4E4E4E,
 	vanadium: 0xD0E0E8,
 	aluminum: 0xB8C0C0,
 	uranium: 0x288010,

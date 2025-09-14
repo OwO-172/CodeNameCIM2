@@ -1,10 +1,20 @@
 ServerEvents.recipes((event) => {
 	let { mekanism } = event.recipes
 
-	// 铂碎片处理
-	mekanism.purifying(
-		"cmi:platinum_crystal_nucleus",
-		"4x cmi:platinum_shard",
-		{ "gas": "mekanism:hydrogen", "amount": 500 }
-	)
+	// Si
+	mekanism.reaction(
+		"#forge:glass",
+		MekanismType.Gas.of("mekanism:hydrogen", 250),
+		Fluid.of("cmi:tetrachlorosilane", 500),
+		"cmi:single_crystal_silicon",
+		MekanismType.Gas.of("mekanism:hydrogen_chloride", 500)
+	).duration(400).energyRequired(200)
+
+	// HDPE
+	mekanism.reaction(
+		"thermal_extra:polyolefin_plate",
+		MekanismType.Gas.of("mekanism:oxygen", 10),
+		Fluid.of("mekanism:ethene", 50),
+		"mekanism:hdpe_pellet",
+	).duration(400).energyRequired(200)
 })

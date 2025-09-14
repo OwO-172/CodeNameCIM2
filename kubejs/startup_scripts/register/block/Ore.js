@@ -1,11 +1,12 @@
 let ores = []
-let pickaxe = global.toolType["pickaxe"]
+const PICKAXE = global.ToolType["pickaxe"]
 
 /**
  * 函数封装
  * @param {string} name 注册ID
  * @param {ResourceLocation_} level 挖掘等级
  * @param {number} hardness 硬度
+ * @type {OreBlockRegister}
  * @returns 矿石注册
  */
 function addOreBlock(name, level, hardness) {
@@ -27,7 +28,7 @@ function addOreBlock(name, level, hardness) {
 			this.types.push("nether")
 			return this
 		},
-		end: function() {
+		end: function () {
 			this.types.push("end")
 			return this
 		},
@@ -68,8 +69,8 @@ StartupEvents.registry("block", (event) => {
 					.tag(`${global.namespace}:ores`)
 					.tag("forge:ores")
 					.tag(`forge:ores/${ore.name}`)
-					.tagBlock(pickaxe)
-					.tagBlock(global.miningLevel[ore.level])
+					.tagBlock(PICKAXE)
+					.tagBlock(global.MiningLevel[ore.level])
 					.requiresTool(true)
 			} else if (type === "deepslate") {
 				event.create(`${global.namespace}:${type}_${ore.name}_ore`)
@@ -80,20 +81,20 @@ StartupEvents.registry("block", (event) => {
 					.tag(`${global.namespace}:ores`)
 					.tag("forge:ores")
 					.tag(`forge:ores/${ore.name}`)
-					.tagBlock(pickaxe)
-					.tagBlock(global.miningLevel[ore.level])
+					.tagBlock(PICKAXE)
+					.tagBlock(global.MiningLevel[ore.level])
 					.requiresTool(true)
 			} else if (type === "nether") {
 				event.create(`${global.namespace}:${type}_${ore.name}_ore`)
 					.textureAll(`${global.namespace}:block/ore/${ore.name}/${type}`)
 					.soundType(SoundType.NETHER_ORE)
-					.hardness(ore.hardness + 1.5)
-					.resistance(ore.hardness + 1.5)
+					.hardness(ore.hardness)
+					.resistance(ore.hardness)
 					.tag(`${global.namespace}:ores`)
 					.tag("forge:ores")
 					.tag(`forge:ores/${ore.name}`)
-					.tagBlock(pickaxe)
-					.tagBlock(global.miningLevel[ore.level])
+					.tagBlock(PICKAXE)
+					.tagBlock(global.MiningLevel[ore.level])
 					.requiresTool(true)
 			} else {
 				event.create(`${global.namespace}:${ore.name}_ore`)
@@ -104,8 +105,8 @@ StartupEvents.registry("block", (event) => {
 					.tag(`${global.namespace}:ores`)
 					.tag("forge:ores")
 					.tag(`forge:ores/${ore.name}`)
-					.tagBlock(pickaxe)
-					.tagBlock(global.miningLevel[ore.level])
+					.tagBlock(PICKAXE)
+					.tagBlock(global.MiningLevel[ore.level])
 					.requiresTool(true)
 			}
 		})
@@ -132,3 +133,66 @@ addOreBlock("vanadium", "iron", 5)
 // 铀
 addOreBlock("uranium", "iron", 5)
 	.nether()
+
+// 铬
+addOreBlock("chromium", "stone", 5)
+	.moon()
+
+// 钨
+addOreBlock("tungsten", "nether", 10)
+	.nether()
+
+// 黄铁
+addOreBlock("pyrite", "stone", 6)
+	.stone()
+	.deepslate()
+
+// 红镍
+addOreBlock("lateritic_nickel", "stone", 6)
+	.stone()
+	.deepslate()
+
+// 辉绿
+addOreBlock("veridium", "stone", 3)
+	.stone()
+	.deepslate()
+
+// 黄锡
+addOreBlock("stannine", "stone", 3)
+	.stone()
+	.deepslate()
+
+// 闪锌
+addOreBlock("sphalerite", "iron", 5)
+	.stone()
+	.deepslate()
+
+// 磷酸铝
+addOreBlock("variscite", "stone", 4)
+	.stone()
+	.deepslate()
+
+// 方铅
+addOreBlock("galena", "stone", 5)
+	.stone()
+	.deepslate()
+
+// 铱锇
+addOreBlock("osmiridium", "iron", 6)
+	.stone()
+	.deepslate()
+
+// 方铀
+addOreBlock("uraninite", "stone", 5)
+	.stone()
+	.deepslate()
+
+// 辉银
+addOreBlock("argentite", "iron", 6)
+	.stone()
+	.deepslate()
+
+// 赛特斯石英
+addOreBlock("certus_quartz", "iron", 3)
+	.stone()
+	.deepslate()

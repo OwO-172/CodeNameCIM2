@@ -5,9 +5,9 @@ ServerEvents.recipes((event) => {
 
 	//祛魔池
 	kubejs.shaped("create_enchantment_industry:disenchanter", [
-		" C ",
-		" B ",
-		" A "
+		"C",
+		"B",
+		"A"
 	], {
 		A: mech,
 		B: casing,
@@ -25,14 +25,14 @@ ServerEvents.recipes((event) => {
 		C: mech
 	}).id("create:crafting/kinetics/item_drain")
 
-	// 流体接口(你们不准Kiss👊😭👊)
+	// 流体接口
 	kubejs.shapeless("create:portable_fluid_interface", [
 		"create:chute",
 		casing,
 		mech
 	]).id("create:crafting/kinetics/portable_fluid_interface")
 
-	// 软管滑轮(为什么干海带可以承受1000乃至1500度的高温啊Kora!😡)
+	// 软管滑轮
 	kubejs.shaped("create:hose_pulley", [
 		" A ",
 		"BCB",
@@ -44,7 +44,7 @@ ServerEvents.recipes((event) => {
 		D: "#forge:plates/copper"
 	}).id("create:crafting/kinetics/hose_pulley")
 
-	// 压缩机(动力泵异父异母的亲兄弟(点头))
+	// 压缩机
 	kubejs.shaped("vintageimprovements:vacuum_chamber", [
 		" A ",
 		"BCB",
@@ -57,7 +57,7 @@ ServerEvents.recipes((event) => {
 		E: "create:mechanical_pump"
 	}).id("vintageimprovements:craft/vacuum_chamber")
 
-	// 注液器(滋尿器(点头))
+	// 注液器
 	kubejs.shaped("create:spout", [
 		"A",
 		"B",
@@ -67,4 +67,37 @@ ServerEvents.recipes((event) => {
 		B: casing,
 		C: "minecraft:dried_kelp"
 	}).id("create:crafting/kinetics/spout")
+
+	//洒水器
+	kubejs.shaped("2x sliceanddice:sprinkler", [
+		"BAB",
+		"BCB"
+	], {
+		A: mech,
+		B: "#forge:plates/copper",
+		C: "minecraft:iron_bars"
+	}).id("sliceanddice:sprinkler")
+
+	// 挤压盆
+	kubejs.shaped("ratatouille:squeeze_basin", [
+		" B ",
+		"BAB",
+		"C C"
+	], {
+		A: mech,
+		B: "#forge:plates/copper",
+		C: "#forge:ingots/copper"
+	}).id("ratatouille:squeeze_basin")
+
+	// 灌溉塔
+	kubejs.shaped("ratatouille:irrigation_tower", [
+		" B ",
+		"CAC",
+		"D D"
+	], {
+		A: mech,
+		B: "create:fluid_tank",
+		C: "#forge:plates/copper",
+		D: "create:fluid_pipe"
+	}).id("ratatouille:irrigation_tower")
 })

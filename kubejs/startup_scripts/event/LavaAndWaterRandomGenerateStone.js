@@ -15,33 +15,33 @@ let replaceBlocks = [
 ]
 // 概率
 const CHANCE = 0.25
-RegisterNativeEvents.onJavaClassEvent($BlockEvent$FluidPlaceBlockEvent, (event) => {
+// 剩余75%概率随机选择列表中的方块
+let randomIndex = Math.floor(Math.random() * replaceBlocks.length)
+let randomBlock = replaceBlocks[randomIndex]
+
+RegisterNativeEvents.onEvent($BlockEvent$FluidPlaceBlockEvent, (event) => {
 	let block = event.getNewState().getBlock()
 
 	if (block.id === "minecraft:cobblestone") {
-		// 50%概率生成安山岩
+		// 25%概率生成安山岩
 		if (Math.random() < CHANCE) {
 			event.setNewState(Block.getBlock("minecraft:andesite").defaultBlockState())
 		} else {
 			// 剩余50%概率随机选择列表中的方块
-			let randomIndex = Math.floor(Math.random() * replaceBlocks.length)
-			let randomBlock = replaceBlocks[randomIndex]
 			event.setNewState(Block.getBlock(randomBlock).defaultBlockState())
 		}
 	}
 })
 
-RegisterNativeEvents.onJavaClassEvent($PipeCollisionEvent$Spill, (event) => {
+RegisterNativeEvents.onEvent($PipeCollisionEvent$Spill, (event) => {
 	let block = event.getState().block
 
 	if (block.id === "minecraft:stone") {
-		// 50%概率生成安山岩
+		// 25%概率生成安山岩
 		if (Math.random() < CHANCE) {
 			event.setState(Block.getBlock("minecraft:andesite").defaultBlockState())
 		} else {
-			// 剩余50%概率随机选择列表中的方块
-			let randomIndex = Math.floor(Math.random() * replaceBlocks.length)
-			let randomBlock = replaceBlocks[randomIndex]
+			// 剩余75%概率随机选择列表中的方块
 			event.setState(Block.getBlock(randomBlock).defaultBlockState())
 		}
 	}
