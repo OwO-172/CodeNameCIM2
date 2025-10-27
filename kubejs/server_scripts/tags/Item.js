@@ -1,4 +1,12 @@
 ServerEvents.tags("item", (event) => {
+	let add = advancedAdd.bind(event)
+
+	add("forge:raw_materials/scarlet_neodymium", "alexscaves:raw_scarlet_neodymium")
+	add("forge:raw_materials/azure_neodymium", "alexscaves:raw_azure_neodymium")
+
+	add("forge:ingots/scarlet_neodymium", "alexscaves:scarlet_neodymium_ingot")
+	add("forge:ingots/azure_neodymium", "alexscaves:azure_neodymium_ingot")
+
 	event.get("create:mechanisms")
 		.add("create:precision_mechanism")
 		.add("vintageimprovements:redstone_module")
@@ -8,10 +16,47 @@ ServerEvents.tags("item", (event) => {
 		.add("vintageimprovements:incomplete_redstone_module")
 		.add("cmi:incomplete_nuclear_mechanism")
 
+	// 构件
+	event.get("create:mechanisms/precision")
+		.add("create:precision_mechanism")
+
+	event.get("create:mechanisms/redstone")
+		.add("vintageimprovements:redstone_module")
+
+	event.get("create:mechanisms/nuclear")
+		.add("cmi:nuclear_mechanism")
+
 	global.dyeColorGroup.forEach((color) => {
 		event.get(`forge:dyes/${color}`)
 			.add("cmi:colorful_mechanism")
 	})
+
+	// 航天构件
+	event.get("cmi:tier_1_aviation_mechanism")
+		.add("cmi:tier_1_aviation_mechanism")
+
+	event.get("cmi:tier_2_aviation_mechanism")
+		.add("cmi:tier_2_aviation_mechanism")
+
+	event.get("cmi:tier_3_aviation_mechanism")
+		.add("cmi:tier_3_aviation_mechanism")
+
+	event.get("cmi:tier_4_aviation_mechanism")
+		.add("cmi:tier_4_aviation_mechanism")
+
+	// 榨糖原料
+	event.get("cmi:sugar_raw_material")
+		.add("minecraft:sugar_cane")
+		.add("minecraft:beetroot")
+
+	// 稻穗
+	event.get("forge:rice_panicle")
+		.add("farmersdelight:rice_panicle")
+		.add("kaleidoscope_cookery:rice_panicle")
+
+	// 无限燃烧Tooltip
+	event.get("minecraft:infiniburn_all")
+		.add("cmi:combustion_medium_block")
 
 	// 建筑手杖
 	event.get("constructionwand:wand")
@@ -61,10 +106,6 @@ ServerEvents.tags("item", (event) => {
 	event.get("cmi:peat_gen")
 		.add("cmi:peat_block")
 		.add("cmi:peat")
-
-	event.get("minecraft:infiniburn_all")
-		.add("#forge:storage_blocks/charcoal")
-		.add("#forge:storage_blocks/coal")
 
 	// 特殊矿石
 	event.get("cmi:special_ores")
@@ -344,6 +385,9 @@ ServerEvents.tags("item", (event) => {
 		.add("ratatouille:salt")
 		.add("cmi:nacl")
 
+	event.get("forge:ingots/andesite")
+		.add("create:andesite_alloy")
+
 	// 催生晶体
 	event.get("cmi:crystals")
 		.add("minecraft:amethyst_shard")
@@ -362,6 +406,12 @@ ServerEvents.tags("item", (event) => {
 
 	event.get("mekanism:crystals")
 		.remove("mekanism:crystal_gold")
+
+	event.add("forge:stripped_logs")
+		.add("thermal:stripped_rubberwood_log")
+
+	event.get("create:blaze_burner_fuel/special")
+		.add("tconstruct:blazing_blood_bucket")
 
 	let crushedMaterialGroup = [
 		"iron",
@@ -382,32 +432,38 @@ ServerEvents.tags("item", (event) => {
 			.add(`create:crushed_raw_${material}`)
 	})
 
-	function splitTag(tag) {
-		let tagList = []
-		let splitedTag = tag.split("/")
-		tagList.push(splitedTag[0])
-		for (let i = 1; i < splitedTag.length; i++) {
-			tagList.push(tagList[i - 1] + "/" + splitedTag[i])
-		}
-		return tagList
+	event.get("forge:storage_blocks/etrium")
+		.add("ad_astra:etrium_block")
+
+	let types = [
+		"ingot",
+		"nugget",
+		"plate",
+		"rod"
+	]
+	types.forEach((metal) => {
+		event.get(`forge:${metal}s/etrium`)
+			.add(`ad_astra:etrium_${metal}`)
+
+		event.get(`forge:${metal}s`)
+			.add(`ad_astra:etrium_${metal}`)
+	})
+
+	function removeTagAllId(tag) {
+		return event.get(tag)
+			.removeAll()
 	}
 
-	function advancedAdd(tags, target) {
-		function tempAddTag(tag) {
-			if (tag.includes("/")) {
-				let tagList = splitTag(tag)
-				tagList.forEach((singleTag) => {
-					this.add(singleTag, target)
-				})
-			} else this.add(tag, target)
-		}
-		let addTag = tempAddTag.bind(this)
-		if (typeof tags == "string") {
-			addTag(tags)
-		} else {
-			tags.forEach((tag) => {
-				addTag(tag)
-			})
-		}
-	}
+	removeTagAllId("forge:raw_materials/desh")
+	removeTagAllId("forge:raw_materials/ostrum")
+	removeTagAllId("forge:raw_materials/calorite")
+
+	event.get("forge:raw_materials/desh_scrap")
+		.add("ad_astra:raw_desh")
+
+	event.get("forge:raw_materials/ostrum_scrap")
+		.add("ad_astra:raw_ostrum")
+
+	event.get("forge:raw_materials/calorite_scrap")
+		.add("ad_astra:raw_calorite")
 })

@@ -1,5 +1,5 @@
 ServerEvents.recipes((event) => {
-	let { create } = event.recipes
+	let { create, kubejs } = event.recipes
 
 	create.deploying("immersiveengineering:component_iron", [
 		"immersiveengineering:sheetmetal_iron",
@@ -16,7 +16,7 @@ ServerEvents.recipes((event) => {
 		"#forge:dusts/redstone"
 	])
 
-	//飞轮
+	// 飞轮
 	create.sequenced_assembly("create:flywheel", [
 		"#create:shaft"
 	], [
@@ -68,4 +68,19 @@ ServerEvents.recipes((event) => {
 		"scannable:blank_module",
 		"cmi:wooden_mechanism"
 	]).id("scannable:chest_module")
+
+	create.deploying(`create:andesite_casing`, [
+		"#minecraft:planks",
+		"cmi:andesite_casing_framework"
+	])
+
+	create.deploying(`create:brass_casing`, [
+		"#minecraft:planks",
+		"cmi:brass_casing_framework"
+	])
+
+	create.deploying(`create:copper_casing`, [
+		"#forge:treated_wood",
+		"cmi:copper_casing_framework"
+	])
 })

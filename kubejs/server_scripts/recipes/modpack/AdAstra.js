@@ -165,7 +165,7 @@ ServerEvents.recipes((event) => {
 		]),
 		vintageimprovements.laser_cutting("cmi:tier_1_rocket_frame", [
 			"cmi:tier_1_rocket_frame"
-		]).energy(100)
+		]).energy(1000).maxChargeRate(100)
 	]).loops(1).transitionalItem("cmi:tier_1_rocket_frame")
 
 	// Tier2 r
@@ -182,7 +182,7 @@ ServerEvents.recipes((event) => {
 		]),
 		vintageimprovements.laser_cutting("cmi:tier_2_rocket_frame", [
 			"cmi:tier_2_rocket_frame"
-		]).energy(100)
+		]).energy(1000).maxChargeRate(100)
 	]).loops(1).transitionalItem("cmi:tier_2_rocket_frame")
 
 	// Tier3 r
@@ -199,7 +199,7 @@ ServerEvents.recipes((event) => {
 		]),
 		vintageimprovements.laser_cutting("cmi:tier_3_rocket_frame", [
 			"cmi:tier_3_rocket_frame"
-		]).energy(100)
+		]).energy(1000).maxChargeRate(100)
 	]).loops(1).transitionalItem("cmi:tier_3_rocket_frame")
 
 	// Tier4 r
@@ -216,7 +216,7 @@ ServerEvents.recipes((event) => {
 		]),
 		vintageimprovements.laser_cutting("cmi:tier_4_rocket_frame", [
 			"cmi:tier_4_rocket_frame"
-		]).energy(100)
+		]).energy(1000).maxChargeRate(100)
 	]).loops(1).transitionalItem("cmi:tier_4_rocket_frame")
 
 
@@ -228,7 +228,7 @@ ServerEvents.recipes((event) => {
 		"CMC",
 		"AAA"
 	], {
-		A: "#forge:plates/steel",
+		A: "#forge:plates/tungsten_steel",
 		C: "cmi:tier_1_aviation_mechanism",
 		M: "minecraft:blast_furnace"
 	}).id("ad_astra:etrionic_blast_furnace")

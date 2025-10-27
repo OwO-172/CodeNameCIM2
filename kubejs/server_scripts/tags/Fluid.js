@@ -1,19 +1,26 @@
 ServerEvents.tags("fluid", (event) => {
+	function removeTagAllId(tag) {
+		return event.get(tag)
+			.removeAll()
+	}
+
 	// 可用作火箭燃料
 	event.get("ad_astra:fuel")
-		.add("minecraft:lava")
+		.removeAll()
+		.add("ad_astra:fuel")
+		.add("ad_astra:cryo_fuel")
 
 	// 一桶就能上天的燃料
-	event.get("ad_astra:efficient_fuel")
-		.add("minecraft:lava")
+	// event.get("ad_astra:efficient_fuel")
+	// 	.add("minecraft:lava")
 
 	// ad原油
-	event.get("ad_astra:oil")
-		.add("minecraft:lava")
+	// event.get("ad_astra:oil")
+	// 	.add("minecraft:lava")
 
 	// ad氧气
-	event.get("ad_astra:oxygen")
-		.add("minecraft:lava")
+	// event.get("ad_astra:oxygen")
+	// 	.add("minecraft:lava")
 
 	event.get("minecraft:water")
 		.removeAll()
@@ -61,19 +68,35 @@ ServerEvents.tags("fluid", (event) => {
 	event.get("forge:diesel")
 		.add("cmi:sulfric_diesel")
 
+	event.get("cmi:photosyn_fluid")
+		.add("cmi:photosyn_fluid")
+
+	event.get("forge:kerosene")
+		.add("cmi:kerosene")
+
 	event.get("tconstruct:fuels")
-		.add([
-			"ad_astra:cryo_fuel",
-			"cmi:delta_unstable_solution",
-			"ad_astra:fuel",
-			"#forge:oil",
-			"thermal:refined_fuel",
-			"cmi:turbid_waste_liquid",
-			"tconstruct:blazing_blood",
-			"immersiveengineering:ethanol",
-			"createdieselgenerators:plant_oil",
-			"createdieselgenerators:biodiesel",
-			"createdieselgenerators:diesel",
-			"createdieselgenerators:gasoline"
-		])
+		.add("ad_astra:cryo_fuel")
+		.add("cmi:delta_unstable_solution")
+		.add("ad_astra:fuel")
+		.add("#forge:oil")
+		.add("thermal:refined_fuel")
+		.add("cmi:turbid_waste_liquid")
+		.add("tconstruct:blazing_blood")
+		.add("immersiveengineering:ethanol")
+		.add("createdieselgenerators:plant_oil")
+		.add("createdieselgenerators:biodiesel")
+		.add("createdieselgenerators:diesel")
+		.add("createdieselgenerators:gasoline")
+
+	let thermalMaterials = [
+		"soul_infused",
+		"shellite",
+		"dragonsteel",
+		"twinite",
+		"abyssal"
+	]
+	thermalMaterials.forEach(material => {
+		event.get(`tconstruct:molten_${material}`)
+			.add(`thermalconstruct:molten_${material}`)
+	})
 })

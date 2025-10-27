@@ -92,10 +92,11 @@ StartupEvents.registry("item", (event) => {
 				}
 			}
 
-			if (type === "block"
-				|| type === "molten"
-				|| type === "dirty_slurry"
-				|| type === "slurry") {
+			if (type === "block" ||
+				type === "molten" ||
+				type === "dirty_slurry" ||
+				type === "slurry"
+			) {
 				return
 			}
 
@@ -161,6 +162,7 @@ StartupEvents.registry("fluid", (event) => {
 					.stillTexture(`${global.namespace}:fluid/metal/still`)
 					.tag("forge:molten_materials")
 					.tag(`forge:molten_${material.name}`)
+					.tag(`tconstruct:molten_${material.name}`)
 
 				if (Platform.isClientEnvironment()) {
 					let file = `kubejs/assets/${global.namespace}/models/item/molten_${material.name}_bucket.json`
@@ -264,17 +266,10 @@ addMaterial("magnesium", 0xFDC7FF, "stone")
 addMaterial("industrial_iron", 0x4E4E4E, "iron")
 	.molten()
 
-// 戴斯
-addMaterial("desh", 0xD38B4C, "wooden")
+// 埃忒恩
+addMaterial("etrium", 0x32FFD4, "diamond")
 	.molten()
-
-// 紫金
-addMaterial("ostrum", 0xA66B72, "wooden")
-	.molten()
-
-// 耐热金属
-addMaterial("calorite", 0xC94D4E, "wooden")
-	.molten()
+	.dust()
 
 // 钠
 addMaterial("sodium", 0xD7DDDD, "wooden")
@@ -316,10 +311,46 @@ addMaterial("vanadium", 0xF0FFFF, "stone")
 // 钨
 addMaterial("tungsten", 0x5A6C7E, "nether")
 	.ingot()
+	.nugget()
 	.plate()
 	.dust()
 	.rod()
 	.block()
+
+// 钨钢
+addMaterial("tungsten_steel", 0x82998C, "diamond")
+	.ingot()
+	.nugget()
+	.plate()
+	.block()
+	.molten()
+	.rod()
+	.gear()
+	.dust()
+
+// 戴斯
+addMaterial("desh", 0xD38B4C, "wooden")
+	.molten()
+	.dust()
+
+// 紫金
+addMaterial("ostrum", 0xA66B72, "wooden")
+	.molten()
+	.dust()
+
+// 耐热金属
+addMaterial("calorite", 0xC94D4E, "wooden")
+	.molten()
+	.dust()
+
+// 赤铷合金
+addMaterial("scarlet_neodymium", 0xB91919, "stone")
+	.dust()
+	.molten()
+
+// 青铷合金
+addMaterial("azure_neodymium", 0x1936B9, "stone")
+	.dust()
 	.molten()
 
 // MEK中间产物

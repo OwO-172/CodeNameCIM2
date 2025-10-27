@@ -1,7 +1,13 @@
 ItemEvents.modification((event) => {
-	const BURN_TIME = 200
+	/**
+	 * 
+	 * @param {Internal.Item} item 修改的物品
+	 * @param {Number} time 修改的时间(单位: 1个物品)
+	 * @returns 
+	 */
 	function modifyItemBurnTime(item, time) {
 		return event.modify(item, (modify) => {
+			const BURN_TIME = 200
 			modify.burnTime = BURN_TIME * time
 		})
 	}
@@ -71,14 +77,9 @@ ItemEvents.modification((event) => {
 	event.modify("minecraft:sugar_cane", (modify) => {
 		modify.setFoodProperties((food) => {
 			food.hunger(2)
-				.saturation(5)
+				.saturation(2)
 				.alwaysEdible()
 				.fastToEat()
-				.eaten((event) => {
-					let { player } = event
-
-					player.give("cmi:sugarcane_fiber")
-				})
 		})
 	})
 })

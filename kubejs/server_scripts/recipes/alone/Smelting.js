@@ -1,146 +1,195 @@
 ServerEvents.recipes((event) => {
-    let { minecraft, mekanism, immersiveengineering } = event.recipes
-    let types = ["forge:ores", "forge:raw_materials", "forge:dusts", "create:crushed_raw_materials"]
-    let furnaceMetals = global.meltingLevels[1000]
-    let blastFurnaceMetals = global.meltingLevels[1500]
-    let arcFurnaceMetals = global.meltingLevels[2000]
-    let energizedSmelterMetals = global.meltingLevels["above"]
+	let { minecraft, mekanism, immersiveengineering, thermal } = event.recipes
+	let types = ["forge:ores", "forge:raw_materials", "forge:dusts", "create:crushed_raw_materials"]
+	let furnaceMetals = global.meltingLevels[1000]
+	let blastFurnaceMetals = global.meltingLevels[1500]
+	let arcFurnaceMetals = global.meltingLevels[2000]
+	let energizedSmelterMetals = global.meltingLevels["above"]
 
-    types.forEach((type) => {
+	types.forEach((type) => {
 
-        furnaceMetals.forEach((metal) => {
-            let ingotId = Ingredient.of(`#forge:ingots/${metal}`).getItemIds()
+		furnaceMetals.forEach((metal) => {
+			let ingotId = Ingredient.of(`#forge:ingots/${metal}`).getItemIds()
 
-            if (IngredientUtils.isNotNull(`#${type}/${metal}`)) {
+			event.remove({
+				type: "minecraft:smelting",
+				input: `#${type}/${metal}`
+			})
 
-                minecraft.smelting(
-                    ingotId[0],
-                    `#${type}/${metal}`,
-                    0
-                )
-                minecraft.blasting(
-                    ingotId[0],
-                    `#${type}/${metal}`,
-                    0
-                )
-                event.custom({
-                    "type": "immersiveindustry:car_kiln",
-                    "input": {
-                        "tag": `${type}/${metal}`
-                    },
-                    "results": [{
-                        "item": ingotId[0]
-                    }],
-                    "time": 200,
-                    "tickEnergy": 32
-                })
+			event.remove({
+				type: "minecraft:blasting",
+				input: `#${type}/${metal}`
+			})
 
-                immersiveengineering.arc_furnace(ingotId[0])
-                    .input(`#${type}/${metal}`)
-                    .additives([])
+			event.remove({
+				type: "immersiveengineering:arc_furnace",
+				input: `#${type}/${metal}`
+			})
 
-                mekanism.smelting(
-                    ingotId[0],
-                    `#${type}/${metal}`
-                )
+			if (metal.toString() !== "aluminum" && IngredientUtils.isNotNull(`#${type}/${metal}`)) {
 
-            }
-        })
-        blastFurnaceMetals.forEach((metal) => {
-            let ingotId = Ingredient.of(`#forge:ingots/${metal}`).getItemIds()
+				minecraft.smelting(ingotId[0], `#${type}/${metal}`)
+				minecraft.blasting(ingotId[0], `#${type}/${metal}`)
+				event.custom({
+					"type": "immersiveindustry:car_kiln",
+					"input": {
+						"tag": `${type}/${metal}`
+					},
+					"results": [
+						{
+							"item": ingotId[0]
+						}
+					],
+					"time": 200,
+					"tickEnergy": 32
+				})
 
-            if (IngredientUtils.isNotNull(`#${type}/${metal}`)) {
+				immersiveengineering.arc_furnace(ingotId[0])
+					.input(`#${type}/${metal}`)
+					.additives([])
 
-                event.remove({
-                    type: "minecraft:smelting",
-                    input: `#${type}/${metal}`
-                })
 
-                minecraft.blasting(
-                    ingotId[0],
-                    `#${type}/${metal}`,
-                    0
-                )
-                event.custom({
-                    "type": "immersiveindustry:car_kiln",
-                    "input": {
-                        "tag": `${type}/${metal}`
-                    },
-                    "results": [{
-                        "item": ingotId[0]
-                    }],
-                    "time": 200,
-                    "tickEnergy": 32
-                })
 
-                immersiveengineering.arc_furnace(ingotId[0])
-                    .input(`#${type}/${metal}`)
-                    .additives([])
+				mekanism.smelting(ingotId[0], `#${type}/${metal}`)
 
-                mekanism.smelting(
-                    ingotId[0],
-                    `#${type}/${metal}`
-                )
+			}
+		})
+		blastFurnaceMetals.forEach((metal) => {
+			let ingotId = Ingredient.of(`#forge:ingots/${metal}`).getItemIds()
 
-            }
-        })
-        arcFurnaceMetals.forEach((metal) => {
-            let ingotId = Ingredient.of(`#forge:ingots/${metal}`).getItemIds()
+			event.remove({
+				type: "minecraft:smelting",
+				input: `#${type}/${metal}`
+			})
 
-            if (IngredientUtils.isNotNull(`#${type}/${metal}`)) {
+			if (IngredientUtils.isNotNull(`#${type}/${metal}`)) {
 
-                event.remove({
-                    type: "minecraft:smelting",
-                    input: `#${type}/${metal}`
-                })
+				minecraft.blasting(ingotId[0], `#${type}/${metal}`)
+				event.custom({
+					"type": "immersiveindustry:car_kiln",
+					"input": {
+						"tag": `${type}/${metal}`
+					},
+					"results": [{
+						"item": ingotId[0]
+					}],
+					"time": 200,
+					"tickEnergy": 32
+				})
 
-                event.remove({
-                    type: "minecraft:blasting",
-                    input: `#${type}/${metal}`
-                })
+				immersiveengineering.arc_furnace(ingotId[0])
+					.input(`#${type}/${metal}`)
+					.additives([])
 
-                event.custom({
-                    "type": "immersiveindustry:car_kiln",
-                    "input": {
-                        "tag": `${type}/${metal}`
-                    },
-                    "results": [{
-                        "item": ingotId[0]
-                    }],
-                    "time": 200,
-                    "tickEnergy": 32
-                })
-                immersiveengineering.arc_furnace(ingotId[0])
-                    .input(`#${type}/${metal}`)
-                    .additives([])
+				mekanism.smelting(ingotId[0], `#${type}/${metal}`)
 
-                mekanism.smelting(
-                    ingotId[0],
-                    `#${type}/${metal}`
-                )
+			}
+		})
+		arcFurnaceMetals.forEach((metal) => {
+			let ingotId = Ingredient.of(`#forge:ingots/${metal}`).getItemIds()
 
-            }
-        })
-        energizedSmelterMetals.forEach((metal) => {
-            let ingotId = Ingredient.of(`#forge:ingots/${metal}`).getItemIds()
+			event.remove({
+				type: "minecraft:smelting",
+				input: `#${type}/${metal}`
+			})
 
-            if (IngredientUtils.isNotNull(`#${type}/${metal}`)) {
+			if (IngredientUtils.isNotNull(`#${type}/${metal}`)) {
 
-                event.remove({
-                    type: "minecraft:smelting",
-                    input: `#${type}/${metal}`
-                })
+				event.remove({
+					type: "minecraft:blasting",
+					input: `#${type}/${metal}`
+				})
 
-                event.remove({
-                    type: "minecraft:blasting",
-                    input: `#${type}/${metal}`
-                })
+				event.custom({
+					"type": "immersiveindustry:car_kiln",
+					"input": {
+						"tag": `${type}/${metal}`
+					},
+					"results": [{
+						"item": ingotId[0]
+					}],
+					"time": 200,
+					"tickEnergy": 32
+				})
+				immersiveengineering.arc_furnace(ingotId[0])
+					.input(`#${type}/${metal}`)
+					.additives([])
 
-                mekanism.smelting(
-                    ingotId[0],
-                    `#${type}/${metal}`
-                )
-            }
-        })
-    })
+				mekanism.smelting(ingotId[0], `#${type}/${metal}`)
+
+			}
+		})
+		energizedSmelterMetals.forEach((metal) => {
+			let ingotId = Ingredient.of(`#forge:ingots/${metal}`).getItemIds()
+
+			if (IngredientUtils.isNotNull(`#${type}/${metal}`)) {
+
+				event.remove({
+					type: "minecraft:smelting",
+					input: `#${type}/${metal}`
+				})
+
+				event.remove({
+					type: "minecraft:blasting",
+					input: `#${type}/${metal}`
+				})
+
+				if (metal.toString() !== "desh" &&
+					metal.toString() !== "ostrum" &&
+					metal.toString() !== "calorite") {
+					mekanism.smelting(ingotId[0], `#${type}/${metal}`)
+				}
+			}
+		})
+	})
+
+	// 铝单独处理
+	minecraft.smelting("immersiveengineering:ingot_aluminum", "#forge:dusts/aluminum")
+	minecraft.blasting("immersiveengineering:ingot_aluminum", "#forge:dusts/aluminum")
+	event.custom({
+		"type": "immersiveindustry:car_kiln",
+		"input": {
+			"tag": "#forge:dusts/aluminum"
+		},
+		"results": [
+			{
+				"item": "immersiveengineering:ingot_aluminum"
+			}
+		],
+		"time": 200,
+		"tickEnergy": 32
+	})
+
+	immersiveengineering.arc_furnace("immersiveengineering:ingot_aluminum")
+		.input("#forge:dusts/aluminum")
+		.additives([])
+
+	mekanism.smelting("immersiveengineering:ingot_aluminum", "#forge:dusts/aluminum")
+
+	thermal.smelter("immersiveengineering:ingot_aluminum", "#forge:dusts/aluminum")
+
+	// 锇的额外配方
+	event.custom({
+		"type": "immersiveindustry:car_kiln",
+		"input_fluid": {
+			"tag": "tconstruct:blazing_blood",
+			"amount": 1000
+		},
+		"inputs": [
+			{
+				"base_ingredient": {
+					"tag": "mekanism:clumps/osmium"
+				},
+				"count": 4
+			}
+		],
+		"results": [
+			{
+				"item": "mekanism:ingot_osmium",
+				"count": 2
+			}
+		],
+		"time": 500,
+		"tickEnergy": 80
+	})
 })

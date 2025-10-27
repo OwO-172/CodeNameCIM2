@@ -12,35 +12,36 @@ ServerEvents.recipes((event) => {
 
 	// 晶射红宝石
 	vintageimprovements.laser_cutting("cmi:crystal_ruby", [
-		"cmi:blockstone_source_alpha"
-	]).energy(100)
+		"cmi:blackstone_source_alpha"
+	]).energy(100).maxChargeRate(10)
 
 	// 充能紫水晶
 	createaddition.charging("cmi:charged_amethyst", [
 		"#forge:gems/amethyst"
-	]).energy(400).maxChargeRate(400)
+	]).energy(100).maxChargeRate(400)
 
 	// 末地石粉块
 	create.compacting("cmi:compression_end_stone_dust_block", [
 		"32x #forge:dusts/end_stone"
 	]).heated()
 
-	// 铸铁锭
-	vintageimprovements.pressurizing([
-		"cmi:cast_iron_ingot",
-		"thermal:slag"
-	], [
-		"4x #create:crushed_raw_materials/iron",
-		"#forge:coal_coke",
-		"#cmi:steelmaking_raw_materials"
-	]).processingTime(200).superheated()
+	// 铸铁
+	create.mixing(Fluid.of("cmi:molten_cast_iron", 90), [
+		[
+			"#create:crushed_raw_materials/iron",
+			"#forge:dusts/iron"
+		],
+		"#forge:dusts/coal_coke"
+	]).heated()
 
-	// 钢粉
-	create.sequenced_assembly("immersiveengineering:dust_steel", [
-		"#forge:dusts/cast_iron"
-	], [
-		create.pressing("cmi:cast_iron_dust", ["cmi:cast_iron_dust"])
-	]).loops(10).transitionalItem("cmi:cast_iron_dust")
+	// 工业铁
+	create.mixing(Fluid.of("cmi:molten_industrial_iron", 90), [
+		[
+			"#create:crushed_raw_materials/iron",
+			"#forge:dusts/iron"
+		],
+		"cmi:lime"
+	]).heated().id("createdeco:compacting/industrial_iron_ingot")
 
 	// 木棍
 	create.cutting([
@@ -108,7 +109,7 @@ ServerEvents.recipes((event) => {
 	]).processingTime(80)
 
 	// 钚
-	vintageimprovements.curving("mekanism:pellet_plutonium",[
+	vintageimprovements.curving("mekanism:pellet_plutonium", [
 		"mekanism:pellet_polonium"
 	]).itemAsHead("mekanism:pellet_plutonium")
 

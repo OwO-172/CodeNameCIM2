@@ -1,6 +1,6 @@
 # Common
+yes_steve_model*
 /.cache/
-/.vscode/
 /backups/
 /caxton*
 /.idea
@@ -13,7 +13,6 @@
 /logs/
 /modernfix/
 /options.txt
-/patchouli_books/
 /patchouli_data.json
 /PCL/
 /xaero
@@ -42,20 +41,25 @@ hs_err*
 ESM
 XaeroWaypoints*
 /oei
+/oeb
+/oef
 replay*
 /servers*
 /mods*.zip
 /mods.zip
+/patchouli_books
 
 # Mods
 /mods/*
 !/mods/CMI Core-*-1.20.1-all.jar
+!/mods/Industrial Platform-*.jar
 
 # ResourcePacks
 /resourcepacks/*
 !/resourcepacks/矿石发光.zip
 !/resourcepacks/彩色边框.zip
 !/resourcepacks/超好看天空.zip
+!/resourcepacks/CMI Squarefully.zip
 
 # ShaderPacks
 /shaderpacks/*
@@ -70,11 +74,15 @@ replay*
 !/saves/QBWT*
 !/saves/Quest_Background*
 
+#.vscode
+/.vscode/*
+!.vscode/kubejs.code-snippets
+
 # Config
 /config/*
+!/config/alexscaves_biome_generation
 !/config/openloader
 !/config/blockswap
-!/config/almostunified/
 !/config/drippyloadingscreen/
 !/config/fancymenu/
 !/config/ftbquests/
@@ -88,7 +96,6 @@ replay*
 !/config/scannable*
 !/config/carryon-common.toml
 !/config/cookingforblockheads-common.toml
-!/config/capsule-common.toml
 !/config/nolijium.json5
 !/config/Mekanism/
 !/config/ding.toml
@@ -99,3 +106,9 @@ replay*
 !/config/lmft.json
 !/config/modernfix-mixins.properties
 !/config/steampowered-common.toml
+!/config/alexscaves-client.toml
+!config/explorerscompass-common.toml
+!config/naturescompass-common.toml
+!config/oei
+!config/oeb
+!config/oef

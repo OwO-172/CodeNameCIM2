@@ -3,12 +3,12 @@ ServerEvents.recipes((event) => {
 
 	// 木质
 	kubejs.shapeless("cmi:wooden_mechanism", [
-		"#forge:stripped_logs",
+		"#minecraft:logs",
 		"#minecraft:planks",
 		"minecraft:stick",
 		"cmi:basic_mechanism_part",
 		"#forge:hammer"
-	])
+	]).damageIngredient("#forge:hammer", 1)
 
 	// 石质
 	kubejs.shapeless("cmi:stone_mechanism", [
@@ -54,7 +54,7 @@ ServerEvents.recipes((event) => {
 		"#forge:stone",
 		"minecraft:redstone_torch",
 		"#forge:hammer",
-		"cmi:mechanical_mechanism_part"
+		"cmi:basic_mechanism_part"
 	]).damageIngredient("#forge:hammer", 1)
 
 	kubejs.shapeless("4x cmi:basic_mechanism_part", [
@@ -83,7 +83,7 @@ ServerEvents.recipes((event) => {
 	])
 	kubejs.shapeless("4x cmi:space_mechanism_part", [
 		"ae2:sky_dust",
-		"ae2:matter_ball"
+		"ad_astra:etrionic_capacitor"
 	])
 	// 创造
 	kubejs.shapeless("2x cmi:creative_mechanism", [

@@ -12,12 +12,14 @@ StartupEvents.registry("item", (event) => {
 	 * @param {number} multiplier 倍率
 	 */
 	function addDrawerUpgrade(name, multiplier) {
-		let itemMultiplier = multiplier
-		let fluidMultiplier = itemMultiplier * 0.5
-		let controllerMultiplier = fluidMultiplier * 0.5
+		const ITEM_MULTIPLIER = multiplier
+		const FLUID_MULTIPLIER = ITEM_MULTIPLIER * 0.5
+		const CONTROLLER_MULTIPLIER = FLUID_MULTIPLIER * 0.5
+
+		const REGISTER_ID = `${global.namespace}:${name}_upgrade`
 
 		let registerDrawerUpgrade =
-			event.createCustom(`${global.namespace}:${name}_upgrade`, () => {
+			event.createCustom(REGISTER_ID, () => {
 				return new JavaAdapter($StorageUpgradeItem, {
 					// 重写getStorageMultiplier()方法设置升级的倍率
 					getStorageMultiplier() {
@@ -36,16 +38,25 @@ StartupEvents.registry("item", (event) => {
 						}
 					},
 					addTooltipDetails(key, stack, tooltip, advanced) {
-						let itemTranslateKey = `tooltip.${global.namespace}.storage_upgrade.itemMultiplier`
-						let fluidTranslateKey = `tooltip.${global.namespace}.storage_upgrade.fluidMultiplier`
-						let ctrlTranslateKey = `tooltip.${global.namespace}.storage_upgrade.controllerMultiplier`
+						let itemTranslateKey =
+							Component.translatable(
+								`tooltip.${global.namespace}.storage_upgrade.itemMultiplier`,
+								ITEM_MULTIPLIER
+							).gray()
+						let fluidTranslateKey =
+							Component.translatable(
+								`tooltip.${global.namespace}.storage_upgrade.fluidMultiplier`,
+								FLUID_MULTIPLIER
+							).gray()
+						let ctrlTranslateKey =
+							Component.translatable(
+								`tooltip.${global.namespace}.storage_upgrade.controllerMultiplier`,
+								CONTROLLER_MULTIPLIER
+							).gray()
 
-						tooltip.add(Component.translatable(itemTranslateKey, itemMultiplier)
-							.gray())
-						tooltip.add(Component.translatable(fluidTranslateKey, fluidMultiplier)
-							.gray())
-						tooltip.add(Component.translatable(ctrlTranslateKey, controllerMultiplier)
-							.gray())
+						tooltip.add(itemTranslateKey)
+						tooltip.add(fluidTranslateKey)
+						tooltip.add(ctrlTranslateKey)
 					}
 				}, $StorageUpgradeItem$StorageTier.DIAMOND)
 			}).tag("functionalstorage:upgrades")

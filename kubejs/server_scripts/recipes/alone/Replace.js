@@ -1,4 +1,9 @@
 ServerEvents.recipes((event) => {
+
+	// global.dyeColorGroup.forEach((dye) => {
+	// 	event.replaceInput({}, `minecraft:${dye}_dye`, `#forge:dyes/${dye}`)
+	// })
+
 	let inputs = [
 		["minecraft:copper_ingot", "#forge:ingots/copper"],
 		["create:powdered_obsidian", "#forge:dusts/obsidian"],
@@ -10,7 +15,7 @@ ServerEvents.recipes((event) => {
 	]
 	inputs.forEach(([from, to]) => {
 		// 同步遍历所有配方
-		event.forEachRecipe({}, recipe => {
+		event.forEachRecipe({}, (recipe) => {
 			try {
 				recipe.replaceInput(from, to)
 			} catch (error) {

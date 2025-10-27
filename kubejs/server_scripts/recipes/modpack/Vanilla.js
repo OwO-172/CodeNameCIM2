@@ -1,5 +1,22 @@
 ServerEvents.recipes((event) => {
-	let { kubejs, minecraft } = event.recipes
+	let { kubejs, minecraft, create } = event.recipes
+
+	event.custom({
+		"type": "create:item_application",
+		"ingredients": [
+			{
+				"tag": "forge:stripped_logs"
+			},
+			{
+				"item": "minecraft:iron_pickaxe"
+			}
+		],
+		"results": [
+			{
+				"item": "minecraft:iron_ingot"
+			}
+		]
+	})
 
 	// 催生器
 	kubejs.shaped("cmi:accelerator", [
@@ -18,6 +35,33 @@ ServerEvents.recipes((event) => {
 		E: "cmi:stone_plate"
 	})
 
+	// 桶
+	kubejs.shaped("minecraft:bucket", [
+		"A A",
+		" A "
+	], {
+		A: "#forge:plates/andesite_alloy"
+	})
+
+	// 漏斗
+	kubejs.shaped("minecraft:hopper", [
+		"A A",
+		"ABA",
+		" A "
+	], {
+		A: "#forge:plates/andesite_alloy",
+		B: "#forge:chests/wooden"
+	})
+
+	kubejs.shaped("2x minecraft:hopper", [
+		"A A",
+		"ABA",
+		" A "
+	], {
+		A: "#forge:ingots/iron",
+		B: "#forge:chests/wooden"
+	}).id("minecraft:hopper")
+
 	// 橡胶手
 	kubejs.shaped("create:brass_hand", [
 		" A ",
@@ -26,8 +70,7 @@ ServerEvents.recipes((event) => {
 	], {
 		A: "#forge:ingots/andesite_alloy",
 		B: "thermal:cured_rubber"
-	})
-		.id("create:crafting/kinetics/brass_hand")
+	}).id("create:crafting/kinetics/brass_hand")
 
 	// 木龙头
 	kubejs.shaped("cmi:wooden_faucet", [
@@ -203,7 +246,7 @@ ServerEvents.recipes((event) => {
 	}).id("mekanism:enrichment_chamber")
 
 	// 安山岩
-	addSmeltingRecipe(event, "2x minecraft:andesite", "cmi:andesite_aggregate")
+	SmeltingRecipe.blasting(event, "2x minecraft:andesite", "cmi:andesite_aggregate")
 
 	// IOBlock
 	kubejs.shapeless("cmi:gui_block", [
@@ -233,18 +276,55 @@ ServerEvents.recipes((event) => {
 		A: "cmi:trinitrotoluene"
 	}).id("minecraft:tnt")
 
+	// 羊毛
+	create.pressing("minecraft:white_wool", "#cmi:dev_doll")
+
 	// 冰
-	kubejs.shapeless("minecraft:ice",[
+	kubejs.shapeless("minecraft:ice", [
 		"4x ad_astra:ice_shard"
 	])
 
 	// 浮冰
-	kubejs.shapeless("minecraft:packed_ice",[
+	kubejs.shapeless("minecraft:packed_ice", [
 		"4x minecraft:ice"
 	])
 
 	// 蓝冰
-	kubejs.shapeless("minecraft:blue_ice",[
+	kubejs.shapeless("minecraft:blue_ice", [
 		"4x minecraft:packed_ice"
+	])
+
+	// 群系指南针
+	kubejs.shaped("naturescompass:naturescompass",
+		[
+			"AAA",
+			"ABA",
+			"CDC"
+		], {
+		A: "#minecraft:leaves",
+		B: "minecraft:compass",
+		C: "#minecraft:saplings",
+		D: "cmi:nature_mechanism"
+	}).id("naturescompass:natures_compass")
+
+	// 结构指南针
+	kubejs.shaped("explorerscompass:explorerscompass",
+		[
+			"AAA",
+			"ABA",
+			"CDC"
+		], {
+		A: "#forge:stone",
+		B: "minecraft:compass",
+		C: "minecraft:flint",
+		D: "cmi:stone_mechanism"
+	}).id("explorerscompass:explorers_compass")
+
+	// 帕秋莉手册
+	kubejs.shapeless(Item.of("patchouli:guide_book").withNBT({
+		"patchouli:book": "patchouli:cmi"
+	}), [
+		"minecraft:book",
+		"#create:mechanisms"
 	])
 })

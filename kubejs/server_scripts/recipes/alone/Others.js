@@ -118,16 +118,6 @@ ServerEvents.recipes((event) => {
 		A: "minecraft:rotten_flesh"
 	}).id(`${global.namespace}:what_the_fuck_is_this`)
 
-	// 水龙头
-	kubejs.shaped("supplementaries:faucet", [
-		" A ",
-		"BBB",
-		"  B"
-	], {
-		A: "cmi:iron_mechanism",
-		B: "#forge:plates/iron"
-	}).id("supplementaries:faucet")
-
 	kubejs.shaped("cmi:bronze_nugget_cast", [
 		" A ",
 		"ABA",
@@ -136,43 +126,6 @@ ServerEvents.recipes((event) => {
 		A: "#forge:plates/bronze",
 		B: "#forge:nuggets/iron"
 	})
-
-	// 
-	/*kubejs.shaped("megatimestop:time_clock2", [
-		"AAA",
-		"ABA",
-		"AAA"
-	], {
-		A: "create:precision_mechanism",
-		B: "minecraft:clock"
-	}).id("megatimestop:time_clock2")
-
-	// 
-	kubejs.shaped("megatimestop:time_clock", [
-		"123",
-		"4B5",
-		"678"
-	], {
-		1: "cmi:nature_mechanism",
-		2: "cmi:enchanted_mechanism",
-		3: "cmi:sculk_mechanism",
-		4: "cmi:nether_mechanism",
-		5: "cmi:ender_mechanism",
-		6: "cmi:photosensitive_mechanism",
-		7: "create:precision_mechanism",
-		8: "cmi:cobalt_mechanism",
-		B: "minecraft:clock"
-	}).id("megatimestop:time_clock")
-
-	// 
-	kubejs.shaped("4x megatimestop:knife", [
-		"1",
-		"2"
-	], {
-		1: "#forge:plates/iron",
-		2: "#forge:rods/wooden"
-	}).id("megatimestop:knife")
-*/
 
 	kubejs.shaped("2x minecraft:torch", [
 		"A",
@@ -183,40 +136,32 @@ ServerEvents.recipes((event) => {
 	}).id("cmi:peat_torch")
 
 	// pipez item|fluid|energy|gas|all
-	kubejs.shaped("16x pipez:item_pipe", [
-		"A A",
-		" B ",
-		"A A"
+	kubejs.shaped("32x pipez:item_pipe", [
+		"ABA"
 	], {
-		A: "#forge:plates/invar",
+		A: "cmi:thermal_mechanism",
 		B: "cmi:wooden_mechanism"
 	}).id("pipez:item_pipe")
 
-	kubejs.shaped("16x pipez:fluid_pipe", [
-		"A A",
-		" B ",
-		"A A"
+	kubejs.shaped("32x pipez:fluid_pipe", [
+		"ABA"
 	], {
-		A: "#forge:plates/invar",
+		A: "cmi:thermal_mechanism",
 		B: "cmi:copper_mechanism"
 	}).id("pipez:fluid_pipe")
 
-	kubejs.shaped("16x pipez:energy_pipe", [
-		"A A",
-		" B ",
-		"A A"
+	kubejs.shaped("32x pipez:energy_pipe", [
+		"ABA"
 	], {
-		A: "#forge:plates/invar",
+		A: "cmi:thermal_mechanism",
 		B: "vintageimprovements:redstone_module"
 	}).id("pipez:energy_pipe")
 
-	kubejs.shaped("16x pipez:gas_pipe", [
-		"A A",
-		" B ",
-		"A A"
+	kubejs.shaped("32x pipez:gas_pipe", [
+		"ABA"
 	], {
-		A: "#forge:plates/invar",
-		B: "cmi:osmium_mechanism"
+		A: "cmi:thermal_mechanism",
+		B: "cmi:air_tight_mechanism"
 	}).id("pipez:gas_pipe")
 
 	kubejs.shapeless("4x pipez:universal_pipe", [
@@ -257,4 +202,76 @@ ServerEvents.recipes((event) => {
 		"pipez:advanced_upgrade",
 		"#forge:plates/netherite",
 	]).id("pipez:ultimate_upgrade")
+
+	kubejs.shaped("ad_astra:earth_globe", [
+		"AA ",
+		"AB ",
+		"AAC"
+	], {
+		A: ["#forge:rods/brass", "#forge:rods/bronze"],
+		B: "minecraft:dirt",
+		C: ["#forge:plates/brass", "#forge:plates/bronze"]
+	})
+
+	kubejs.shaped("ad_astra:moon_globe", [
+		"AA ",
+		"AB ",
+		"AAC"
+	], {
+		A: ["#forge:rods/brass", "#forge:rods/bronze"],
+		B: "ad_astra:moon_stone",
+		C: ["#forge:plates/brass", "#forge:plates/bronze"]
+	})
+
+	kubejs.shaped("ad_astra:mars_globe", [
+		"AA ",
+		"AB ",
+		"AAC"
+	], {
+		A: ["#forge:rods/brass", "#forge:rods/bronze"],
+		B: "ad_astra:mars_stone",
+		C: ["#forge:plates/brass", "#forge:plates/bronze"]
+	})
+
+	kubejs.shaped("ad_astra:mercury_globe", [
+		"AA ",
+		"AB ",
+		"AAC"
+	], {
+		A: ["#forge:rods/brass", "#forge:rods/bronze"],
+		B: "ad_astra:mercury_stone",
+		C: ["#forge:plates/brass", "#forge:plates/bronze"]
+	})
+
+	kubejs.shaped("ad_astra:venus_globe", [
+		"AA ",
+		"AB ",
+		"AAC"
+	], {
+		A: ["#forge:rods/brass", "#forge:rods/bronze"],
+		B: "ad_astra:venus_stone",
+		C: ["#forge:plates/brass", "#forge:plates/bronze"]
+	})
+
+	kubejs.shaped("ad_astra:glacio_globe", [
+		"AA ",
+		"AB ",
+		"AAC"
+	], {
+		A: ["#forge:rods/brass", "#forge:rods/bronze"],
+		B: "ad_astra:glacio_stone",
+		C: ["#forge:plates/brass", "#forge:plates/bronze"]
+	})
+
+	kubejs.shaped("tiab:time_in_a_bottle", [
+		"DCE",
+		"ABA",
+		"ECD"
+	], {
+		A: "minecraft:diamond",
+		B: "minecraft:glass_bottle",
+		C: "minecraft:clock",
+		D: "cmi:cobalt_mechanism",
+		E: "cmi:ender_mechanism"
+	})
 })

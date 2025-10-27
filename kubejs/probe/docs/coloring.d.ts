@@ -8,7 +8,7 @@ const MATERIALS_COLOR: Coloring = {
 	andesite_alloy: 0xA9AFA1,
 	stainless_steel: 0x708090,
 	chromium: 0xE4DBDC,
-	platinum: 0XA4D4DA,
+	platinum: 0xA4D4DA,
 	siltsteel: 0x48D1CC,
 	desh: 0xD38B4C,
 	ostrum: 0xA66B72,
@@ -56,5 +56,9 @@ const MATERIALS_COLOR: Coloring = {
 	cinderslime: 0xA03030,
 	queens_slime: 0xB85700,
 	manyullyn: 0x8058B8,
-	hepatizon: 0x483050
+	hepatizon: 0x483050,
+	etrium: 0x32FFD4,
+	tungsten: 0x82998C,
+	scarlet_neodymium: 0xB91919,
+	azure_neodymium: 0x1936B9
 }

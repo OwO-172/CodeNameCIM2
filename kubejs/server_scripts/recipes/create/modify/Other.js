@@ -177,4 +177,312 @@ ServerEvents.recipes((event) => {
 		])
 	]).loops(1).transitionalItem("create:brass_casing")
 		.id("create:crafting/kinetics/steam_engine")
+
+	// 工作盆盖板
+	kubejs.shaped("createdieselgenerators:basin_lid", [
+		"ABA",
+		"C C"
+	], {
+		A: "#forge:plates/andesite_alloy",
+		B: "#forge:ingots/andesite_alloy",
+		C: "thermal:cured_rubber"
+	}).id("createdieselgenerators:crafting/basin_lid")
+
+	// 空白模块
+	kubejs.shapeless("deepdrilling:blank_module", [
+		"create:andesite_casing",
+		"cmi:andesite_mechanism",
+		"#forge:plates/iron"
+	]).id("deepdrilling:blank_module")
+
+	// 安山漏斗
+	kubejs.shaped("4x create:andesite_funnel", [
+		"A",
+		"B"
+	], {
+		A: "#forge:ingots/andesite_alloy",
+		B: "thermal:cured_rubber"
+	})
+
+	// 安山隧道
+	kubejs.shaped("8x create:andesite_tunnel", [
+		"AA",
+		"BB"
+	], {
+		A: "#forge:ingots/andesite_alloy",
+		B: "thermal:cured_rubber"
+	})
+
+	// 黄铜漏斗
+	kubejs.shaped("4x create:brass_funnel", [
+		"A",
+		"B",
+		"C"
+	], {
+		A: "create:electron_tube",
+		B: "#forge:ingots/brass",
+		C: "thermal:cured_rubber"
+	})
+
+	// 黄铜隧道
+	kubejs.shaped("8x create:brass_tunnel", [
+		"A ",
+		"BB",
+		"CC"
+	], {
+		A: "create:electron_tube",
+		B: "#forge:ingots/brass",
+		C: "thermal:cured_rubber"
+	})
+
+	// 过应力离合器
+	kubejs.shapeless("create_connected:overstress_clutch", [
+		"create:andesite_casing",
+		"create:electron_tube",
+		"create:shaft",
+		"#forge:plates/iron"
+	])
+
+	// 齿轮
+	let cogwheelMaterials = [
+		"bronze",
+		"cast_iron",
+		"steel",
+	]
+	cogwheelMaterials.forEach((material) => {
+		// 小齿轮
+		kubejs.shapeless(`cmi:incomplete_${material}_cogwheel`, [
+			`#forge:plates/${material}`,
+			"immersiveengineering:hammer"
+		])
+
+		create.deploying(`4x steampowered:${material}_cogwheel`, [
+			`cmi:incomplete_${material}_cogwheel`,
+			"#create:shaft"
+		])
+
+		create.deploying(`4x steampowered:${material}_cogwheel`, [
+			"create:shaft",
+			`cmi:incomplete_${material}_cogwheel`
+		])
+
+		kubejs.shapeless(`steampowered:${material}_cogwheel`, [
+			`cmi:incomplete_${material}_cogwheel`,
+			"#create:shaft"
+		])
+
+		// 大齿轮
+		kubejs.shapeless(`cmi:incomplete_${material}_large_cogwheel`, [
+			`2x #forge:plates/${material}`,
+			"immersiveengineering:hammer"
+		])
+
+		create.deploying(`4x steampowered:${material}_large_cogwheel`, [
+			`cmi:incomplete_${material}_large_cogwheel`,
+			"#create:shaft"
+		])
+
+		create.deploying(`4x steampowered:${material}_large_cogwheel`, [
+			"create:shaft",
+			`cmi:incomplete_${material}_large_cogwheel`
+		])
+
+		kubejs.shapeless(`steampowered:${material}_large_cogwheel`, [
+			`cmi:incomplete_${material}_large_cogwheel`,
+			"#create:shaft"
+		])
+
+		kubejs.shapeless(`steampowered:${material}_large_cogwheel`, [
+			`steampowered:${material}_cogwheel`,
+			`#forge:plates/${material}`
+		])
+	})
+
+	// 齿轮
+	kubejs.shapeless("cmi:incomplete_cogwheel", [
+		"#minecraft:planks",
+		"#minecraft:axes"
+	]).damageIngredient("#minecraft:axes", 1)
+
+	create.cutting("cmi:incomplete_cogwheel", [
+		"#minecraft:wooden_slabs"
+	])
+
+	create.deploying("4x create:cogwheel", [
+		"cmi:incomplete_cogwheel",
+		"#create:shaft"
+	]).id("create:deploying/cogwheel")
+
+	create.deploying("4x create:cogwheel", [
+		"create:shaft",
+		"cmi:incomplete_cogwheel"
+	])
+
+	kubejs.shapeless("create:cogwheel", [
+		"cmi:incomplete_cogwheel",
+		"#create:shaft"
+	]).id("create:crafting/kinetics/cogwheel")
+
+	// 大齿轮
+	kubejs.shapeless("cmi:incomplete_large_cogwheel", [
+		"2x #minecraft:planks",
+		"#minecraft:axes"
+	]).damageIngredient("#minecraft:axes", 1)
+
+	create.cutting("cmi:incomplete_large_cogwheel", [
+		"#minecraft:planks"
+	])
+
+	create.deploying("4x create:large_cogwheel", [
+		"cmi:incomplete_large_cogwheel",
+		"#create:shaft"
+	]).id("create:deploying/large_cogwheel")
+
+	create.deploying("4x create:large_cogwheel", [
+		"create:shaft",
+		"cmi:incomplete_large_cogwheel"
+	])
+
+	kubejs.shapeless("create:large_cogwheel", [
+		"cmi:incomplete_large_cogwheel",
+		"#create:shaft"
+	]).id("create:crafting/kinetics/large_cogwheel")
+
+	kubejs.shapeless("create:large_cogwheel", [
+		"create:cogwheel",
+		"#minecraft:planks"
+	]).id("create:crafting/kinetics/large_cogwheel_from_little")
+
+	// 流体储罐
+	kubejs.shaped("create:fluid_tank", [
+		"A",
+		"B",
+		"A"
+	], {
+		A: "#forge:plates/copper",
+		B: "#forge:glass"
+	}).id("create:crafting/kinetics/fluid_tank")
+
+	kubejs.shaped("2x create:fluid_tank", [
+		" A ",
+		"ABA",
+		" A "
+	], {
+		A: "#forge:plates/copper",
+		B: "#forge:glass"
+	}).id("create:crafting/kinetics/fluid_tank2")
+
+	kubejs.shaped("create_connected:fluid_vessel", [
+		"ABA"
+	], {
+		A: "#forge:plates/copper",
+		B: "#forge:glass"
+	}).id("create_connected:crafting/kinetics/fluid_vessel")
+
+	kubejs.shaped("2x create_connected:fluid_vessel", [
+		"A A",
+		" B ",
+		"A A"
+	], {
+		A: "#forge:plates/copper",
+		B: "#forge:glass"
+	})
+
+	// 增产机壳
+	let casingFrame = [
+		"andesite",
+		"brass",
+		"copper"
+	]
+	casingFrame.forEach((frame) => {
+		event.stonecutting(
+			`4x cmi:${frame}_casing_framework`,
+			`#forge:plates/${frame}`
+		)
+	})
+
+	// 齿轮箱
+	kubejs.shaped("create:gearbox", [
+		" A ",
+		"ABA",
+		" A "
+	], {
+		A: "#create:incomplete_cogwheels",
+		B: "create:andesite_casing"
+	}).id("create:crafting/kinetics/gearbox")
+
+	kubejs.shaped("create:vertical_gearbox", [
+		"A A",
+		" B ",
+		"A A"
+	], {
+		A: "#create:incomplete_cogwheels",
+		B: "create:andesite_casing"
+	}).id("create:crafting/kinetics/vertical_gearbox")
+
+	kubejs.shapeless("create_connected:parallel_gearbox", [
+		"create:gearbox",
+		"#create:incomplete_large_cogwheels"
+	]).id("create_connected:crafting/kinetics/parallel_gearbox")
+
+	kubejs.shapeless("create_connected:six_way_gearbox", [
+		"create_connected:parallel_gearbox",
+		"#create:incomplete_large_cogwheels"
+	]).id("create_connected:crafting/kinetics/six_way_gearbox_from_parallel")
+
+	kubejs.shapeless("create_connected:six_way_gearbox", [
+		"create:gearbox",
+		"2x #create:incomplete_large_cogwheels"
+	]).id("create_connected:crafting/kinetics/six_way_gearbox_from_gearbox")
+
+	kubejs.shaped("create_connected:six_way_gearbox", [
+		"AB ",
+		"BCB",
+		" BA"
+	], {
+		A: "#create:incomplete_large_cogwheels",
+		B: "#create:incomplete_cogwheels",
+		C: "create:andesite_casing"
+	}).id("create_connected:crafting/kinetics/six_way_gearbox")
+
+	kubejs.shapeless("create_connected:encased_chain_cogwheel", [
+		"create:encased_chain_drive",
+		"#create:incomplete_cogwheel"
+	]).id("create_connected:crafting/kinetics/encased_chain_cogwheel")
+
+	kubejs.shapeless("create_connected:crank_wheel", [
+		"create:hand_crank",
+		"#create:incomplete_cogwheels"
+	]).id("create_connected:crafting/kinetics/crank_wheel")
+
+	kubejs.shapeless("create_connected:large_crank_wheel", [
+		"create:hand_crank",
+		"#create:incomplete_large_cogwheels"
+	]).id("create_connected:crafting/kinetics/large_crank_wheel")
+
+	let cutSlabWood = [
+		"minecraft:oak",
+		"minecraft:dark_oak",
+		"minecraft:birch",
+		"minecraft:spruce",
+		"minecraft:jungle",
+		"minecraft:acacia",
+		"minecraft:mangrove",
+		"minecraft:cherry",
+		"ad_astra:glacian",
+		"thermal:rubberwood",
+		"tconstruct:greenheart",
+		"tconstruct:skyroot",
+		"tconstruct:enderbark",
+		"minecraft:crimson",
+		"minecraft:warped",
+		"ad_astra:aeronos",
+		"ad_astra:strophar",
+		"minecraft:bamboo",
+		"mynethersdelight:powdery",
+		"tconstruct:bloodshroom",
+	]
+	cutSlabWood.forEach((id) => {
+		create.cutting(`2x ${id}_slab`, `${id}_planks`)
+	})
 })

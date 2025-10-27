@@ -109,8 +109,12 @@ ServerEvents.blockLootTables((event) => {
 
 	// 辉银
 	addOreLoots.common("argentite")
+	// 银
+	addOreLoots.common("silver")
 	// 赛特斯石英
 	addOreLoots.alone("cmi:certus_quartz_ore", "ae2:certus_quartz_crystal")
+	// 赛特斯(深层)
+	addOreLoots.alone("cmi:deepslate_certus_quartz_ore", "ae2:certus_quartz_crystal")
 	// 铬
 	addOreLoots.alone("cmi:moon_chromium_ore", "cmi:raw_chromium")
 	// 钴
@@ -136,12 +140,12 @@ ServerEvents.blockLootTables((event) => {
 	addOreLoots.common("tungsten")
 	// 方铀
 	addOreLoots.common("uraninite")
-	// 铀
-	addOreLoots.alone("cmi:nether_uranium_ore", "immersiveengineering:raw_uranium")
 	// 钒
 	addOreLoots.alone("cmi:nether_vanadium_ore", "cmi:raw_vanadium")
 	// 磷酸铝
 	addOreLoots.common("variscite")
 	// 辉铜
 	addOreLoots.common("veridium")
+	// 埃忒恩
+	addOreLoots.common("etrium")
 })

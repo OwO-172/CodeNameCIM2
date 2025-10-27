@@ -74,4 +74,39 @@ ServerEvents.recipes((event) => {
 		]).energy(1000).maxChargeRate(100)
 	]).transitionalItem("cmi:incomplete_scanning_module").loops(1)
 		.id("scannable:blank_module")
+
+	// 电子管
+	create.sequenced_assembly([
+		"create:electron_tube"
+	], "#forge:plates/iron", [
+		create.deploying("cmi:incomplete_electron_tube", [
+			"cmi:incomplete_electron_tube",
+			"#forge:wires/copper"
+		]),
+		create.deploying("cmi:incomplete_electron_tube", [
+			"cmi:incomplete_electron_tube",
+			"create:polished_rose_quartz"
+		])
+	]).transitionalItem("cmi:incomplete_electron_tube").loops(1)
+		.id("create:crafting/materials/electron_tube")
+
+	// Ad电容器
+	create.sequenced_assembly("ad_astra:etrionic_capacitor",
+		"#forge:plates/steel", [
+		create.deploying("ad_astra:etrionic_core", [
+			'ad_astra:etrionic_core',
+			"#forge:plates/etrium"
+		]),
+		create.deploying("ad_astra:etrionic_core", [
+			'ad_astra:etrionic_core',
+			"cmi:simple_battery"
+		]),
+		create.deploying("ad_astra:etrionic_core", [
+			'ad_astra:etrionic_core',
+			"#forge:wires/copper"
+		]),
+		create.pressing("ad_astra:etrionic_core",
+			"ad_astra:etrionic_core"
+		)
+	]).transitionalItem('ad_astra:etrionic_core').loops(1).id("ad_astra:etrionic_capacitor")
 })

@@ -95,7 +95,7 @@ BlockEvents.rightClicked("cmi:accelerator", (event) => {
 	// 叁级科技航天构件
 	addAccelerateEvent("cmi:tier_3_aviation_mechanism", "ad_astra:mars_stone", [
 		Item.of("ad_astra:mars_ostrum_ore").withChance(0.2),
-		Item.of("ad_astra:mars_iron_ore").withChance(0.05),
+		Item.of("ad_astra:mars_ice_shard_ore").withChance(0.05),
 		Item.of("ad_astra:desh_block").withChance(0.05)
 	])
 	addAccelerateEvent("cmi:tier_3_aviation_mechanism", "minecraft:deepslate", [
@@ -105,12 +105,12 @@ BlockEvents.rightClicked("cmi:accelerator", (event) => {
 	])
 
 	// 精密构件
-	addAccelerateEvent("cmi:precision_mechanism", "minecraft:stone", [
+	addAccelerateEvent("create:precision_mechanism", "minecraft:stone", [
 		Item.of("minecraft:copper_ore").withChance(0.15),
 		Item.of("create:zinc_ore").withChance(0.15),
 		Item.of("minecraft:redstone_ore").withChance(0.1)
 	])
-	addAccelerateEvent("cmi:precision_mechanism", "minecraft:deepslate", [
+	addAccelerateEvent("create:precision_mechanism", "minecraft:deepslate", [
 		Item.of("minecraft:deepslate_copper_ore").withChance(0.1),
 		Item.of("create:deepslate_zinc_ore").withChance(0.1),
 		Item.of("minecraft:deepslate_redstone_ore").withChance(0.15)
@@ -126,20 +126,16 @@ BlockEvents.rightClicked("cmi:accelerator", (event) => {
 
 	// 智能构件
 	addAccelerateEvent("cmi:smart_mechanism", "minecraft:stone", [
-		Item.of("minecraft:diamond_ore").withChance(0.1),
+		Item.of("cmi:etrium_ore").withChance(0.1),
 		Item.of("minecraft:gold_ore").withChance(0.2),
 		Item.of("cmi:certus_quartz_ore").withChance(0.2),
-		Item.of("thermal:ruby_ore").withChance(0.01),
-		Item.of("thermal:sapphire_ore").withChance(0.01),
-		Item.of("minecraft:emerald_ore").withChance(0.01)
+		Item.of("immersiveengineering:ore_silver").withChance(0.05)
 	])
 	addAccelerateEvent("cmi:smart_mechanism", "minecraft:deepslate", [
-		Item.of("minecraft:deepslate_diamond_ore").withChance(0.15),
+		Item.of("cmi:deepslate_etrium_ore").withChance(0.15),
 		Item.of("minecraft:deepslate_gold_ore").withChance(0.2),
 		Item.of("cmi:deepslate_certus_quartz_ore").withChance(0.2),
-		Item.of("thermal:deepslate_ruby_ore").withChance(0.01),
-		Item.of("thermal:deepslate_sapphire_ore").withChance(0.01),
-		Item.of("minecraft:deepslate_emerald_ore").withChance(0.01)
+		Item.of("immersiveengineering:deepslate_ore_silver").withChance(0.05)
 	])
 
 	// 石质构件
@@ -167,6 +163,18 @@ BlockEvents.rightClicked("cmi:accelerator", (event) => {
 		Item.of("minecraft:deepslate_diamond_ore").withChance(0.01)
 	])
 
+	// 气密构件
+	addAccelerateEvent("cmi:air_tight_mechanism", "minecraft:stone", [
+		Item.of("mekanism:osmium_ore").withChance(0.2),
+		Item.of("thermal:silver_ore").withChance(0.1),
+		Item.of("minecraft:gold_ore").withChance(0.1)
+	])
+	addAccelerateEvent("cmi:air_tight_mechanism", "minecraft:deepslate", [
+		Item.of("mekanism:deepslate_osmium_ore").withChance(0.15),
+		Item.of("thermal:deepslate_silver_ore").withChance(0.15),
+		Item.of("minecraft:deepslate_gold_ore").withChance(0.15)
+	])
+
 	/**
 	 * 添加构件催生器事件
 	 * @param {Internal.ItemStack_} input 催生使用的物品
@@ -176,10 +184,10 @@ BlockEvents.rightClicked("cmi:accelerator", (event) => {
 	 */
 	function addAccelerateEvent(input, stone, blocks) {
 		// 判定是否主手手持构件
-		if (event.hand === "OFF_HAND") {
+		if (event.hand !== "MAIN_HAND" || !player || !item || item.isEmpty()) {
 			return false
 		}
-		if (player === null) {
+		if (item.getId() !== input) {
 			return false
 		}
 		if (item.is(input)) {
@@ -243,7 +251,7 @@ BlockEvents.rightClicked("cmi:accelerator", (event) => {
 			level.server.runCommandSilent(command)
 			// 检测玩家是否创造模式
 			if (!player.isCreative()) {
-				// 若是生存模式则减少一个安山构件
+				// 若是生存模式则减少一个构件
 				item.shrink(1)
 			}
 			return true

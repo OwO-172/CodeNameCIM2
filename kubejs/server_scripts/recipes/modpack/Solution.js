@@ -40,28 +40,25 @@ ServerEvents.recipes((event) => {
 		"kcl"
 	]
 	solutionGroup.forEach((name) => {
-		create.mixing(Fluid.of(`cmi:${name}_solution`, 500), [
+		create.mixing(Fluid.of(`cmi:${name}_solution`, 250), [
 			`${global.namespace}:${name}`,
-			Fluid.of("minecraft:water", 500)
+			Fluid.of("minecraft:water", 250)
 		])
 
 		tconstruct.casting_table(`${global.namespace}:${name}`)
 			.cast("#tconstruct:casts/multi_use/gem")
 			.cast_consumed(false)
-			.fluid(Fluid.of(`cmi:${name}_solution`, 500))
+			.fluid(Fluid.of(`cmi:${name}_solution`, 250))
 			.cooling_time(20)
 
 		tconstruct.casting_table(`${global.namespace}:${name}`)
 			.cast("#tconstruct:casts/single_use/gem")
 			.cast_consumed(true)
-			.fluid(Fluid.of(`cmi:${name}_solution`, 500))
+			.fluid(Fluid.of(`cmi:${name}_solution`, 250))
 			.cooling_time(20)
 	})
 
 	let metalActiveOrder = [
-		"potassium",
-		"calcium",
-		"sodium",
 		"magnesium",
 		"uranium",
 		"aluminum",
@@ -89,7 +86,7 @@ ServerEvents.recipes((event) => {
 							"count": 1
 						}
 					],
-					"results": [
+					"outputs": [
 						{
 							"base_ingredient": {
 								"tag": `forge:dusts/${solution}`
@@ -100,13 +97,13 @@ ServerEvents.recipes((event) => {
 					"input_fluids": [
 						{
 							"tag": `forge:solutions/${solution}/chloride`,
-							"amount": 1000
+							"amount": 250
 						}
 					],
 					"result_fluids": [
 						{
 							"fluid": IngredientUtils.getFirstFluidId(`forge:solutions/${metal}/chloride`),
-							"amount": 1000
+							"amount": 250
 						}
 					],
 					"time": 300
@@ -122,7 +119,7 @@ ServerEvents.recipes((event) => {
 							"count": 1
 						}
 					],
-					"results": [
+					"outputs": [
 						{
 							"base_ingredient": {
 								"tag": `forge:dusts/${solution}`
@@ -133,13 +130,13 @@ ServerEvents.recipes((event) => {
 					"input_fluids": [
 						{
 							"tag": `forge:solutions/${solution}/sulfate`,
-							"amount": 1000
+							"amount": 250
 						}
 					],
 					"result_fluids": [
 						{
 							"fluid": IngredientUtils.getFirstFluidId(`forge:solutions/${metal}/sulfate`),
-							"amount": 1000
+							"amount": 250
 						}
 					],
 					"time": 300

@@ -28,7 +28,7 @@ ServerEvents.recipes((event) => {
 		}).id(`functionalstorage:${type}_1`)
 
 		// 物品抽屉2
-		kubejs.shaped(`functionalstorage:${type}_2`, [
+		kubejs.shaped(`2x functionalstorage:${type}_2`, [
 			"ABA",
 			"ACA",
 			"ABA"
@@ -39,7 +39,7 @@ ServerEvents.recipes((event) => {
 		}).id(`functionalstorage:${type}_2`)
 
 		// 物品抽屉4
-		kubejs.shaped(`functionalstorage:${type}_4`, [
+		kubejs.shaped(`4x functionalstorage:${type}_4`, [
 			"ABA",
 			"BCB",
 			"ABA"
@@ -102,19 +102,19 @@ ServerEvents.recipes((event) => {
 		.id("functionalstorage:void_upgrade")
 
 	// 输入升级
-	create.deploying("functionalstorage:puller_upgrade",[
+	create.deploying("functionalstorage:puller_upgrade", [
 		TEMPLATE,
 		"minecraft:hopper"
 	]).id("functionalstorage:puller_upgrade")
 
 	// 输出升级
-	create.deploying("functionalstorage:pusher_upgrade",[
+	create.deploying("functionalstorage:pusher_upgrade", [
 		"functionalstorage:puller_upgrade",
 		"minecraft:redstone_torch"
 	]).id("functionalstorage:pusher_upgrade")
 
 	// 收集升级
-	create.deploying("functionalstorage:collector_upgrade",[
+	create.deploying("functionalstorage:collector_upgrade", [
 		"functionalstorage:puller_upgrade",
 		"minecraft:hopper"
 	]).id("functionalstorage:collector_upgrade")
@@ -157,4 +157,25 @@ ServerEvents.recipes((event) => {
 		B: "#forge:plates/iron",
 		C: "minecraft:bucket"
 	}).id("functionalstorage:fluid_4")
+
+	// 配置工具
+	kubejs.shapeless("functionalstorage:configuration_tool", [
+		"#forge:plates/iron",
+		"#functionalstorage:drawer",
+		"#create:large_cogwheel"
+	]).id("functionalstorage:configuration_tool")
+
+	kubejs.shapeless("functionalstorage:configuration_tool", [
+		"#forge:plates/iron",
+		"#functionalstorage:drawer",
+		"#create:cogwheel"
+	]).id("functionalstorage:configuration_tool_2")
+
+	kubejs.shapeless("functionalstorage:configuration_tool", [
+		"functionalstorage:linking_tool"
+	])
+
+	kubejs.shapeless("functionalstorage:linking_tool", [
+		"functionalstorage:configuration_tool"
+	])
 })

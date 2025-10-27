@@ -38,8 +38,8 @@ let IngredientUtils = {
 
 	/**
 	 * 获取标签内第一个流体的ID, 若标签下没有流体则返回null
-	 * @param {string} fluidTag 流体标签ID
-	 * @returns {string | null}
+	 * @param {String} fluidTag 流体标签ID
+	 * @returns {String | null}
 	 */
 	getFirstFluidId: function (fluidTag) {
 		let tag = $FluidTags.create(ResourceLocation.parse(fluidTag))
@@ -59,11 +59,15 @@ let IngredientUtils = {
 
 	/**
 	 * 判断物品标签是否为空
-	 * @param {string} tag 物品标签ID
-	 * @returns {boolean}
+	 * @param {String} tag 物品标签ID
+	 * @returns {Boolean}
 	 */
 	isNotNull: function (tag) {
 		return Ingredient.of(tag).getItemIds().length > 0
+	},
+
+	getPath: function (name) {
+		return name.indexOf(":") !== -1 ? name.split(":")[1] : name
 	}
 }
 
@@ -94,11 +98,9 @@ function makeOf(type) {
 }
 
 function aeCharger(output, input) {
-	const INPUT = Ingredient.of(input).toJson()
-
 	return {
 		type: "ae2:charger",
-		ingredient: INPUT,
+		ingredient: Ingredient.of(input).toJson(),
 		result: {
 			item: IngredientUtils.getFirstItemId(output)
 		}
@@ -131,20 +133,32 @@ function IEIngredient(input) {
 			.getCount()
 	}
 }
-function addSmeltingRecipe(event, output, input) {
-	event.recipes.minecraft.blasting(output, input)
-		.cookingTime(100)
 
-	event.recipes.minecraft.smelting(output, input)
-		.cookingTime(200)
-}
+let SmeltingRecipe = {
+	all: function (event, output, input) {
+		event.recipes.minecraft.smelting(output, input)
+			.cookingTime(200)
 
-function addSmokingRecipe(event, output, input) {
-	event.recipes.minecraft.blasting(output, input)
-		.cookingTime(100)
+		event.recipes.minecraft.blasting(output, input)
+			.cookingTime(100)
 
-	event.recipes.minecraft.smoking(output, input)
-		.cookingTime(200)
+		event.recipes.minecraft.smoking(output, input)
+			.cookingTime(100)
+	},
+	blasting: function (event, output, input) {
+		event.recipes.minecraft.blasting(output, input)
+			.cookingTime(100)
+
+		event.recipes.minecraft.smelting(output, input)
+			.cookingTime(200)
+	},
+	smoking: function (event, output, input) {
+		event.recipes.minecraft.blasting(output, input)
+			.cookingTime(100)
+
+		event.recipes.minecraft.smoking(output, input)
+			.cookingTime(100)
+	}
 }
 
 // Test Function Event

@@ -20,6 +20,7 @@ ServerEvents.recipes((event) => {
 		"createdieselgenerators:crafting/chip_wood_beam",
 		"tconstruct:smeltery/seared/chute_retextured",
 		"tconstruct:__default",
+		"createaddition:compat/tconstruct/blaze_blood",
 		"vintageimprovements:sequenced_assembly/redstone_module",
 		"functionalstorage:void_upgrade",
 		"immersiveengineering:crafting/treated_wood_horizontal",
@@ -95,7 +96,33 @@ ServerEvents.recipes((event) => {
 		"createdieselgenerators:basin_fermenting/fermented_spider_eye",
 		"createaddition:mixing/bioethanol",
 		"thermal:compat/mekanism/smelter_mek_osmium_ore",
-		"create:milling/andesite"
+		"create:milling/andesite",
+		"create:industrial_iron_block_from_ingots_iron_stonecutting",
+		"create:crushing/tuff",
+		"create:crushing/tuff_recycling",
+		"functionalstorage:oak_drawer_alternate_x1",
+		"create:milling/beetroot",
+		"functionalstorage:oak_drawer_alternate_x4",
+		"functionalstorage:oak_drawer_alternate_x2",
+		"create:milling/coal",
+		"vintageimprovements:crushing/scoria",
+		"functionalstorage:linking_tool",
+		"create:copper_bars_from_ingots_copper_stonecutting",
+		"create:andesite_bars_from_andesite_alloy_stonecutting",
+		"create:brass_bars_from_ingots_brass_stonecutting",
+		"immersiveengineering:arcfurnace/raw_block_aluminum",
+		"thermal:compat/create_ie/smelter_create_ie_crushed_raw_aluminum",
+		"thermal:compat/immersiveengineering/smelter_ie_raw_aluminum",
+		"thermal:compat/immersiveengineering/smelter_ie_aluminum_ore",
+		"ad_astra:refining/fuel_from_refining_oil",
+		"ad_astra:oxygen_loading/oxygen_from_oxygen_loading_water",
+		"ad_astra:blasting/desh_ingot_from_blasting_raw_desh",
+		"ad_astra:smelting/desh_ingot_from_smelting_raw_desh",
+		"ad_astra:blasting/ostrum_ingot_from_blasting_raw_ostrum",
+		"ad_astra:smelting/ostrum_ingot_from_smelting_raw_ostrum",
+		"ad_astra:blasting/calorite_ingot_from_blasting_raw_calorite",
+		"ad_astra:smelting/calorite_ingot_from_smelting_raw_calorite",
+		"thermal:storage/sugar_cane_block"
 	]
 	removeRecipeIds.forEach((id) => {
 		event.remove({
@@ -104,6 +131,7 @@ ServerEvents.recipes((event) => {
 	})
 
 	let removeItemOutputRecipes = [
+		"ad_astra:fuel_refinery",
 		"createdieselgenerators:chip_wood_block",
 		"pipez:filter_destination_tool",
 		"create:schedule",
@@ -369,6 +397,8 @@ ServerEvents.recipes((event) => {
 			}, {
 				type: "immersiveengineering:arc_furnace",
 				output: "#forge:ingots/osmium"
+			}, {
+				id: `immersiveengineering:arcfurnace/ore_${metal}`
 			}
 		])
 	})

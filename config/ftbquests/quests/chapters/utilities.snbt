@@ -107,7 +107,7 @@
 				}
 			]
 			title: "传输升级"
-			x: 2.0d
+			x: 4.0d
 			y: 3.0d
 		}
 		{
@@ -141,7 +141,7 @@
 				item: "functionalstorage:iron_downgrade"
 				type: "item"
 			}]
-			x: 4.0d
+			x: 6.0d
 			y: 3.0d
 		}
 		{
@@ -212,7 +212,7 @@
 				item: "functionalstorage:configuration_tool"
 				type: "item"
 			}]
-			x: 6.0d
+			x: 10.0d
 			y: 3.0d
 		}
 		{
@@ -257,7 +257,7 @@
 					type: "item"
 				}
 			]
-			x: 8.0d
+			x: 12.0d
 			y: 3.0d
 		}
 		{
@@ -287,8 +287,8 @@
 				item: "functionalstorage:void_upgrade"
 				type: "item"
 			}]
-			x: 0.0d
-			y: 5.0d
+			x: 8.0d
+			y: 3.0d
 		}
 		{
 			dependencies: ["714D1AC6D07BEEC0"]
@@ -296,7 +296,7 @@
 				"蒸汽飞轮是一种通过蒸汽驱动产生应力的设备"
 				"它不需要太大的占地, 只要你有一块稳定产出蒸汽的区域, 便能驱动飞轮持续运转"
 				"在任何时候, 它都可以作为最便捷的动力来源, 帮助你建立起基础的机械系统;"
-				"哪怕是在后期, 只要配合大型蒸汽锅炉或其他蒸汽供应方式, 也能为复杂装置提供稳定的动力支持。"
+				"哪怕是在后期, 只要配合大型蒸汽锅炉或其他蒸汽供应方式, 也能为复杂装置提供稳定的动力支持."
 				""
 				"(我知道你在想什么, 虚空飞轮&l&c亖了喵&r&r)"
 			]
@@ -336,7 +336,7 @@
 				}
 			]
 			title: "蒸汽飞轮"
-			x: 6.0d
+			x: 2.0d
 			y: 5.0d
 		}
 		{
@@ -383,14 +383,14 @@
 				}
 			]
 			title: "蒸汽锅炉"
-			x: 4.0d
+			x: 0.0d
 			y: 5.0d
 		}
 		{
 			dependencies: ["714D1AC6D07BEEC0"]
 			description: [
-				"销毁器可以清除任何东西, 一般用于生产线中清除废弃的流体和物品。"
-				"当然我们还是更推荐您在AE2发展起来后使用物质聚合器销毁。"
+				"销毁器可以清除任何东西, 一般用于生产线中清除废弃的流体和物品."
+				"当然我们还是更推荐您在AE2发展起来后使用物质聚合器销毁."
 			]
 			hide_dependency_lines: true
 			id: "5E52B40EB76B5C84"
@@ -405,16 +405,19 @@
 				item: "thermal:device_nullifier"
 				type: "item"
 			}]
-			x: 8.0d
+			x: 4.0d
 			y: 5.0d
 		}
 		{
+			dependencies: ["714D1AC6D07BEEC0"]
 			description: [
 				"扫描器可以侦测周围一定范围的实体与方块"
 				"你需要手持扫描器蹲下右键, 打开gui向其中插入扫描插件, 来为其赋予功能或增加扫描范围"
 				"一个扫描器中最多激活三个插件, 并存储5个未激活插件"
 				"扫描器总共有9种插件, 其中8个为目标型插件, 激活多个目标型插件时会同时扫描多种目标"
 			]
+			hide_dependency_lines: true
+			hide_dependent_lines: true
 			id: "7CF3605CD32CCEED"
 			rewards: [{
 				id: "433B4A0FB4FC08AA"
@@ -489,7 +492,7 @@
 				type: "item"
 			}]
 			x: 2.0d
-			y: 5.0d
+			y: 3.0d
 		}
 		{
 			dependencies: ["714D1AC6D07BEEC0"]
@@ -510,6 +513,98 @@
 			title: "关于整理"
 			x: 6.0d
 			y: 7.0d
+		}
+		{
+			dependencies: ["714D1AC6D07BEEC0"]
+			description: ["灌注液态超经验获得无限耐久!"]
+			hide_dependency_lines: true
+			hide_dependent_lines: true
+			id: "553F8AFDC9BAC40F"
+			subtitle: "液态超经验的力量"
+			tasks: [{
+				id: "5E6DC322D45F40EF"
+				item: {
+					Count: 1
+					id: "immersiveengineering:graphite_electrode"
+					tag: {
+						graphDmg: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "无限石墨电极"
+			x: 8.0d
+			y: 7.0d
+		}
+		{
+			dependencies: ["714D1AC6D07BEEC0"]
+			description: ["灌注液态超经验获得无限耐久!"]
+			hide_dependency_lines: true
+			hide_dependent_lines: true
+			id: "0D920683691D237D"
+			subtitle: "液态超经验的力量"
+			tasks: [{
+				id: "4DD3608387E0F186"
+				item: {
+					Count: 1
+					id: "cmi:super_knife"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: 10.0d
+			y: 7.0d
+		}
+		{
+			dependencies: ["714D1AC6D07BEEC0"]
+			description: [
+				"物品栏左上角有一个按钮"
+				"可以选择禁用一些声音"
+			]
+			hide_dependency_lines: true
+			hide_dependent_lines: true
+			icon: "immersiveengineering:earmuffs"
+			id: "6219A68A3A7C1876"
+			subtitle: "把世界调成静音,聆听主机的轰鸣(不是"
+			tasks: [{
+				id: "74725548CEEF2EF4"
+				title: "确认"
+				type: "checkmark"
+			}]
+			title: "ESM"
+			x: 0.0d
+			y: 9.0d
+		}
+		{
+			dependencies: ["714D1AC6D07BEEC0"]
+			description: ["灵感与方块材质来自 &e史莱姆li&r 的&6黄铜协奏曲&r, 已获得授权."]
+			hide_dependency_lines: true
+			hide_dependent_lines: true
+			icon: "industrial_platform:industrial_platform"
+			id: "7BA8A28AD2EA188E"
+			rewards: [
+				{
+					id: "750CB938A115C0E0"
+					type: "xp"
+					xp: 10
+				}
+				{
+					id: "49D5F0F64419194F"
+					item: "industrial_platform:industrial_platform"
+					type: "item"
+				}
+			]
+			subtitle: "搭建基地的好帮手"
+			tasks: [{
+				id: "47E8C062AA7F9EF7"
+				title: "知道了!"
+				type: "checkmark"
+			}]
+			title: "工业平台"
+			x: 6.0d
+			y: 5.0d
 		}
 	]
 	title: "实用工具"

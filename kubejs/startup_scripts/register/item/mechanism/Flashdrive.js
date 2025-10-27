@@ -3,16 +3,19 @@ StartupEvents.registry("item", (event) => {
 	event.create(`${global.namespace}:programmed_flash_drive`)
 		.texture(`${global.namespace}:item/mechanism/flash_drive/programmed`)
 		.tag(`${global.namespace}:mechanism_flash_drives`)
+		.tag(`${global.namespace}:mechanism_flash_drives/blank`)
 
 	// 精密
 	event.create(`${global.namespace}:precision_mechanism_flash_drive`)
 		.texture(`${global.namespace}:item/mechanism/flash_drive/precision`)
 		.tag(`${global.namespace}:mechanism_flash_drives`)
+		.tag(`${global.namespace}:mechanism_flash_drives/precision`)
 
 	// 红石
 	event.create(`${global.namespace}:redstone_mechanism_flash_drive`)
 		.texture(`${global.namespace}:item/mechanism/flash_drive/redstone`)
 		.tag(`${global.namespace}:mechanism_flash_drives`)
+		.tag(`${global.namespace}:mechanism_flash_drives/redstone`)
 
 	let mechanismRegister = [
 		"nature",
@@ -21,6 +24,7 @@ StartupEvents.registry("item", (event) => {
 		"iron",
 		"copper",
 		"andesite",
+		"bronze",
 		"photosensitive",
 		"gold",
 		"cobalt",
@@ -35,6 +39,7 @@ StartupEvents.registry("item", (event) => {
 		"enchanted",
 		"smart",
 		"computing",
+		"air_tight",
 		"tier_1_aviation",
 		"tier_2_aviation",
 		"tier_3_aviation",
@@ -43,7 +48,6 @@ StartupEvents.registry("item", (event) => {
 		"advanced_mekanism",
 		"elite_mekanism",
 		"ultimate_mekanism",
-		"structure",
 		"nuclear",
 		"antimatter",
 		"coil",
@@ -52,11 +56,11 @@ StartupEvents.registry("item", (event) => {
 		"creative",
 		"pigiron",
 		"potion",
-		"bronze"
 	]
 	mechanismRegister.forEach((material) => {
 		event.create(`${global.namespace}:${material}_mechanism_flash_drive`)
 			.texture(`${global.namespace}:item/mechanism/flash_drive/${material}`)
 			.tag(`${global.namespace}:mechanism_flash_drives`)
+			.tag(`${global.namespace}:mechanism_flash_drives/${material}`)
 	})
 })

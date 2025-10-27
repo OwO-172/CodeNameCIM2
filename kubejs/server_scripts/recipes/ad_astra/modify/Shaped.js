@@ -1,17 +1,5 @@
 ServerEvents.recipes((event) => {
-	let { kubejs } = event.recipes
-
-	// 太阳能发电机
-	kubejs.shaped("ad_astra:solar_panel", [
-		"AAA",
-		"BCB",
-		"DDD"
-	], {
-		A: "mekanismgenerators:solar_panel",
-		B: "#forge:plates/iron",
-		C: "thermal:energy_cell",
-		D: "#forge:ingots/osmium"
-	}).id("ad_astra:solar_panel")
+	let { kubejs, create } = event.recipes
 
 	// 电缆
 	kubejs.shaped("4x ad_astra:steel_cable", [
@@ -53,7 +41,7 @@ ServerEvents.recipes((event) => {
 			"minecraft:smoker",
 			"minecraft:blast_furnace"
 		],
-		D: "#forge:coal"
+		D: "cmi:wooden_mechanism"
 	}).id("ad_astra:coal_generator")
 
 	// 车轱辘
@@ -65,4 +53,92 @@ ServerEvents.recipes((event) => {
 		A: "thermal:cured_rubber",
 		B: "#forge:plates/steel"
 	}).id("ad_astra:wheel")
+
+	// 埃忒恩系列
+	kubejs.shaped("64x ad_astra:etrium_factory_block", [
+		"AAA",
+		"ABA",
+		"AAA"
+	], {
+		A: "#forge:plates/etrium",
+		B: "#forge:ingots/etrium"
+	})
+
+	kubejs.shaped("64x ad_astra:encased_etrium_block", [
+		"AAA",
+		"BBB",
+		"AAA"
+	], {
+		A: "#forge:ingots/steel",
+		B: "#forge:plates/etrium"
+	})
+
+	kubejs.shaped("64x ad_astra:etrium_plateblock", [
+		"AAA",
+		"ABA",
+		"AAA"
+	], {
+		A: "#forge:plates/etrium",
+		B: "#forge:rods/etrium"
+	})
+
+	kubejs.shaped("64x ad_astra:etrium_panel", [
+		"ABA",
+		"BBB",
+		"ABA"
+	], {
+		A: "#forge:ingots/etrium",
+		B: "#forge:plates/etrium"
+	})
+
+	// 氧气装载机
+	kubejs.shaped("ad_astra:oxygen_loader", [
+		"AAA",
+		"CED",
+		"BFB"
+	], {
+		A: ["#forge:ingots/steel", "#forge:plates/steel"],
+		B: "#forge:sheetmetals/steel",
+		C: "cmi:copper_mechanism",
+		D: "cmi:air_tight_mechanism",
+		E: "cmi:tier_1_aviation_mechanism",
+		F: "#cmi:batteries"
+	}).id("ad_astra:oxygen_loader")
+
+	// 航天服T1
+	create.mechanical_crafting("ad_astra:space_helmet", [
+		"AAA",
+		"BCB"
+	], {
+		A: "#forge:plates/hdpe",
+		B: "#forge:plates/tungsten_steel",
+		C: "#forge:panes/glass"
+	}).id("ad_astra:space_helmet")
+
+	create.mechanical_crafting("ad_astra:space_suit", [
+		" A A ",
+		"CABAC",
+		" BAB "
+	], {
+		A: "#forge:plates/tungsten_steel",
+		B: "#forge:plates/hdpe",
+		C: "ad_astra:gas_tank"
+	}).id("ad_astra:space_suit")
+
+	create.mechanical_crafting("ad_astra:space_pants", [
+		"ABA",
+		"B B",
+		"A A"
+	], {
+		A: "#forge:plates/tungsten_steel",
+		B: "#forge:plates/hdpe"
+	}).id("ad_astra:space_pants")
+
+	create.mechanical_crafting("ad_astra:space_boots", [
+		"A A",
+		"B B",
+	], {
+		A: "#forge:plates/tungsten_steel",
+		B: "#forge:plates/hdpe"
+	}).id("ad_astra:space_boots")
 })

@@ -28,7 +28,7 @@ StartupEvents.registry("block", (event) => {
 		"advanced_mekanism",
 		"elite_mekanism",
 		"ultimate_mekanism",
-		"structure",
+		"air_tight",
 		"nuclear",
 		"antimatter",
 		"coil",
@@ -44,14 +44,24 @@ StartupEvents.registry("block", (event) => {
 	machineBlockRegister.forEach((type) => {
 		event.create(`${global.namespace}:${type}_machine`, "cardinal")
 			.soundType(SoundType.METAL)
+			.waterlogged()
 			.model(`${global.namespace}:block/machine_block/${type}`)
-			.tag("cmi:machine_block")
-			.tag(`cmi:machine_block/${type}`)
-			.tagBlock(global.ToolType["pickaxe"])
-			.tagBlock(global.MiningLevel["wooden"])
-			.tagBlock("create:wrench_pickup")
 			.requiresTool(true)
 			.notSolid()
 			.defaultCutout()
+			.blockEntity((entity) => {
+				let mechanism = Ingredient.of(`#create:mechanisms/${type}`)
+				let flashDrive = Ingredient.of(`#${global.namespace}:mechanism_flash_drives/${type}`)
+
+				entity.enableSync()
+				entity.inventory(9, 3, [mechanism, flashDrive])
+				entity.rightClickOpensInventory()
+				entity.attachCapability(attachItemHandlerCapability())
+			})
+			.tagBlock(global.ToolType["pickaxe"])
+			.tagBlock(global.MiningLevel["wooden"])
+			.tagBlock(global.WRENCH_PICKUP)
+			.tag("cmi:machine_block")
+			.tag(`cmi:machine_block/${type}`)
 	})
 })

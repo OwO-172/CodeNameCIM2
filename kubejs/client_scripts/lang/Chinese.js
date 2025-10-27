@@ -15,12 +15,12 @@ ClientEvents.lang("zh_cn", (event) => {
 	addItemLanguage("platinum_shard", "铂碎片")
 	addItemLanguage("initial_item_kit", "初始套件箱")
 	addItemLanguage("stone_plate", "石板")
-	addItemLanguage("blockstone_source_alpha", "Α(Alpha)型黑石源质")
-	addItemLanguage("blockstone_source_beta", "Β(Beta)型黑石源质")
-	addItemLanguage("blockstone_source_gamma", "Γ(Gamma)型黑石源质")
+	addItemLanguage("blackstone_source_alpha", "Α(Alpha)型黑石源质")
+	addItemLanguage("blackstone_source_beta", "Β(Beta)型黑石源质")
+	addItemLanguage("blackstone_source_gamma", "Γ(Gamma)型黑石源质")
 	addItemLanguage("crystal_ruby", "晶射红宝石")
 	addItemLanguage("source_sapphire", "蓝源晶")
-	addItemLanguage("bomBed_source_emeraid", "爆裂源质")
+	addItemLanguage("bombed_source_emeraid", "爆裂源质")
 	addItemLanguage("sludge_extract", "淤泥提取物")
 	addItemLanguage("crafting_incomplete_iron_mechanism", "铁构件底座")
 	addItemLanguage("crafting_incomplete_copper_mechanism", "铜构件底座")
@@ -52,6 +52,7 @@ ClientEvents.lang("zh_cn", (event) => {
 	addItemLanguage("incomplete_advanced_control_circuit", "高级控制电路(半成品)")
 	addItemLanguage("incomplete_elite_control_circuit", "精英控制电路(半成品)")
 	addItemLanguage("incomplete_ultimate_control_circuit", "终极控制电路(半成品)")
+	addItemLanguage("incomplete_electron_tube", "电子管(半成品)")
 	addItemLanguage("magnesium_hydroxide", "氢氧化镁")
 	addItemLanguage("brominated_flame_retardants", "溴系阻燃剂")
 	addItemLanguage("rubber_hand", "橡胶手部零件")
@@ -60,6 +61,23 @@ ClientEvents.lang("zh_cn", (event) => {
 	addItemLanguage("grass_string", "草绳")
 	addItemLanguage("sugarcane_fiber", "甘蔗纤维")
 	addItemLanguage("drawer_upgrade_template", "抽屉升级模板")
+	addItemLanguage("incomplete_upgrade_augment_1", "硬化整合组件(半成品)")
+	addItemLanguage("incomplete_upgrade_augment_2", "强化整合组件(半成品)")
+	addItemLanguage("incomplete_upgrade_augment_3", "谐振整合组件(半成品)")
+	addItemLanguage("lime_dust", "石灰粉")
+	addItemLanguage("guide", "指南")
+	addItemLanguage("andesite_casing_framework", "安山机壳框架")
+	addItemLanguage("brass_casing_framework", "黄铜机壳框架")
+	addItemLanguage("copper_casing_framework", "铜机壳框架")
+
+	addItemLanguage("incomplete_cogwheel", "齿轮(半成品)")
+	addItemLanguage("incomplete_bronze_cogwheel", "青铜齿轮(半成品)")
+	addItemLanguage("incomplete_cast_iron_cogwheel", "铸铁齿轮(半成品)")
+	addItemLanguage("incomplete_steel_cogwheel", "钢齿轮(半成品)")
+	addItemLanguage("incomplete_large_cogwheel", "大齿轮(半成品)")
+	addItemLanguage("incomplete_bronze_large_cogwheel", "青铜大齿轮(半成品)")
+	addItemLanguage("incomplete_cast_iron_large_cogwheel", "铸铁大齿轮(半成品)")
+	addItemLanguage("incomplete_steel_large_cogwheel", "钢大齿轮(半成品)")
 
 	addItemLanguage("incomplete_tier_1_rocket_frame", "一阶火箭框架(半成品)")
 	addItemLanguage("incomplete_tier_2_rocket_frame", "二阶火箭框架(半成品)")
@@ -87,8 +105,54 @@ ClientEvents.lang("zh_cn", (event) => {
 	addItemLanguage("trinitrotoluene", "三硝基甲苯")
 	addItemLanguage("nitrocellulose", "硝化纤维")
 
+	addBlockLanguage("rocket_pattern", "火箭模版")
+	addBlockLanguage("tier_1_rocket_frame", "一阶火箭框架")
+	addBlockLanguage("tier_2_rocket_frame", "二阶火箭框架")
+	addBlockLanguage("tier_3_rocket_frame", "三阶火箭框架")
+	addBlockLanguage("tier_4_rocket_frame", "四阶火箭框架")
+	addBlockLanguage("accelerator", "构件之力催生器")
+	addBlockLanguage("osmium_tile", "锇砖瓦")
+	addBlockLanguage("compression_end_stone_dust_block", "压缩末地石粉块")
+	addBlockLanguage("crucible_base", "底座")
+	addBlockLanguage("crucible_tuyere", "风口")
+	addBlockLanguage("bronze_casing", "青铜外壳")
+	addBlockLanguage("pressure_resistance_casing", "耐压外壳")
+	addBlockLanguage("sky_stone_casing", "陨石外壳")
+	addBlockLanguage("computing_casing", "高级计算外壳")
+	addBlockLanguage("peat_block", "泥炭块")
+	addBlockLanguage("oil_shale", "油页岩")
+	addBlockLanguage("combustion_medium_block", "燃烧介质块")
+	addBlockLanguage("radar", "雷达")
+	addBlockLanguage("radsand", "辐射沙")
+
+	addBlockLanguage("broken_andesite_drill_head", "损坏的安山岩制钻头")
+	addBlockLanguage("broken_copper_drill_head", "损坏的铜制钻头")
+	addBlockLanguage("broken_brass_drill_head", "损坏的黄铜制钻头")
+
+	addBlockLanguage("unknown_entity_", "主创-Unknown_Entity_")
+	addBlockLanguage("aleegos", "吉祥物-阿列戈斯")
+	addBlockLanguage("qi_month", "美工&程序-柒月")
+	addBlockLanguage("vechni_metel", "策划&程序-逐日炎雪_中微子")
+	addBlockLanguage("fiber_optics", "程序-FiberOptics")
+	addBlockLanguage("random_mechanism", "程序-随机构件")
+	addBlockLanguage("dropper_qwq", "美工-⑨Dropper_QWQ⑨")
+	addBlockLanguage("ye_anqing", "程序-燕栖")
+	addBlockLanguage("shi_xiao_bai_na", "吉祥物-是小白啊")
+	addBlockLanguage("hanhan_ovo", "吉祥物-涵涵OVO")
+	addBlockLanguage("dont_kill_belalus", "音乐-DontkillBelalus")
+	addBlockLanguage("qicaijie", "内测服维护-亓才孑")
+	addBlockLanguage("dkrkoo_weihe", "吉祥物-dkrkoo为何")
+	addBlockLanguage("117458866249", "程序-117458866249")
+	addBlockLanguage("sakura_star_cn", "仓库协管-MF.")
+
 	addCastItemLanguage("mechanism", "构件")
 	addCastItemLanguage("nugget", "粒")
+
+	addCellItemLanguage("empty", "空白")
+	addCellItemLanguage("tier_1_aviation", "壹级科技航天")
+	addCellItemLanguage("tier_2_aviation", "贰级科技航天")
+	addCellItemLanguage("tier_3_aviation", "叁级科技航天")
+	addCellItemLanguage("tier_4_aviation", "肆级科技航天")
 
 	addFluidLanguage("steam", "蒸汽")
 	addFluidLanguage("blood", "血液")
@@ -120,8 +184,10 @@ ClientEvents.lang("zh_cn", (event) => {
 	addFluidLanguage("trinitrotoluene_solution", "三硝基甲苯溶液")
 	addFluidLanguage("fluid_nitroglycerine", "液态硝化甘油")
 	addFluidLanguage("crystal_catalyt", "晶体催生剂")
-	addFluidLanguage("oily_sludge", "含油淤泥")
+	addFluidLanguage("sludge_suspension", "淤泥悬浊液")
 	addFluidLanguage("syrup", "糖浆")
+	addFluidLanguage("geyser_jet", "间歇泉喷射液")
+	addFluidLanguage("photosyn_fluid", "光合反应液")
 
 	addMaterialLanguage("andesite_alloy", "安山合金")
 	addMaterialLanguage("cinderslime", "余烬史莱姆")
@@ -155,6 +221,9 @@ ClientEvents.lang("zh_cn", (event) => {
 	addMaterialLanguage("nickel", "镍")
 	addMaterialLanguage("cobalt", "钴")
 	addMaterialLanguage("tungsten", "钨")
+	addMaterialLanguage("tungsten_steel", "钨钢")
+	addMaterialLanguage("scarlet_neodymium", "赤铷合金")
+	addMaterialLanguage("azure_neodymium", "青铷合金")
 
 	addMaterialLanguage("pyrite", "黄铁")
 	addMaterialLanguage("lateritic_nickel", "红镍")
@@ -166,12 +235,13 @@ ClientEvents.lang("zh_cn", (event) => {
 	addMaterialLanguage("osmiridium", "铱锇")
 	addMaterialLanguage("uraninite", "方铀")
 	addMaterialLanguage("argentite", "辉银")
+	addMaterialLanguage("etrium", "埃忒恩")
 
 	addMachineLanguage("flash_disk_writer", "闪存盘写入器")
 	addMachineLanguage("chemical_gas_extractor", "化学气体抽取器")
 	addMachineLanguage("simple_centrifuge", "丐版离心机")
 	addMachineLanguage("steam_boiler", "青铜蒸汽锅炉")
-	addMachineLanguage("large_steam_boiler", "大型青铜蒸汽锅炉")
+	addMachineLanguage("radar_terminal", "雷达终端")
 
 	addMBDMachineLanguage("proxy_part_block", "多方块机器部件方块")
 	addMBDMachineLanguage("accelerator_energy_input", "大型构件催生器能量输入口")
@@ -243,34 +313,8 @@ ClientEvents.lang("zh_cn", (event) => {
 	addOreNodeLanguage("tin", "锡")
 	addOreNodeLanguage("oil_shale", "油页岩")
 
-	addBlockLanguage("rocket_pattern", "火箭模版")
-	addBlockLanguage("tier_1_rocket_frame", "一阶火箭框架")
-	addBlockLanguage("tier_2_rocket_frame", "二阶火箭框架")
-	addBlockLanguage("tier_3_rocket_frame", "三阶火箭框架")
-	addBlockLanguage("tier_4_rocket_frame", "四阶火箭框架")
-	addBlockLanguage("accelerator", "构件之力催生器")
-	addBlockLanguage("osmium_tile", "锇砖瓦")
-	addBlockLanguage("compression_end_stone_dust_block", "压缩末地石粉块")
-	addBlockLanguage("crucible_base", "底座")
-	addBlockLanguage("crucible_tuyere", "风口")
-	addBlockLanguage("bronze_casing", "青铜外壳")
-	addBlockLanguage("pressure_resistance_casing", "耐压外壳")
-	addBlockLanguage("sky_stone_casing", "陨石外壳")
-	addBlockLanguage("computing_casing", "高级计算外壳")
-	addBlockLanguage("peat_block", "泥炭块")
-	addBlockLanguage("oil_shale", "油页岩")
-
-	addBlockLanguage("unknown_entity_", "Unknown_Entity_")
-	addBlockLanguage("aleegos", "阿列戈斯")
-	// addBlockLanguage("qi_month", "柒月")
-	addBlockLanguage("vechni_metel", "逐日炎雪_中微子")
-	addBlockLanguage("fiber_optics", "FiberOptics")
-	addBlockLanguage("random_mechanism", "随机构件")
-	addBlockLanguage("dropper_qwq", "⑨Dropper_QWQ⑨")
-	addBlockLanguage("ye_anqing", "燕栖")
-	addBlockLanguage("shi_xiao_bai_na", "是小白啊")
-	addBlockLanguage("hanhan_ovo", "涵涵OVO")
-	addBlockLanguage("dont_kill_belalus", "DontkillBelalus")
+	addPlanetLanguage("dionysus", "迪奥尼索斯")
+	addPlanetLanguage("hephaestus", "赫菲斯托斯")
 
 	for (let i = 1; i <= 14; i++) {
 		addPaintingLanguage(`rr${i}`, `Aleegos(${i})`, "Aleegos Reality Redemption")
@@ -282,7 +326,17 @@ ClientEvents.lang("zh_cn", (event) => {
 	addPaintingLanguage("qi_month", "榛名柒月", "榛名柒月")
 	addPaintingLanguage("sacabamBaspis", "萨卡班甲鱼", "⑨Dropper_QWQ⑨")
 
-	addCommonTooltipLanguage("tconstruct:seared_heater", "固体燃料最多提供937°C / 1718.6°F")
+	addStructureLanguage("ore_node.coal_node", "煤炭矿物节点")
+	addStructureLanguage("ore_node.copper_node", "铜矿物节点")
+	addStructureLanguage("ore_node.gold_node", "金矿物节点")
+	addStructureLanguage("ore_node.iron_node", "铁矿物节点")
+	addStructureLanguage("ore_node.oil_shale_node", "油页岩矿物节点")
+	addStructureLanguage("ore_node.platinum_node", "铂矿物节点")
+	addStructureLanguage("ore_node.tin_node", "锡矿物节点")
+	addStructureLanguage("ore_node.zinc_node", "锌矿物节点")
+
+	addCommonTooltipLanguage("cmi:grass_fiber", "§c小刀右键草会掉落")
+	addCommonTooltipLanguage("tconstruct:seared_heater", "焦黑加热器最多提供937°C / 1718.6°F")
 	addCommonTooltipLanguage("#cmi:machine_block", "只有装饰作用(暂时)")
 	addCommonTooltipLanguage("cmi:pigiron_mechanism", "可无限次食用")
 	addCommonTooltipLanguage("cmi:acceleratable", "§v按住Shift查看构件之力催生器用途")
@@ -301,7 +355,7 @@ ClientEvents.lang("zh_cn", (event) => {
 	addCommonTooltipLanguage("cmi:geographycal_hammer.developer2", "副手手持潜行右键获取主手物品ID")
 	addCommonTooltipLanguage("cmi:geographycal_hammer.not_developer", "似乎有一种神秘的力量阻止了你使用这个物品")
 	addCommonTooltipLanguage("cmi:charged_amethyst", "拿到耳边能听到它一直在发出嗡嗡嗡的声音")
-	addCommonTooltipLanguage("#minecraft:pickaxes", "右键可破坏矿物节点")
+	addCommonTooltipLanguage("#minecraft:pickaxes", "副手潜行+右键可破坏矿物节点")
 	addCommonTooltipLanguage("#minecraft:infiniburn_all", "上方的火焰可以无限燃烧")
 	addCommonTooltipLanguage("cmi:potion_mechanism", "右键获取大多数正面buff")
 	addCommonTooltipLanguage("cmi:super_knife", "经魔力灌注, 难以磨损")
@@ -312,15 +366,16 @@ ClientEvents.lang("zh_cn", (event) => {
 	addCommonTooltipLanguage("thermal_extra:diesel", "§c此液体废弃, 无法合成! ")
 	addCommonTooltipLanguage("createaddition:seed_oil", "§c此液体废弃, 无法合成! ")
 	addCommonTooltipLanguage("cmi:creosote_wood_chip_briquette", "能吃哦")
-	addCommonTooltipLanguage("mm:large_steam_boiler", "§c只能使用焦煤或钻石作为燃料")
+	// addCommonTooltipLanguage("mm:large_steam_boiler", "§c只能使用焦煤或钻石作为燃料")
 	addCommonTooltipLanguage("#forge:ingots/siltsteel", "自浑浊淤泥中升华, 历经繁复萃取与催化精炼, 终获此一泓清冽碧波")
 	addCommonTooltipLanguage("cmi:plasma_faucet", "§c所以你的意思是...你就拿等离子锭做了这个?")
 	addCommonTooltipLanguage("ad_astra:ice_shard", "可以打破冰块获得, 并且受时运效果影响")
+	addCommonTooltipLanguage("#cmi:broken_drill_heads", "破损的钻头, 修复后可以正常使用")
 
 	addJEIInfoLanguage("thermal:rubber", "橡胶是一种由植物胶乳加工而来的产物\n而植物胶乳一般只存在内橡胶树的树皮内, 当然部分橡胶树原木内也存在少量植物胶乳")
 	addJEIInfoLanguage("mm:large_steam_boiler", "需要燃烧焦煤或钻石才能释放足够的热能来产生蒸汽\n不同于远在泛银河系的格雷科技有限公司, 我们的锅炉非常非常安全, 永远不会爆炸(笑)")
 	addJEIInfoLanguage("cmi:andesite_alloy_noodle", `"意大利面就应该拌42号混凝土. 因为这个螺丝钉的长度, 它很容易会直接影响到挖掘机的扭距, 你往里砸的时候, 一瞬间它就会产生大量的高能蛋白, 俗称UFO. 会严重影响经济的发展. 照你这么说, 炸鸡块要用92#汽油, 毕竟我们无法用光学透镜探测苏格拉底, 如果二氧化氢持续侵蚀这个机床组件, 那么我们早晚要在斐波那契曲线上安装一个胶原蛋白, 否则我们将无法改变蜜雪冰城与阿尔别克的叠加状态, 因为众所周知爱吃鸡摩人在捕鲲的时候往往需要用氢的同位素当做诱饵, 但是原子弹的新鲜程度又会直接影响到我国东南部的季风和洋流, 所以说在西伯利亚地区开设农学院显然是不合理的. \n我知道你一定会反驳我, 告诉我农业的底层思维是什么, 就是不用化肥农药和种子, 还包括生命之源氮气, 使甲烷分子直接转化成能够捕获放射性元素释放的β射线的单质, 并且使伽马射线在常温下就能用老虎钳折弯成78°, 否则在用望远镜观察细胞结构时, 根本发现不了时空重叠时到底要叠几层才能使潼关肉夹馍更酥脆的原因. "`)
-	addJEIInfoLanguage("minecraft:andesite", `在本包, 安山岩生产主要方式有5种\n一种是通过热力膨胀的造石机\n一种是通过安山岩磨成粉后加工的增值线\n一种是熔岩和水触碰的刷石机, 有25%的概率可以刷出安山岩(机械动力的动力泵一样生效)\n一种是前往"安山岩洞窟"群系, 这是一个全是安山岩的洞窟\n最后一种是通过构件催生器`)
+	addJEIInfoLanguage("minecraft:andesite", `在本包, 安山岩生产主要方式有5种\n一种是通过热力膨胀的造石机\n一种是通过安山岩磨成粉后加工的增值线\n一种是熔岩和水触碰的刷石机, 和造石机一样, 在下方放置安山合金块可以刷出安山岩(动力泵一样生效)\n一种是前往"安山岩洞窟"群系, 这是一个全是安山岩的洞窟\n最后一种则是通过构件催生器来生产`)
 	addJEIInfoLanguage("ad_astra:cryo_fuel_bucket", "水和冰在经过外星科技处理后竟然可以用作火箭燃料, 那我是不是同样可以作用于其他地方呢..?\n但是这种流体产率非常低, 我需要想办法进行大批量的生产才能确保需求量自由")
 	addJEIInfoLanguage("cmi:bucket", "似是一种巨大的力量塑造的诡异造物\n它有着令人倍感亲切的形状, 却处于一种令人不寒而栗的陌生角度\n这巨大的力量, 炽热, 强大又致命\n善良者受其腐化\n卑鄙者因其强大\n收容之器受其影响, 转为包覆之具, 幸于并无灵魂, 于我没有危害")
 	addJEIInfoLanguage("#ad_astra:power_consumption_machines", "该Mod的机器每个面都有能量输入的上限\n如果想要不会断电确保产量你可能需要给每个面都连接一根电线")
@@ -339,88 +394,80 @@ ClientEvents.lang("zh_cn", (event) => {
 	addAccelerateTooltipLanguage("cmi:nether_mechanism", "§c转换下界岩\n§c3%黑石\n§c3%岩浆块\n§c3%灵魂沙\n§c3%灵魂土\n§c3%镶金黑石\n§c3%金矿石\n§c3%远古残骸\n§c3%下界石英\n§c3%萤石\n§c3%下界铀矿石")
 	addAccelerateTooltipLanguage("cmi:cobalt_mechanism", "§e转化下界岩\n§e20%钴矿石")
 	addAccelerateTooltipLanguage("cmi:wooden_mechanism", "§e转化石头\n§e20%煤矿石\n§2转化深板岩\n§215%深层煤矿石\n§21%深层钻石矿石")
-	addAccelerateTooltipLanguage("cmi:smart_mechanism", "§e转化石头\n§e10%钻石矿石\n§e20%金矿石\n§e20%赛特斯石英矿石\n§e1%红宝石矿石\n§e1%蓝宝石矿石\n§e1%绿宝石矿石\n§2转化深板岩\n§215%深层钻石矿石\n§215%深层金矿石\n§215%深层赛特斯石英矿石\n§22%深层红宝石矿石\n§22%深层蓝宝石矿石\n§22%深层绿宝石矿石")
+	addAccelerateTooltipLanguage("cmi:smart_mechanism", "§e转化石头\n§e10%埃忒恩矿石\n§e20%金矿石\n§e20%赛特斯石英矿石\n§e5%银矿石\n§2转化深板岩\n§215%深层埃忒恩矿石\n§215%深层金矿石\n§215%深层赛特斯石英矿石\n§25%深层银矿石")
 	addAccelerateTooltipLanguage("create:precision_mechanism", "§e转化石头\n§e15%铜矿石\n§e15%锌矿石\n§e10%红石矿石\n§2转化深板岩\n§210%深层铜矿石\n§210%深层锌矿石\n§215%深层红石矿石")
 	addAccelerateTooltipLanguage("cmi:ender_mechanism", "§5将玩家传送到构件所记录的坐标")
+	addAccelerateTooltipLanguage("cmi:tier_2_aviation_mechanism", "§7转化莫托斯石\n§720%莫托斯戴斯矿石\n§75%莫托斯寒冰碎片矿石\n§75%钢块\n§2转化深板岩\n§215%深层戴斯矿石\n§210%深层铁矿石\n§210%深层银矿石")
+	addAccelerateTooltipLanguage("cmi:tier_3_aviation_mechanism", "§6转化阿瑞斯石\n§620%阿瑞斯紫金矿石\n§65%阿瑞斯寒冰碎片矿石\n§65%戴斯块\n§2转化深板岩\n§215%深层紫金矿石\n§210%深层铁矿石\n§210%深层银矿石")
+	addAccelerateTooltipLanguage("cmi:air_tight_mechanism", "§e转化石头\n§e20%锇矿石\n§e10%银矿石\n§e10%金矿石\n§2转化深板岩\n§215%深层锇矿石\n§215%深层银矿石\n§215%深层金矿石")
 
 	addMusicDiscLanguage("mechanism", "Mechanism", "DontkillBelalus")
 
-	let amethystEncyclopedia = "紫水晶中流动的微弱力量会试图获取更多的稀有资源"
 	addTConMaterialLanguage(
 		"amethyst",
 		"紫水晶",
 		"通电后可以发出极具规律性的振动",
-		amethystEncyclopedia
+		"紫水晶中流动的微弱力量会试图获取更多的稀有资源"
 	)
-	let andesiteAlloyEncyclopedia = "岩石的能力, 铁器的数值"
 	addTConMaterialLanguage(
 		"andesite_alloy",
 		"安山合金",
 		"岩石和金属居然能变成合金? ",
-		andesiteAlloyEncyclopedia
+		"岩石的能力, 铁器的数值"
 	)
-	let brassEncyclopedia = "导热性与可塑性极强, 似乎可以做成搭载多个箭矢的模样"
 	addTConMaterialLanguage(
 		"brass",
 		"黄铜",
 		"充满蒸汽的气息! ",
-		brassEncyclopedia
+		"导热性与可塑性极强, 似乎可以做成搭载多个箭矢的模样"
 	)
-	let industrialIronEncyclopedia = "通过重复排碳制成的高韧铁材料, 弹性与韧性极佳"
 	addTConMaterialLanguage(
 		"industrial_iron",
 		"工业铁",
 		"富有韧性的高纯铁",
-		industrialIronEncyclopedia
+		"通过重复排碳制成的高韧铁材料, 弹性与韧性极佳"
 	)
-	let castIronEncyclopedia = "含有完整碳结晶的铁材料, 耐磨性极佳"
 	addTConMaterialLanguage(
 		"cast_iron",
 		"铸铁",
 		"非常适合进一步加热! ",
-		castIronEncyclopedia
+		"含有完整碳结晶的铁材料, 耐磨性极佳"
 	)
-	let stainlessSteelEncyclopedia = "有着极强耐腐蚀性能的材料, 可以有效减慢工具的损坏"
 	addTConMaterialLanguage(
 		"stainless_steel",
 		"不锈钢",
 		"旧仓库角落中的反光",
-		stainlessSteelEncyclopedia
+		"有着极强耐腐蚀性能的材料, 可以有效减慢工具的损坏"
 	)
-	let deshEncyclopedia = "从月球开采的神秘材料, 似乎可以做出更好的升级？"
 	addTConMaterialLanguage(
 		"desh",
 		"戴斯",
-		"来自月球的神秘金属",
-		deshEncyclopedia
+		"来自莫托斯的神秘金属",
+		"从莫托斯开采的神秘材料, 似乎可以做出更好的升级？"
 	)
-	let ostrumEncyclopedia = "来自火星的惰性金属, 似乎在灼热环境中会变得更加优秀"
 	addTConMaterialLanguage(
 		"ostrum",
 		"紫金",
 		"越热就越强! ",
-		ostrumEncyclopedia
+		"来自阿瑞斯的惰性金属, 似乎在灼热环境中会变得更加优秀"
 	)
-	let caloriteEncyclopedia = "优秀的隔热材料, 可以承受更强的火箭尾焰, 将它送向其他星系"
 	addTConMaterialLanguage(
 		"calorite",
 		"耐热金属",
 		"红色的隔热板! ",
-		caloriteEncyclopedia
+		"优秀的隔热材料, 可以承受更强的火箭尾焰, 将它送向其他星系"
 	)
-	let shadowSteelEncyclopedia = "从未知的致命领域归来的化合物, 韧性异常强大, 但是抗冲击能力堪称灾难"
 	addTConMaterialLanguage(
 		"shadow_steel",
 		"暗影钢",
 		"从深渊中现身! ",
-		shadowSteelEncyclopedia
+		"从未知的致命领域归来的化合物, 韧性异常强大, 但是抗冲击能力堪称灾难"
 	)
-	let refinedRadianceEncyclopedia = "吸收了大量光能的化合物, 韧性令人掩面, 但可以为装备提供极大的强化"
 	addTConMaterialLanguage(
 		"refined_radiance",
 		"光辉石",
 		"来自天空的使者! ",
-		refinedRadianceEncyclopedia
+		"吸收了大量光能的化合物, 韧性令人掩面, 但可以为装备提供极大的强化"
 	)
 
 	let mechanismGroup = [
@@ -451,7 +498,6 @@ ClientEvents.lang("zh_cn", (event) => {
 		["advanced_mekanism", "高级通用"],
 		["elite_mekanism", "精英通用"],
 		["ultimate_mekanism", "终极通用"],
-		["structure", "结构"],
 		["nuclear", "核"],
 		["antimatter", "反物质"],
 		["coil", "线圈"],
@@ -464,7 +510,7 @@ ClientEvents.lang("zh_cn", (event) => {
 		["redstone", "红石"],
 		["potion", "秘药"],
 		["bronze", "青铜"],
-		["osmium", "锇质"]
+		["air_tight", "气密"]
 	]
 	mechanismGroup.forEach(([material, name]) => {
 		addFlashDriveLanguage(material, name)
@@ -472,22 +518,27 @@ ClientEvents.lang("zh_cn", (event) => {
 		addMechanismMachineLanguage(material, name)
 	})
 
-	let completeMechanismGroup = [
-		["basic_random", "基础随机"],
-		["mechanical_random", "机械随机"],
-		["engineering_random", "工程随机"],
-		["flux_random", "通量随机"],
-		["magical_random", "魔力随机"],
-		["quantum_random", "量子随机"],
-		["mekanism_random", "通用随机"],
-		["final_random", "最终随机"]
+	let randomMechanismGroup = [
+		["basic", "基础"],
+		["mechanical", "机械"],
+		["engineering", "工程"],
+		["flux", "通量"],
+		["magical", "魔力"],
+		["quantum", "量子"],
+		["mekanism", "通用"],
+		["space", "太空"],
+		["random", "随机"]
 	]
-	completeMechanismGroup.forEach(([material, name]) => {
-		addCompleteMechanismLanguage(material, name)
+	randomMechanismGroup.forEach(([material, name]) => {
+		addRandomMechanismLanguage(material, name)
 	})
 
 	function addItemLanguage(key, value) {
 		event.add(`item.${global.namespace}.${key}`, value)
+	}
+
+	function addCellItemLanguage(key, value) {
+		event.add(`item.${global.namespace}.${key}_cell`, `${value}硬盘`)
 	}
 
 	function addFlashDriveLanguage(key, value) {
@@ -510,8 +561,8 @@ ClientEvents.lang("zh_cn", (event) => {
 		event.add(`block.${global.namespace}.${material}_machine`, `${value}机器`)
 	}
 
-	function addCompleteMechanismLanguage(material, value) {
-		event.add(`item.${global.namespace}.${material}_mechanism`, `${value}构件`)
+	function addRandomMechanismLanguage(material, value) {
+		event.add(`item.${global.namespace}.${material}_random_mechanism`, `${value}随机构件`)
 	}
 
 	function addMechanismPartLanguage(material, value) {
@@ -572,13 +623,13 @@ ClientEvents.lang("zh_cn", (event) => {
 
 		event.add(`block.${global.namespace}.${key}_ore`, `${value}矿石`)
 		event.add(`block.${global.namespace}.deepslate_${key}_ore`, `深层${value}矿石`)
-		event.add(`block.${global.namespace}.nether_${key}_ore`, `下界${value}矿石`)
-		event.add(`block.${global.namespace}.end_${key}_ore`, `末地${value}矿石`)
-		event.add(`block.${global.namespace}.moon_${key}_ore`, `月球${value}矿石`)
-		event.add(`block.${global.namespace}.mars_${key}_ore`, `火星${value}矿石`)
-		event.add(`block.${global.namespace}.mercury_${key}_ore`, `水星${value}矿石`)
-		event.add(`block.${global.namespace}.venus_${key}_ore`, `金星${value}矿石`)
-		event.add(`block.${global.namespace}.glacio_${key}_ore`, `霜原${value}矿石`)
+		event.add(`block.${global.namespace}.nether_${key}_ore`, `塔尔塔罗斯${value}矿石`)
+		event.add(`block.${global.namespace}.end_${key}_ore`, `倪克斯${value}矿石`)
+		event.add(`block.${global.namespace}.moon_${key}_ore`, `莫托斯${value}矿石`)
+		event.add(`block.${global.namespace}.mars_${key}_ore`, `阿瑞斯${value}矿石`)
+		event.add(`block.${global.namespace}.mercury_${key}_ore`, `赫尔墨斯${value}矿石`)
+		event.add(`block.${global.namespace}.venus_${key}_ore`, `阿弗洛狄忒${value}矿石`)
+		event.add(`block.${global.namespace}.glacio_${key}_ore`, `哈迪斯${value}矿石`)
 	}
 
 	function addCommonTooltipLanguage(key, value) {
@@ -622,12 +673,12 @@ ClientEvents.lang("zh_cn", (event) => {
 	function addOreNodeLanguage(key, value) {
 		event.add(`block.${global.namespace}.stone_${key}_ore_node`, `${value}矿物节点`)
 		event.add(`block.${global.namespace}.deepslate_${key}_ore_node`, `深层${value}矿物节点`)
-		event.add(`block.${global.namespace}.nether_${key}_ore_node`, `下界${value}矿物节点`)
-		event.add(`block.${global.namespace}.end_${key}_ore_node`, `末地${value}矿物节点`)
-		event.add(`block.${global.namespace}.moon_${key}_ore_node`, `月球${value}矿物节点`)
-		event.add(`block.${global.namespace}.mars_${key}_ore_node`, `火星${value}矿物节点`)
-		event.add(`block.${global.namespace}.venus_${key}_ore_node`, `金星${value}矿物节点`)
-		event.add(`block.${global.namespace}.glacio_${key}_ore_node`, `霜原${value}矿物节点`)
+		event.add(`block.${global.namespace}.nether_${key}_ore_node`, `塔尔塔罗斯${value}矿物节点`)
+		event.add(`block.${global.namespace}.end_${key}_ore_node`, `倪克斯${value}矿物节点`)
+		event.add(`block.${global.namespace}.moon_${key}_ore_node`, `莫托斯${value}矿物节点`)
+		event.add(`block.${global.namespace}.mars_${key}_ore_node`, `阿瑞斯${value}矿物节点`)
+		event.add(`block.${global.namespace}.venus_${key}_ore_node`, `阿弗洛狄忒${value}矿物节点`)
+		event.add(`block.${global.namespace}.glacio_${key}_ore_node`, `哈迪斯${value}矿物节点`)
 	}
 
 	function addAdvancementLanguage(key, title, desc) {
@@ -638,5 +689,14 @@ ClientEvents.lang("zh_cn", (event) => {
 	function addMusicDiscLanguage(key, value, author) {
 		event.add(`item.${global.namespace}.${key}`, "音乐唱片")
 		event.add(`item.${global.namespace}.${key}.desc`, `${value} - ${author}`)
+	}
+
+	function addPlanetLanguage(key, value) {
+		event.add(`planet.${global.namespace}.${key}`, `${value}`)
+		event.add(`planet.${global.namespace}_orbit.${key}`, `${value}轨道`)
+	}
+
+	function addStructureLanguage(key, value) {
+		event.add(`structure.${global.namespace}.${key}`, value)
 	}
 })

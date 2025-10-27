@@ -2,6 +2,26 @@ ServerEvents.recipes((event) => {
 	let { create, vintageimprovements } = event.recipes
 
 	// 熔融安山合金
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 180), [
+		"#forge:dusts/andesite",
+		Fluid.of("tconstruct:molten_iron", 10)
+	]).heatRequirement("grilled")
+
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 180), [
+		"#forge:dusts/andesite",
+		Fluid.of("tconstruct:molten_zinc", 10)
+	]).heatRequirement("grilled")
+
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
+		"#forge:dusts/andesite",
+		"#forge:nuggets/iron"
+	]).heatRequirement("grilled")
+
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
+		"#forge:dusts/andesite",
+		"#forge:nuggets/zinc"
+	]).heatRequirement("grilled")
+
 	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
 		"minecraft:andesite",
 		Fluid.of("tconstruct:molten_iron", 10)
@@ -12,12 +32,12 @@ ServerEvents.recipes((event) => {
 		Fluid.of("tconstruct:molten_zinc", 10)
 	]).heatRequirement("grilled")
 
-	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 90), [
 		"minecraft:andesite",
 		"#forge:nuggets/iron"
 	]).heatRequirement("grilled")
 
-	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 120), [
+	create.mixing(Fluid.of("cmi:molten_andesite_alloy", 90), [
 		"minecraft:andesite",
 		"#forge:nuggets/zinc"
 	]).heatRequirement("grilled")
@@ -63,4 +83,33 @@ ServerEvents.recipes((event) => {
 		"#cmi:crystals",
 		"32x #forge:seeds"
 	]).heated()
+
+	// 淤泥悬浊液
+	create.mixing(Fluid.of("cmi:sludge_suspension", 1000), [
+		Fluid.of("deepdrilling:sludge", 500),
+		Fluid.of("minecraft:water", 500)
+	])
+
+	// 青铜(超前期配方)
+	create.mixing(Fluid.of("tconstruct:molten_bronze", 90), [
+		"2x #forge:ingots/copper",
+		"2x #forge:ingots/tin"
+	]).heatRequirement(global.HeatLevel["grilled"])
+
+	create.mixing(Fluid.of("tconstruct:molten_bronze", 90), [
+		"2x #forge:raw_materials/copper",
+		"2x #forge:raw_materials/tin"
+	]).heatRequirement(global.HeatLevel["grilled"])
+
+	// 墨囊
+	create.mixing("2x minecraft:ink_sac", [
+		Fluid.of("minecraft:water", 250),
+		"#forge:dyes/black",
+		"immersiveengineering:ersatz_leather"
+	])
+
+	create.mixing(Fluid.of("cmi:hydrochloric_acid", 1000), [
+		Fluid.of("mekanism:hydrogen_chloride", 500),
+		Fluid.of("minecraft:water", 500)
+	])
 })

@@ -7,7 +7,7 @@ StartupEvents.registry("block", (event) => {
 		"moon": SoundType.STONE
 	}
 
-	// Common Block Tags List
+	// Common Block Tag(s) List
 	const COMMON_BLOCK_TAGS = [
 		"mekanism:cardboard_blacklist",
 		"ae2:blacklisted/spatial",
@@ -50,15 +50,15 @@ StartupEvents.registry("block", (event) => {
 	}
 
 	addOreNode("uranium", "nether")
-	addOreNode("copper", "deepslate")
-	addOreNode("iron", "deepslate")
-	addOreNode("zinc", "deepslate")
-	addOreNode("gold", "deepslate")
+	addOreNode("copper", "stone")
+	addOreNode("iron", "stone")
+	addOreNode("zinc", "stone")
+	addOreNode("gold", "stone")
 	addOreNode("platinum", "moon")
 	addOreNode("cheese", "moon")
-	addOreNode("coal", "deepslate")
-	addOreNode("tin", "deepslate")
-	addOreNode("oil_shale", ["stone", "deepslate"])
+	addOreNode("coal", "stone")
+	addOreNode("tin", "stone")
+	addOreNode("oil_shale", "stone")
 
 	// Array Example
 	// addOreNode("diamond", ["deepslate", "nether"])

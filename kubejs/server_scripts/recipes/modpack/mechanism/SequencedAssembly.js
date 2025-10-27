@@ -17,12 +17,11 @@ ServerEvents.recipes((event) => {
 	let icom = "cmi:incomplete_coil_mechanism"
 	let ienm = "cmi:incomplete_enchanted_mechanism"
 	let ismm = "cmi:incomplete_smart_mechanism"
-	let iom = "cmi:incomplete_osmium_mechanism"
+	let iom = "cmi:incomplete_air_tight_mechanism"
 	let ibmm = "cmi:incomplete_basic_mekanism_mechanism"
 	let iamm = "cmi:incomplete_advanced_mekanism_mechanism"
 	let iemm = "cmi:incomplete_elite_mekanism_mechanism"
 	let iumm = "cmi:incomplete_ultimate_mekanism_mechanism"
-	let istm = "cmi:incomplete_structure_mechanism"
 	let ium = "cmi:incomplete_nuclear_mechanism"
 	let iatm = "cmi:incomplete_antimatter_mechanism"
 	let iclm = "cmi:incomplete_colorful_mechanism"
@@ -178,7 +177,7 @@ ServerEvents.recipes((event) => {
 		"#forge:sheetmetals/iron"
 	], [
 		create.deploying(ilem, [ilem, "immersiveengineering:component_iron"]),
-		create.deploying(ilem, [ilem, "immersiveengineering:electron_tube"]),
+		create.deploying(ihem, [ihem, "immersiveengineering:electron_tube"]),
 		create.deploying(ilem, [ilem, "#forge:wires/copper"]),
 		create.deploying(ilem, [ilem, "cmi:engineering_mechanism_part"]),
 	]).transitionalItem(ilem).loops(1)
@@ -198,7 +197,6 @@ ServerEvents.recipes((event) => {
 	create.sequenced_assembly("cmi:coil_mechanism", [
 		"immersiveengineering:sheetmetal_iron"
 	], [
-		create.deploying(icom, [icom, "create:electron_tube"]),
 		create.deploying(icom, [icom, "cmi:simple_battery"]),
 		create.deploying(icom, [icom, "immersiveengineering:wirecoil_copper"]),
 		create.deploying(icom, [icom, "immersiveengineering:wirecoil_electrum"]),
@@ -224,14 +222,13 @@ ServerEvents.recipes((event) => {
 		create.deploying(ismm, [ismm, "cmi:engineering_mechanism_part"]),
 	]).transitionalItem(ismm).loops(1)
 
-
-	// 锇质
-	create.sequenced_assembly("cmi:osmium_mechanism", [
+	// 气密
+	create.sequenced_assembly("cmi:air_tight_mechanism", [
 		"#forge:plates/osmium"
 	], [
-		create.deploying(iom, [iom, "mekanism:hdpe_sheet"]),
-		create.deploying(iom, [iom, "mekanism:structural_glass"]),
-		create.pressing(iom, iom),
+		create.deploying(iom, [iom, "#forge:gears/electrum"]),
+		create.deploying(iom, [iom, "#forge:plates/polyolefin"]),
+		create.deploying(iom, [iom, "thermal:florb"]),
 		create.deploying(iom, [iom, "cmi:mekanism_mechanism_part"])
 	]).transitionalItem(iom).loops(1)
 
@@ -270,19 +267,6 @@ ServerEvents.recipes((event) => {
 		create.deploying(iumm, [iumm, "minecraft:diamond"]),
 		create.deploying(ibmm, [ibmm, "cmi:mekanism_mechanism_part"]),
 	]).transitionalItem(iumm).loops(1)
-
-	// 结构
-	create.sequenced_assembly("cmi:structure_mechanism", [
-		"#forge:plates/steel"
-	], [
-		create.deploying(istm, [istm, "mekanism:hdpe_sheet"]),
-		create.deploying(istm, [istm, "#forge:plates/copper"]),
-		create.deploying(istm, [istm, "#forge:plates/lead"]),
-		create.deploying(istm, [istm, "#forge:plates/osmium"]),
-		create.deploying(istm, [istm, "#forge:plates/tin"]),
-		create.pressing(istm, istm),
-		create.deploying(istm, [istm, "cmi:mekanism_mechanism_part"]),
-	]).transitionalItem(istm).loops(1)
 
 	// 核能
 	create.sequenced_assembly("cmi:nuclear_mechanism", [
@@ -363,7 +347,7 @@ ServerEvents.recipes((event) => {
 
 	// 1航天
 	create.sequenced_assembly("cmi:tier_1_aviation_mechanism", [
-		"#forge:plates/steel"
+		"#forge:plates/tungsten_steel"
 	], [
 		create.deploying(ir1m, [ir1m, "cmi:computer_component"]),
 		create.deploying(ir1m, [ir1m, "ad_astra:steel_cable"]),
